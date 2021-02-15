@@ -11,7 +11,7 @@ const mainRoutes = [
   },
   {
     path: '/register',
-    name: 'Register',
+    name: 'Регистрация',
     exact: false,
     component: lazy(() => import('../pages/registration/Registration' /* webpackChunkName: "RegistrationPage"*/)),
     private: false,
@@ -19,7 +19,7 @@ const mainRoutes = [
   },
   {
     path: '/login',
-    name: 'Login',
+    name: 'Вход',
     exact: false,
     component: lazy(() => import('../pages/login/Login' /* webpackChunkName: "LoginPage"*/)),
     private: false,
@@ -27,7 +27,7 @@ const mainRoutes = [
   },
   {
     path: '/diary',
-    name: 'Diary',
+    name: 'Дневник',
     exact: false,
     component: lazy(() => import('../pages/diary/Diary' /* webpackChunkName: "DiaryPage"*/)),
     private: true,
@@ -35,7 +35,7 @@ const mainRoutes = [
   },
   {
     path: '/calculator',
-    name: 'Calculator',
+    name: 'Калькулятор',
     exact: false,
     component: lazy(() => import('../pages/calculator/Calculator' /* webpackChunkName: "CalculatorPage"*/)),
     private: true,

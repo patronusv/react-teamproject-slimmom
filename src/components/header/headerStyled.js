@@ -15,18 +15,8 @@ export const HeaderContainer=styled.header`
 
 export const Nav=styled.nav`
     display:flex;
-    width: 150px;
     position: relative;
 
-    .nav-list{
-    display:flex;
-    list-style: none;
-    margin: 0;
-    }
-
-    .nav-list-item:not(:last-child){
-        margin-right: 15px;
-    }
 
     @media (min-width: 1280px){
         transform: translateY(24px);

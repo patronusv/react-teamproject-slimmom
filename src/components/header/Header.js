@@ -1,4 +1,5 @@
 import Logo from '../logo/Logo';
+import Navigation from '../navigation/Navigation';
 import {HeaderContainer,Nav,Container} from './headerStyled';
 
 const Header = () => {
@@ -8,15 +9,12 @@ const Header = () => {
       <HeaderContainer>
         <Container className="container">
           <Logo/>
+          {/* <Nav>
+            <Navigation link1="/register" link2="/login"/>
+          </Nav> */}
+
           <Nav>
-            <ul className="nav-list">
-              <li className="nav-list-item">
-                Enter
-              </li>
-              <li className="nav-list-item">
-                Registration
-              </li>
-            </ul>
+            <Navigation link1="/diary" link2="/calculator"/>
           </Nav>
         </Container>
       </HeaderContainer>
