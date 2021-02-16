@@ -26,10 +26,10 @@ const App = () => {
 
   return (
     <>
-      <Diary />
+
       <Header />
       <Main />
-
+      <Diary />
     </>
   );
 };
