@@ -1,5 +1,7 @@
 const UserInfo = () => {
-  return <></>;
+  return <>
+  <p>Info</p>
+  </>;
 };
 
 export default UserInfo;
