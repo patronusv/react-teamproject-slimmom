@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const NavigationItem = ({ path, name, exact, isPrivate}) => {
+const NavigationItem = ({ path, name, exact, isPrivate,isAuth}) => {
   return (
     <>
       {!isPrivate &&  (
@@ -17,7 +17,7 @@ const NavigationItem = ({ path, name, exact, isPrivate}) => {
       )}
 
       {
-    //   isAuth && 
+      isAuth && 
       isPrivate &&  (
         <li  key={path} className="nav-list-item">
           <NavLink

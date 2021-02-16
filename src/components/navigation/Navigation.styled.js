@@ -7,7 +7,6 @@ export const NavListContainer=styled.ul`
     
     .nav-list-item:not(:last-child){
         margin-right: 15px;
-       
     }
 
     .link{

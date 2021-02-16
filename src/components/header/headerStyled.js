@@ -18,6 +18,10 @@ export const Nav=styled.nav`
     position: relative;
 
 
+    @media (max-width: 1279px){
+       display: ${ props => props.isAuth? 'none':'block'};
+    }
+
     @media (min-width: 1280px){
         transform: translateY(24px);
         margin-left: 44px;
@@ -46,5 +50,14 @@ export const Container=styled.div`
         justify-content: flex-start;
         align-items: center;
     }
+`
+
+export const BurgerButton=styled.button`
+    display: block;
+
+     @media (min-width: 1280px) {
+        display: none;
+    }
+
 `
 
