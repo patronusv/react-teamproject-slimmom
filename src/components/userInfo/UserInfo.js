@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
 
 import authOperations from '../../redux/operations/authOperations';
@@ -8,9 +7,10 @@ import img from './Vector.svg';
 import style from './UserInfoStyle';
 
 const UserInfo = ({ name, onLogout }) => {
+  // console.log('userinfo name, onLogout:', name, onLogout);
   return (
     <style.User>
-      <style.Nic>User {name}</style.Nic>
+      <style.Nic>{name}</style.Nic>
       <style.Vector src={img} />
       <style.Logout type="button" onClick={onLogout}>
         Выйти
@@ -24,7 +24,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  onLogout: authOperations.logout,
+  onLogout: authOperations.logOutOperation,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserInfo);

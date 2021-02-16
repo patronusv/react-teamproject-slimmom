@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Logo from '../logo/Logo';
+
 import UserInfo from '../userInfo/UserInfo';
 import Navigation from '../navigation/Navigation';
 import {isAuth} from '../../redux/selectors/authSelectors';
@@ -9,6 +10,12 @@ import {HeaderContainer,Nav,Container,BurgerButton,UserInfoContainerTablet,UserI
 
 
 const Header = () => {
+
+
+
+
+
+
 
   const authFlag = useSelector(isAuth);
   // const authFlag = true;
@@ -25,6 +32,7 @@ const Header = () => {
             <Navigation />
           </Nav>
 
+
           <HeaderWrapper>
             <UserInfoContainerTablet>
               {authFlag &&
@@ -40,6 +48,7 @@ const Header = () => {
             </UserInfoContainerDesktop>
 
           </HeaderWrapper>
+
         </Container>
         </div>
       </HeaderContainer>
