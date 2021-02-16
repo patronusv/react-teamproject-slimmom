@@ -9,6 +9,10 @@ export const NavListContainer=styled.ul`
         margin-right: 15px;
     }
 
+    .nav-list-item-hidden{
+        display: none
+    }
+
     .link{
         color: grey;
         font-weight: bold;

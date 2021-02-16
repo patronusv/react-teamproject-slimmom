@@ -1,9 +1,9 @@
-import DailyCaloriesForm from '../../components/dailyCaloriesForm';
+import DailyCaloriesForm from '../../components/dailyCaloriesForm/DailyCaloriesForm';
 
 const Home = () => {
     return(
         <>
-        <DailyCaloriesForm/>
+            <DailyCaloriesForm/>
         </>
     )
 };

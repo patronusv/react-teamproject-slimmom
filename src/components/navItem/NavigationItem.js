@@ -1,10 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const NavigationItem = ({ path, name, exact, isPrivate,isAuth}) => {
+const NavigationItem = ({ path, name, exact, isPrivate,isAuth,general}) => {
   return (
     <>
-      {!isAuth  && !isPrivate && (
+      {!isPrivate && !general && !isAuth && (
         <li key={path} className="nav-list-item">
           <NavLink
             to={path}
@@ -27,20 +27,6 @@ const NavigationItem = ({ path, name, exact, isPrivate,isAuth}) => {
           </NavLink>
         </li>
       )}
-
-      {/* {
-      isAuth && 
-      !isPrivate &&  (
-        <li  key={path}>
-          <NavLink
-            to={path}
-            exact={exact}
-            className='link'
-            activeClassName='activeLink'>
-            {name.toUpperCase()}
-          </NavLink>
-        </li>
-      )} */}
     </>
   );
 };
