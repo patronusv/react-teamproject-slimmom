@@ -1,15 +1,12 @@
 import styled from 'styled-components';
 
 const RegistrationFormWrapper = styled.div`
-  margin: auto;
-  margin-top: 20px;
-
   width: 290px;
   height: 427.5px;
 
   @media screen and (min-width: 768px) {
     width: 382px;
-    height: 321px;
+    height: 324px;
   }
   @media (min-width: 1280px) {
     width: 382px;
@@ -26,6 +23,9 @@ const RegistrationFormWrapper = styled.div`
     letter-spacing: 0.04em;
     text-transform: uppercase;
 
+    @media (max-width: 767px) {
+      text-align: center;
+    }
     @media (min-width: 768px) {
       margin-bottom: 40px;
     }
@@ -57,6 +57,7 @@ const RegistrationFormWrapper = styled.div`
     padding-left: 20px;
     flex-grow: 1;
     border: 0;
+    background: transparent;
   }
   .formInput:focus {
     outline: none;
@@ -65,6 +66,7 @@ const RegistrationFormWrapper = styled.div`
   .formBtn {
     display: block;
     margin-top: 60px;
+    margin-bottom: 10px;
     padding: 5px 15px;
     border: 1px solid #fc842d;
     background-color: #fff;
@@ -72,6 +74,12 @@ const RegistrationFormWrapper = styled.div`
     border-radius: 30px;
     width: 176px;
     height: 44px;
+
+    @media (max-width: 767px) {
+      display: block;
+      margin: 0 auto;
+      margin-top: 60px;
+    }
   }
   .formBtn:hover,
   .formBtn:focus {

@@ -1,9 +1,6 @@
 import styled from 'styled-components';
 
 const LoginFormWrapper = styled.div`
-  margin: auto;
-  margin-top: 20px;
-
   width: 290px;
   height: 351px;
 
@@ -56,8 +53,14 @@ const LoginFormWrapper = styled.div`
   .formInput {
     display: block;
     padding-left: 20px;
+    width: 240px;
+    height: 35.5px;
     flex-grow: 1;
     border: 0;
+    background: transparent;
+    @media (min-width: 1280px) {
+      width: 290px;
+    }
   }
   .formInput:focus {
     outline: none;
