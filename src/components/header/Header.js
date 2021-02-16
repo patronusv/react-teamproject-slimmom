@@ -1,47 +1,51 @@
 import React from 'react';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 import Logo from '../logo/Logo';
 import UserInfo from '../userInfo/UserInfo';
 import Navigation from '../navigation/Navigation';
+import {isAuth} from '../../redux/selectors/authSelectors';
 import {HeaderContainer,Nav,Container,BurgerButton,UserInfoContainerTablet,UserInfoContainerMobile,
   HeaderWrapper,UserInfoContainerDesktop} from './headerStyled';
 
 
 const Header = () => {
 
-  const isAuth = useSelector(state => state.auth.isAuth);
-
+  const authFlag = useSelector(isAuth);
+  // const authFlag = true;
+  
+ 
   return (
     <>
       <HeaderContainer>
-        <Container className="container">
-          <Logo/>
+        <div className="container">
+          <Container>
+          <Logo isAuth={authFlag}/>
 
-        <Nav isAuth={isAuth}>
-          <Navigation/>
-        </Nav>
+          <Nav isAuth={authFlag}>
+            <Navigation />
+          </Nav>
 
-        <HeaderWrapper>
-          <UserInfoContainerTablet>
-            {isAuth &&
-              (<UserInfo/>)}
-          </UserInfoContainerTablet>
+          <HeaderWrapper>
+            <UserInfoContainerTablet>
+              {authFlag &&
+                (<UserInfo/>)}
+            </UserInfoContainerTablet>
 
-          {isAuth &&
-          (<BurgerButton type="button">Burger menu</BurgerButton>)}
+            {authFlag &&
+            (<BurgerButton type="button">menu</BurgerButton>)}
 
-          <UserInfoContainerDesktop>
-            {isAuth &&
-              (<UserInfo/>)}
-          </UserInfoContainerDesktop>
+            <UserInfoContainerDesktop>
+              {authFlag &&
+                (<UserInfo/>)}
+            </UserInfoContainerDesktop>
 
-        </HeaderWrapper>
-        
+          </HeaderWrapper>
         </Container>
+        </div>
       </HeaderContainer>
       
       <UserInfoContainerMobile>
-        {isAuth &&
+        {authFlag &&
             (<UserInfo/>)}
       </UserInfoContainerMobile>
     </>

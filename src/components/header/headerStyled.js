@@ -6,6 +6,8 @@ export const HeaderContainer=styled.header`
     padding: 10px;
     border-bottom: 2px solid #E0E0E0;
 
+
+
     @media (min-width: 1280px) {
         justify-content: flex-start;
         align-items: center;
@@ -41,7 +43,6 @@ export const Nav=styled.nav`
 `
 
 export const Container=styled.div`
-    width: 90%;
     display:flex;
     align-items: center;
     justify-content:space-between;
@@ -54,6 +55,8 @@ export const Container=styled.div`
 
 export const BurgerButton=styled.button`
     display: block;
+    width: 50px;
+    height: 50px;
     margin-left: 50px;
 
      @media (min-width: 1280px) {
@@ -74,8 +77,11 @@ export const UserInfoContainerMobile=styled.div`
 export const UserInfoContainerTablet = styled.div`
     display:none;
 
+
     @media (min-width: 768px) and (max-width: 1279px) {
-        display:block;
+        display:flex;
+        align-items: center;
+
     }
 `
 
@@ -93,7 +99,8 @@ export const UserInfoContainerDesktop = styled.div`
 
     @media (min-width: 1280px) {
         display:block;
-        transform: translateX(500px);
+        margin-left: auto;
+
     }
 
 `
