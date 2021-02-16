@@ -24,6 +24,7 @@ padding-left:115px;
 }
 .inputDairyAddProduct{
     margin-bottom:30px;
+    padding-top:10px;
     padding-bottom:10px;
     width: 289px;
 border-top:transparent;

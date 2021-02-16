@@ -9,7 +9,6 @@ const DiaryProductList = () => {
   return (
     <UL>
       <DiaryProductItem />
-
     </UL>
   )
 }

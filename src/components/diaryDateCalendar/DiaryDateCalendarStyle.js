@@ -16,7 +16,7 @@ padding-left:115px;
 .inputDiaryDateCalendar{
     margin-top:40px;
     margin-bottom:31px;
-   
+   width: 138px;
    
 border-color:transparent;
 font-family: Verdana;
@@ -27,12 +27,23 @@ line-height: 1.22;
 
 color: #212121;
 @media screen and (min-width:768px){
+    width: 219px;
+    margin-right:21px;
 font-size: 34px;
 line-height: 1.2;
 }
 }
-.iconDairyDateCalendar{
-    height:20px;
+
+.labelDatePicker{
+    height: 20px;
+    display:flex;
+    align-items:baseline;
+    @media screen and (min-width:768px){
+        height: 38px;
+    }
+}
+.iconDateCalendar{
+     height:20px;
     width:18px;
 }
 `

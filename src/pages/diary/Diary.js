@@ -7,9 +7,9 @@ import { DiaryWrapper } from './DiaryStyle';
 
 const Diary = () => {
     const size = useWindowSize();
-    const [state, setState] = useState({
-        modal: false,
-    });
+    // const [state, setState] = useState({
+    //     modal: false,
+    // });
 
     function useWindowSize() {
         // Initialize state with undefined width/height so server and client renders match
@@ -44,23 +44,19 @@ const Diary = () => {
         return windowSize;
     }
 
-    const handleClick = () => {
-        setState(prev => ({
-            ...prev, modal: true
-        }))
+    // const handleClick = () => {
+    //     setState(prev => ({
+    //         ...prev, modal: true
+    //     }))
 
-    }
+    // }
     return (
         <DiaryWrapper>
-            {!state.modal && size.width < 768 && <DiaryDateCalendar />}
-            {state.modal && size.width < 768 && <DiaryAddProductForm />}
-            {!state.modal && size.width < 768 && <DiaryProductList />}
-            {!state.modal && size.width < 768 &&
-                (<button type='button'
-                    onClick={handleClick}
-                    className="buttomDiaryProductList">
-                    +
-                </button>)}
+            <DiaryDateCalendar />
+            <DiaryAddProductForm />
+            <DiaryProductList />
+            {size.width < 768 && (<button type='submit' className='buttomDiaryProductList'>+
+            </button>)}
         </DiaryWrapper>
     )
 }

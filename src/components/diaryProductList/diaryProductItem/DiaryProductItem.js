@@ -1,5 +1,7 @@
 import React from 'react'
 import { LI } from './DiaryProductItemStyle'
+import CloseIcon from './CloseIcon'
+
 
 const DiaryProductItem = () => {
     return (
@@ -10,7 +12,7 @@ const DiaryProductItem = () => {
                     <li className='innerItemDairyProduct'>100 г</li>
                     <li className='innerItemDairyProduct'>300 ккал</li>
                 </ul>
-                <button>Delete</button>
+                <button className='buttonItemDairyProduct'><CloseIcon /></button>
             </LI>
             <LI >
                 <ul className='innerListDairyProduct'>
@@ -18,7 +20,7 @@ const DiaryProductItem = () => {
                     <li className='innerItemDairyProduct'>100 г</li>
                     <li className='innerItemDairyProduct'>300 ккал</li>
                 </ul>
-                <button>Delete</button>
+                <button className='buttonItemDairyProduct'><CloseIcon /></button>
             </LI>
         </>
     )
