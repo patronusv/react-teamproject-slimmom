@@ -1,12 +1,11 @@
-import React, {useEffect} from 'react';
+import React from 'react';
+import {useSelector} from 'react-redux';
 import Logo from '../logo/Logo';
 import Navigation from '../navigation/Navigation';
 import {HeaderContainer,Nav,Container,BurgerButton} from './headerStyled';
-import {useSelector} from 'react-redux';
 
 
 const Header = () => {
-  console.log(window)
 
   const isAuth = useSelector(state => state.auth.isAuth);
 
@@ -16,20 +15,9 @@ const Header = () => {
         <Container className="container">
           <Logo/>
 
-         
-          {!isAuth &&
-
-          (<Nav>
-            <Navigation link1="/register" link2="/login" isAuth={isAuth}/>
-          </Nav>)}
-
-          {isAuth && 
-          (
-            (<Nav isAuth={isAuth}>
-              <Navigation link1="/diary" link2="/calculator" isAuth={isAuth}/>
-            </Nav>)
-          )
-          }
+        <Nav isAuth={isAuth}>
+          <Navigation/>
+        </Nav>
 
           {isAuth &&
           (<BurgerButton type="button">Burger menu</BurgerButton>)}
