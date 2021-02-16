@@ -3,10 +3,13 @@ import { useSelector } from 'react-redux';
 import Logo from '../logo/Logo';
 import Navigation from '../navigation/Navigation';
 import { HeaderContainer, Nav, Container, BurgerButton } from './headerStyled';
+
 import UserInfo from '../userInfo/UserInfo';
+import authSelectors from '../../redux/selectors/authSelectors';
 
 const Header = () => {
-  const isAuth = useSelector(state => state.auth.isAuth);
+  const isAuth = useSelector(authSelectors.isAuth);
+  // console.log('isAuth:', isAuth);
 
   return (
     <>
@@ -19,7 +22,8 @@ const Header = () => {
           </Nav>
 
           {isAuth && <BurgerButton type="button">Burger menu</BurgerButton>}
-          <UserInfo />
+
+          {isAuth && <UserInfo />}
         </Container>
       </HeaderContainer>
     </>
