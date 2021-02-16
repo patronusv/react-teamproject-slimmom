@@ -5,7 +5,6 @@ import Header from './header/Header';
 import Main from './main/Main';
 import Diary from '../pages/diary/Diary';
 
-
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -26,7 +25,6 @@ const App = () => {
 
   return (
     <>
-
       <Header />
       <Main />
       <Diary />

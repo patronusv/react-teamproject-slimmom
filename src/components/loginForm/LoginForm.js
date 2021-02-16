@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { loginOperation } from '../../redux/operations/healthOperations';
+import authOperations from '../../redux/operations/authOperations';
 
 import LoginFormWrapper from './LoginFormStyled';
 
@@ -20,7 +20,7 @@ const LoginForm = () => {
 
   const onHandleSubmit = e => {
     e.preventDefault();
-    dispatch(loginOperation(state));
+    dispatch(authOperations.loginOperation(state));
     setState({ ...initialState });
   };
 

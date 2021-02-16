@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { registerOperation } from '../../redux/operations/healthOperations';
+import authOperations from '../../redux/operations/authOperations';
 
 import RegistrationFormWrapper from './RegistrationFormStyled';
 
 const initialState = {
-  name: '',
+  username: '',
   email: '',
   password: '',
 };
@@ -21,11 +21,11 @@ const RegistrationForm = () => {
 
   const onHandleSubmit = e => {
     e.preventDefault();
-    dispatch(registerOperation(state));
+    dispatch(authOperations.registerOperation(state));
     setState({ ...initialState });
   };
 
-  const { name, email, password } = state;
+  const { username, email, password } = state;
 
   return (
     <RegistrationFormWrapper>
@@ -37,8 +37,8 @@ const RegistrationForm = () => {
             <input
               className="formInput"
               type="text"
-              name="name"
-              value={name}
+              name="username"
+              value={username}
               autoFocus
               onChange={onHandleChange}
             />
