@@ -1,5 +1,6 @@
 import axios from 'axios';
 import authActions from '../actions/authActions';
+
 axios.defaults.baseURL = 'https://slimmom-backend.goit.global';
 
 const token = {
@@ -10,6 +11,7 @@ const token = {
     axios.defaults.headers.common.Authorization = '';
   },
 };
+
 
 const registerOperation = data => async dispatch => {
   dispatch(authActions.registerRequest());
