@@ -1,6 +1,25 @@
+import React, { useState } from 'react';
 import DailyCaloriesFormStyled from './DailyCaloriesFormStyled';
 
+const initialState = {
+  height: '',
+  age: '',
+  weight: '',
+  desiredWeight: '',
+  bloodType: '',
+};
+
 const DailyCaloriesForm = () => {
+  const [state, setState] = useState({ ...initialState });
+
+  const onHandleChange = e => {
+    const { name, value } = e.target;
+
+    setState(prev => ({ ...prev, [name]: value }));
+    console.log('name', e.target.name);
+    console.log('value', e.target.value);
+  };
+
   return (
     <DailyCaloriesFormStyled>
       <form className="coloriesForm">
@@ -10,8 +29,9 @@ const DailyCaloriesForm = () => {
             <input
               className="coloriesFormInput"
               type="text"
-              //value="name"
+              value={state.height}
               name="height"
+              onChange={onHandleChange}
             />
           </label>
 
@@ -20,8 +40,9 @@ const DailyCaloriesForm = () => {
             <input
               className="coloriesFormInput"
               type="text"
-              //value="name"
+              value={state.age}
               name="age"
+              onChange={onHandleChange}
             />
           </label>
 
@@ -30,8 +51,9 @@ const DailyCaloriesForm = () => {
             <input
               className="coloriesFormInput"
               type="text"
-              //value="name"
+              value={state.weight}
               name="weight"
+              onChange={onHandleChange}
             />
           </label>
 
@@ -40,8 +62,9 @@ const DailyCaloriesForm = () => {
             <input
               className="coloriesFormInput"
               type="text"
-              //value="name"
+              value={state.desiredWeight}
               name="desiredWeight"
+              onChange={onHandleChange}
             />
           </label>
 
@@ -52,8 +75,10 @@ const DailyCaloriesForm = () => {
                 <input
                   className="coloriesFormCheckbox checked"
                   type="radio"
-                  //value="name"
+                  value="1"
                   name="bloodType"
+                  data="1"
+                  onChange={onHandleChange}
                 />
                 <span className="coloriesFormCheckboxVisible"></span>1
               </label>
@@ -61,8 +86,10 @@ const DailyCaloriesForm = () => {
                 <input
                   className="coloriesFormCheckbox"
                   type="radio"
-                  //value="name"
+                  value="2"
                   name="bloodType"
+                  data="2"
+                  onChange={onHandleChange}
                 />
                 <span className="coloriesFormCheckboxVisible"></span>2
               </label>
@@ -70,8 +97,9 @@ const DailyCaloriesForm = () => {
                 <input
                   className="coloriesFormCheckbox"
                   type="radio"
-                  //value="name"
+                  value="3"
                   name="bloodType"
+                  onChange={onHandleChange}
                 />
                 <span className="coloriesFormCheckboxVisible"></span>3
               </label>
@@ -79,8 +107,9 @@ const DailyCaloriesForm = () => {
                 <input
                   className="coloriesFormCheckbox"
                   type="radio"
-                  //value="name"
+                  value="4"
                   name="bloodType"
+                  onChange={onHandleChange}
                 />
                 <span className="coloriesFormCheckboxVisible"></span>4
               </label>
