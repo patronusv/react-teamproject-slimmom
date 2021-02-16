@@ -1,5 +1,5 @@
-const isLogin = state => state.auth.token;
+const isAuth = state => state.auth.accessToken;
 
 const getUserName = state => state.auth.user.name;
 
-export default { isLogin, getUserName };
+export default { isAuth, getUserName };
