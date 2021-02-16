@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useWindowWidth } from '@react-hook/window-size';
-import style from './Modal.module.css';
+// import style from './Modal.module.css';
+import ModalWindow from './Modal.styled';
 
 const Modal = ({ children, openModal, toggleModal }) => {
   //   у компоненті, який викликає модальне вікно, потрібно створити локальний стейт:
@@ -21,7 +22,7 @@ const Modal = ({ children, openModal, toggleModal }) => {
   }, []);
 
   useEffect(() => {
-    document.body.className = openModal ? style.open : style.close;
+    document.body.className = openModal ? 'open' : 'close';
     //  document.body.style.overflow=openModal?"hidden":"visible";
   }, [openModal]);
 
@@ -40,22 +41,20 @@ const Modal = ({ children, openModal, toggleModal }) => {
   return (
     <>
       {openModal && (
-        <div
-          className={style.overlay}
+        <ModalWindow
+          className="overlay"
           onClick={handleClick}
           data-name="overlay"
         >
-          <div className={style.modal} data-name="modal">
+          <div className="modal" data-name="modal">
             <button
-              className={
-                onlyWidth < 768 ? style.arrowCloseButton : style.closeButton
-              }
+              className={onlyWidth < 768 ? 'arrowCloseButton' : 'closeButton'}
               type="button"
               onClick={toggleModal}
             ></button>
             {children}
           </div>
-        </div>
+        </ModalWindow>
       )}
     </>
   );
