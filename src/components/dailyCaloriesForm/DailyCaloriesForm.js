@@ -1,5 +1,5 @@
 const DailyCaloriesForm = () => {
-  return <></>;
+  return (<>CaloriesForm</>);
 };
 
 export default DailyCaloriesForm;

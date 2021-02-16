@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { registerOperation } from '../../redux/operations/healthOperations';
+
 import RegistrationFormWrapper from './RegistrationFormStyled';
 
 const initialState = {
@@ -8,6 +11,7 @@ const initialState = {
 };
 
 const RegistrationForm = () => {
+  const dispatch = useDispatch();
   const [state, setState] = useState({ ...initialState });
 
   const onHandleChange = e => {
@@ -17,6 +21,7 @@ const RegistrationForm = () => {
 
   const onHandleSubmit = e => {
     e.preventDefault();
+    dispatch(registerOperation(state));
     setState({ ...initialState });
   };
 

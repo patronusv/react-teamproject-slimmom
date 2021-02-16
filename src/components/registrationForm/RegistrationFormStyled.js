@@ -10,7 +10,7 @@ const RegistrationFormWrapper = styled.div`
   }
   @media (min-width: 1280px) {
     width: 382px;
-    height: 362.5px;
+    height: 363px;
   }
 
   .pageTitle {

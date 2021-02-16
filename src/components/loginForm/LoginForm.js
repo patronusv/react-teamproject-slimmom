@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { loginOperation } from '../../redux/operations/healthOperations';
+
 import LoginFormWrapper from './LoginFormStyled';
 
 const initialState = {
@@ -7,6 +10,7 @@ const initialState = {
 };
 
 const LoginForm = () => {
+  const dispatch = useDispatch();
   const [state, setState] = useState({ ...initialState });
 
   const onHandleChange = e => {
@@ -16,6 +20,7 @@ const LoginForm = () => {
 
   const onHandleSubmit = e => {
     e.preventDefault();
+    dispatch(loginOperation(state));
     setState({ ...initialState });
   };
 
