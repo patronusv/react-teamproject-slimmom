@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
+import { createReducer } from "@reduxjs/toolkit";
 
-const healthReducer = combineReducers({});
+const healthReducer = createReducer({dailyRate: 10},{});
 
 export default healthReducer;

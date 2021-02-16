@@ -1,20 +1,32 @@
-import UserInfo from '../userInfo/UserInfo';
+
+import React from 'react';
+import {useSelector} from 'react-redux';
+import Logo from '../logo/Logo';
 import Navigation from '../navigation/Navigation';
-import { connect } from 'react-redux';
-import authSelectors from '../../redux/selectors/authSelectors';
+import {HeaderContainer,Nav,Container,BurgerButton} from './headerStyled';
+import UserInfo from '../userInfo/UserInfo';
 
-const Header = ({ isLogin }) => {
+
+const Header = () => {
+
+  const isAuth = useSelector(state => state.auth.isAuth);
+
   return (
-    <div>
-      <Navigation />
-      <UserInfo />
-      {/* {isLogin && <UserInfo />} */}
-    </div>
-  );
-};
+    <>
+      <HeaderContainer>
+        <Container className="container">
+          <Logo/>
 
-const mapStateToProps = state => ({
-  isLogin: authSelectors.isLogin(state),
-});
+        <Nav isAuth={isAuth}>
+          <Navigation/>
+        </Nav>
 
-export default connect(mapStateToProps)(Header);
+          {isAuth &&
+          (<BurgerButton type="button">Burger menu</BurgerButton>)}
+        <UserInfo />
+        </Container>
+      </HeaderContainer>
+    </>
+
+
+export default Header;
