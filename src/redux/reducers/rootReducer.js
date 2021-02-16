@@ -5,14 +5,14 @@ import authReducer from './authReducer';
 import healthReducer from './healthReducer';
 
 const authPersistConfig = {
-  key: 'auth',
-  storage,
-  whitelist: ['accessToken', 'refreshToken', 'sid'],
+    key: 'auth',
+    storage,
+    whitelist: ['accessToken', 'refreshToken', 'sid'],
 };
 
 const rootReducer = combineReducers({
-  auth: persistReducer(authPersistConfig, authReducer),
-  health: healthReducer,
+    auth: persistReducer(authPersistConfig, authReducer),
+    health: healthReducer,
 });
 
 export default rootReducer;
