@@ -11,7 +11,7 @@ const token = {
   },
 };
 
-export const registerOperation = data => async dispatch => {
+const registerOperation = data => async dispatch => {
   dispatch(authActions.registerRequest());
   try {
     const response = await axios.post(`/auth/register`, data);
@@ -21,7 +21,7 @@ export const registerOperation = data => async dispatch => {
     dispatch(authActions.registerError(error));
   }
 };
-export const loginOperation = data => async dispatch => {
+const loginOperation = data => async dispatch => {
   dispatch(authActions.loginRequest());
   try {
     const response = await axios.post(`/auth/login`, data);
@@ -31,7 +31,7 @@ export const loginOperation = data => async dispatch => {
     dispatch(authActions.loginError(error));
   }
 };
-export const logOutOperation = () => async dispatch => {
+const logOutOperation = () => async dispatch => {
   dispatch(authActions.logOutRequest());
   try {
     await axios.post(`/auth/logout`);
@@ -40,4 +40,31 @@ export const logOutOperation = () => async dispatch => {
   } catch (error) {
     dispatch(authActions.logOutError(error));
   }
+};
+const refreshOperation = () => async (dispatch, getState) => {
+  const {
+    auth: {
+      refreshToken: persistRefreshToken,
+      accessToken: persistAccessToken,
+      sid: persistSid,
+    },
+  } = getState();
+  if (!persistRefreshToken) return;
+  token.set(persistRefreshToken);
+  dispatch(authActions.refreshRequest());
+  try {
+    const response = await axios.post(`/auth/refresh`, { sid: persistSid });
+    dispatch(authActions.refreshSuccess(response.data));
+    token.set(response.data.newAccessToken);
+    const userResponse = await axios.get('/user');
+    dispatch(authActions.getCurrentUserSuccess(userResponse.data));
+  } catch (error) {
+    dispatch(authActions.refreshError(error));
+  }
+};
+export default {
+  registerOperation,
+  loginOperation,
+  logOutOperation,
+  refreshOperation,
 };

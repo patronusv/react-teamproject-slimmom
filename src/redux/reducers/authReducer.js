@@ -1,27 +1,32 @@
 import { combineReducers, createReducer } from '@reduxjs/toolkit';
 import authActions from '../actions/authActions';
 
-const initialState = { name: '', email: '', userData: {}, id: '' };
+const initialState = { username: '', email: '', userData: {}, id: '' };
 console.log('authActions', authActions);
 
 const userReducer = createReducer(initialState, {
-  //   [authActions.registerSuccess]: (_, { payload }) => payload.user,
   [authActions.loginSuccess]: (_, { payload }) => payload.user,
+  [authActions.getCurrentUserSuccess]: (_, { payload }) => ({
+    username: payload.username,
+    email: payload.email,
+    userData: payload.userData,
+    id: payload.id,
+  }),
   [authActions.logOutSuccess]: () => initialState,
 });
 const accessTokenReducer = createReducer(null, {
-  //   [authActions.registerSuccess]: (_, { payload }) => payload.accessToken,
   [authActions.loginSuccess]: (_, { payload }) => payload.accessToken,
+  [authActions.refreshSuccess]: (_, { payload }) => payload.newAccessToken,
   [authActions.logOutSuccess]: () => null,
 });
 const refreshTokenReducer = createReducer(null, {
-  //   [authActions.registerSuccess]: (_, { payload }) => payload.refreshToken,
   [authActions.loginSuccess]: (_, { payload }) => payload.refreshToken,
+  [authActions.refreshSuccess]: (_, { payload }) => payload.newRefreshToken,
   [authActions.logOutSuccess]: () => null,
 });
 const sidReducer = createReducer(null, {
-  //   [authActions.registerSuccess]: (_, { payload }) => payload.sid,
   [authActions.loginSuccess]: (_, { payload }) => payload.sid,
+  [authActions.refreshSuccess]: (_, { payload }) => payload.sid,
   [authActions.logOutSuccess]: () => null,
 });
 
