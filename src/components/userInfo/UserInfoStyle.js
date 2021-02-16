@@ -22,11 +22,11 @@ const User = styled.div`
 `;
 
 const Nic = styled.h3`
-  width: 122px;
+  width: max-content;
   height: 12px;
   font-family: Gotham Pro;
   font-size: 14px;
-  line-height: 1.08;
+  line-height: 13px;
   text-align: right;
   letter-spacing: 0.04em;
   color: #212121;
