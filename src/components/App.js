@@ -1,3 +1,4 @@
+import Home from '../pages/home/Home';
 import Header from './header/Header';
 import Main from './main/Main';
 
@@ -6,6 +7,7 @@ const App = () => {
     <>
       <Header />
       <Main />
+      <Home />
     </>
   );
 };
