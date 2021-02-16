@@ -4,20 +4,21 @@ const User = styled.div`
   display: flex;
   justify-content: space-between;
   background: inherit;
-  @media screen and (min-width: 290px) and (max-width: 767px) {
+  @media screen and (min-width: 320px) and (max-width: 767px) {
     width: 320px;
     background: #eff1f3;
     margin: 0px auto;
   }
-  @media screen and (min-width: 768px) and (max-width: 1079px) {
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
     width: 202px;
-    margin-left: 174px;
-    margin-top: 34px;
+    /* margin-left: 174px;
+    margin-top: 34px; */
   }
-  @media screen and (min-width: 1080px) {
+  @media screen and (min-width: 1280px) {
     width: 215px;
-    margin-left: 429px;
-    margin-top: 134px;
+    transform: translate(400px, 21px);
+    /* margin-left: 429px;
+    margin-top: 134px; */
   } ;
 `;
 
@@ -63,7 +64,7 @@ const Logout = styled.button`
     outline: none;
     opacity: 0.8;
   }
-  @media screen and (min-width: 290px) and (max-width: 767px) {
+  @media screen and (min-width: 320px) and (max-width: 767px) {
     margin-left: 15px;
     margin-right: 15px;
     margin-top: 13px;
@@ -71,7 +72,7 @@ const Logout = styled.button`
 `;
 
 const Vector = styled.img`
-  @media screen and (min-width: 290px) and (max-width: 767px) {
+  @media screen and (min-width: 320px) and (max-width: 767px) {
     margin-top: 4px;
     margin-bottom: 4px;
   }

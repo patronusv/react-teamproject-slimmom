@@ -6,6 +6,8 @@ export const HeaderContainer=styled.header`
     padding: 10px;
     border-bottom: 2px solid #E0E0E0;
 
+
+
     @media (min-width: 1280px) {
         justify-content: flex-start;
         align-items: center;
@@ -41,7 +43,6 @@ export const Nav=styled.nav`
 `
 
 export const Container=styled.div`
-    width: 90%;
     display:flex;
     align-items: center;
     justify-content:space-between;
@@ -54,10 +55,52 @@ export const Container=styled.div`
 
 export const BurgerButton=styled.button`
     display: block;
+    width: 50px;
+    height: 50px;
+    margin-left: 50px;
 
      @media (min-width: 1280px) {
         display: none;
     }
 
+
+`
+export const UserInfoContainerMobile=styled.div`
+    display:none;       
+
+    @media (max-width: 767px) {
+        display:block;
+    }    
+
 `
 
+export const UserInfoContainerTablet = styled.div`
+    display:none;
+
+
+    @media (min-width: 768px) and (max-width: 1279px) {
+        display:flex;
+        align-items: center;
+
+    }
+`
+
+export const HeaderWrapper=styled.div`
+    display:flex;
+
+    /* @media (min-width: 1280px) {
+        display:none;
+    } */
+
+`
+
+export const UserInfoContainerDesktop = styled.div`
+    display: none;
+
+    @media (min-width: 1280px) {
+        display:block;
+        margin-left: auto;
+
+    }
+
+`

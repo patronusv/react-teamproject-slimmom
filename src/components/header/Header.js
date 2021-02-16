@@ -1,31 +1,62 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Logo from '../logo/Logo';
-import Navigation from '../navigation/Navigation';
-import { HeaderContainer, Nav, Container, BurgerButton } from './headerStyled';
 
 import UserInfo from '../userInfo/UserInfo';
-import authSelectors from '../../redux/selectors/authSelectors';
+import Navigation from '../navigation/Navigation';
+import {isAuth} from '../../redux/selectors/authSelectors';
+import {HeaderContainer,Nav,Container,BurgerButton,UserInfoContainerTablet,UserInfoContainerMobile,
+  HeaderWrapper,UserInfoContainerDesktop} from './headerStyled';
+
 
 const Header = () => {
-  const isAuth = useSelector(authSelectors.isAuth);
-  // console.log('isAuth:', isAuth);
 
+
+
+
+
+
+
+  const authFlag = useSelector(isAuth);
+  // const authFlag = true;
+  
+ 
   return (
     <>
       <HeaderContainer>
-        <Container className="container">
-          <Logo />
+        <div className="container">
+          <Container>
+          <Logo isAuth={authFlag}/>
 
-          <Nav isAuth={isAuth}>
+          <Nav isAuth={authFlag}>
             <Navigation />
           </Nav>
 
-          {isAuth && <BurgerButton type="button">Burger menu</BurgerButton>}
 
-          {isAuth && <UserInfo />}
+          <HeaderWrapper>
+            <UserInfoContainerTablet>
+              {authFlag &&
+                (<UserInfo/>)}
+            </UserInfoContainerTablet>
+
+            {authFlag &&
+            (<BurgerButton type="button">menu</BurgerButton>)}
+
+            <UserInfoContainerDesktop>
+              {authFlag &&
+                (<UserInfo/>)}
+            </UserInfoContainerDesktop>
+
+          </HeaderWrapper>
+
         </Container>
+        </div>
       </HeaderContainer>
+      
+      <UserInfoContainerMobile>
+        {authFlag &&
+            (<UserInfo/>)}
+      </UserInfoContainerMobile>
     </>
   );
 };

@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const LogoContainerMobile = styled.img`
         @media (max-width: 767px) {
             display: block;
+            
     }
 
     display: none;
