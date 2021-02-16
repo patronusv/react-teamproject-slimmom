@@ -12,7 +12,7 @@ const authPersistConfig = {
 
 const rootReducer = combineReducers({
   auth: persistReducer(authPersistConfig, authReducer),
-  health: healthReducer,
+  // health: healthReducer,
 });
 
 export default rootReducer;
