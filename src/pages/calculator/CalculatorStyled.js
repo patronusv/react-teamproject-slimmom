@@ -1,10 +1,9 @@
-import imageDesktop from '../../assets/images/homaPage/desktop.jpg';
-import imageTablet from '../../assets/images/homaPage/tablet.jpg';
+import imageDesktop from '../../assets/images/calculatorPage/desktop.jpg';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  padding-top: 30px;
-  padding-bottom: 80px;
+  padding-top: 40px;
+  padding-bottom: 60px;
 
   width: 100%;
   background-size: contain;
@@ -12,12 +11,12 @@ const Wrapper = styled.div`
   background-position: right;
 
   @media (min-width: 768px) {
-    background-image: url(${imageTablet});
-    padding-top: 146px;
-    padding-bottom: 425px;
+    padding-top: 100px;
+    padding-bottom: 73px;
   }
 
   @media (min-width: 1280px) {
+    padding-top: 143px;
     padding-bottom: 111px;
     background-image: url(${imageDesktop});
   }
