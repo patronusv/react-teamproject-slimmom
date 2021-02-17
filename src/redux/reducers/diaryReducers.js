@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import { createReducer } from "@reduxjs/toolkit";
 import {diarySetLoading, diarySetError, deleteDiaryItem,getUserData} from '../actions/healthActions';
 
-const healthReducer = createReducer({dailyRate: null, dailyEatenProd:[], error:"",loading:false,userData:{}},{
+const diaryReducer = createReducer({dailyRate: null, dailyEatenProd:[], error:"",loading:false,userData:{}},{
     [diarySetLoading]:(state,action)=>{
         return {...state, loading:!state.loading}
     },
@@ -17,4 +17,4 @@ const healthReducer = createReducer({dailyRate: null, dailyEatenProd:[], error:"
     }
 });
 
-export default healthReducer;
+export default diaryReducer;

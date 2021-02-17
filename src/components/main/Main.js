@@ -12,7 +12,7 @@ const Main = () => {
 
   const authFlag  = useSelector(isAuth);
   // const authFlag = true;
-  const dailyRate = useSelector(state => state.health.dailyRate);
+  const dailyRate = 10;
 
   return (
     <>
