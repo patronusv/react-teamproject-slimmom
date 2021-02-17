@@ -17,8 +17,8 @@ const App = () => {
       password: 'qwerty123',
       username: 'Gustav Muhozhuk',
     };
-    // dispatch(authOperations.registerOperation(registerUser))
-    // dispatch(authOperations.loginOperation(loginUser));
+    dispatch(authOperations.registerOperation(registerUser))
+    dispatch(authOperations.loginOperation(loginUser));
     // dispatch(authOperations.logOutOperation());
     // dispatch(authOperations.refreshOperation());
   }, []);

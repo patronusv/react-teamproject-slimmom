@@ -4,6 +4,7 @@ import DiaryProductList from '../../components/diaryProductList/DiaryProductList
 import DiaryAddProductForm from '../../components/diaryAddProductForm/DiaryAddProductForm'
 import DiaryDateCalendar from '../../components/diaryDateCalendar/DiaryDateCalendar'
 import { DiaryWrapper } from './DiaryStyle';
+import RightSideBar from '../../components/rightSideBar/RightSideBar';
 
 const Diary = () => {
     const size = useWindowSize();
