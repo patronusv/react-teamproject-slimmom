@@ -37,13 +37,10 @@ export const Nav = styled.nav`
       z-index: 50;
       width: 100%;
       height: 100%;
-
-
-              
-        }
+    
     `}
 
-  @media (max-width: 1279px) {
+  @media (max-width: 1079px) {
     display: ${props => (props.isAuth ? 'none' : 'block')};
   }
 
@@ -78,9 +75,20 @@ export const Container = styled.div`
 
 export const BurgerButton = styled.button`
   display: block;
-  width: 50px;
-  height: 50px;
-  margin-left: 50px;
+  background-color: inherit;
+  border: none;
+  & :hover,
+  :focus,
+  :active {
+    outline: none;
+  }
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    /* margin-left: 110px; */
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1079px) {
+    margin-left: 56px;
+  }
 
   @media (min-width: 1079px) {
     display: none;

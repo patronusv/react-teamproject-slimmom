@@ -15,6 +15,8 @@ import {
   HeaderWrapper,
   UserInfoContainerDesktop,
 } from './headerStyled';
+import openMenu from '../../assets/images/burgerMenu/openMenu.svg';
+import closeMenu from '../../assets/images/burgerMenu/closeMenu.svg';
 
 const Header = () => {
   const authFlag = useSelector(isAuth);
@@ -43,7 +45,11 @@ const Header = () => {
                   type="button"
                   onClick={() => setMenuBurger(!menuBurger)}
                 >
-                  menu
+                  {!menuBurger ? (
+                    <img src={openMenu} alt="" />
+                  ) : (
+                    <img src={closeMenu} alt="" />
+                  )}
                 </BurgerButton>
               )}
 
