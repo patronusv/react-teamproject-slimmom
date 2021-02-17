@@ -2,8 +2,7 @@ import { combineReducers } from 'redux';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import authReducer from './authReducer';
-// import healthReducer from './healthReducer';
-import diaryReducer from '../reducers/diaryReducers';
+import healthReducer from './healthReducer';
 
 const authPersistConfig = {
     key: 'auth',
@@ -13,8 +12,7 @@ const authPersistConfig = {
 
 const rootReducer = combineReducers({
     auth: persistReducer(authPersistConfig, authReducer),
-    // health: healthReducer,
-    diary:diaryReducer
+    health: healthReducer,
 });
 
 export default rootReducer;
