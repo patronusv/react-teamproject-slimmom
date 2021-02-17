@@ -30,7 +30,11 @@ const productReducer = createReducer([], {
 });
 
 const dayInfoReducer = createReducer(
-  {error:"", loading:false},
+
+  {
+    error:"", 
+    loading:false, 
+    },
   {
     [healthActions.getDayInfoSuccess]: (_, { payload }) => payload,
     [healthActions.postEatenProductSuccess]: (state, { payload }) => ({
@@ -40,7 +44,12 @@ const dayInfoReducer = createReducer(
     }),
     [healthActions.deleteDiaryItemSuccess]: (state,{payload})=>({
         ...state,
-        eatenProducts: [...state.eatenProducts.filter(item=>item.id!==payload)]
+        eatenProducts: [...state.eatenProducts.filter(item=>{
+            console.log('item.id', item.id);
+            console.log('payload', payload);
+           return item.id !== payload
+        
+        })]
     }),
     [healthActions.deleteDiaryItemRequest]:(state,{payload})=>({
         ...state,
@@ -48,7 +57,7 @@ const dayInfoReducer = createReducer(
     }),
     [healthActions.deleteDiaryItemError]:(state,{payload})=>({
         ...state,
-        error: payload.message
+        error: payload
     }),
     [authActions.logOutSuccess]: () => {},
   },
