@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { isAuth } from '../../redux/selectors/authSelectors';
-import haelthOperations from '../../redux/operations/healthOperations';
+import healthOperations from '../../redux/operations/healthOperations';
 import Modal from '../modal/Modal';
 import sprite from '../../assets/svg/sprite.svg';
 import DailyCaloriesFormStyled from './DailyCaloriesFormStyled';
@@ -41,7 +41,7 @@ const DailyCaloriesForm = () => {
   const onHandlerSubmit = e => {
     e.preventDefault();
     //console.log('state', state);
-    dispatch(haelthOperations.getDailyRateOperation(state));
+    dispatch(healthOperations.getDailyRateOperation(state));
     !auth && setState({ ...initialState });
     toggleModal();
   };
