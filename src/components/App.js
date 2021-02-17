@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import authOperations from '../redux/operations/authOperations';
 import Header from './header/Header';
 import Main from './main/Main';
-import Diary from '../pages/diary/Diary';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -27,7 +26,6 @@ const App = () => {
     <>
       <Header />
       <Main />
-      <Diary />
     </>
   );
 };

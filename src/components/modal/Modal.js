@@ -42,7 +42,7 @@ const Modal = ({ children, openModal, toggleModal }) => {
     <>
       {openModal && (
         <ModalWindow
-          className="overlay"
+          //className="overlay"
           onClick={handleClick}
           data-name="overlay"
         >
