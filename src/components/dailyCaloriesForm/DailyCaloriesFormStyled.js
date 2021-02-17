@@ -5,6 +5,25 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
 
+  .homeTitle {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.44;
+    color: #212121;
+    margin-bottom: 30px;
+
+    @media screen and (min-width: 768px) {
+      font-size: 30px;
+      line-height: 1.2;
+      margin-bottom: 60px;
+    }
+    @media screen and (min-width: 1280px) {
+      font-size: 34px;
+      line-height: 1.21;
+      margin-bottom: 68px;
+    }
+  }
+
   .coloriesForm {
     @media screen and (min-width: 768px) {
     }
@@ -71,13 +90,14 @@ const Wrapper = styled.div`
   }
   .coloriesFormInput {
     flex-grow: 1;
-    text-align: center;
+    /* text-align: center; */
     font-weight: 700;
     font-size: 14px;
     line-height: 1.21;
     color: #9b9faa;
     border: none;
     outline: none;
+    padding-left: 20%;
   }
   .coloriesFormCheckboxList {
     display: flex;
@@ -135,19 +155,23 @@ const Wrapper = styled.div`
     }
   }
 
-  .coloriesFormBtn:hover,
-  .coloriesFormBtn:focus {
+  .coloriesFormBtn:hover {
     color: #fc842d;
     box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
 
     background: #ffffff;
   }
-  /* @media screen and (min-width: 768px) {
-    margin: 10px auto 10px;
+
+  .coloriesFormBtn:focus {
+    @media screen and (min-width: 768px) {
+      color: #fc842d;
+      box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+
+      background: #ffffff;
+    }
+    @media screen and (min-width: 1280px) {
+    }
   }
-  @media screen and (min-width: 1280px) {
-    /* margin-top: 120px; 
-  } */
 `;
 
 export default Wrapper;

@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { isAuth } from '../../redux/selectors/authSelectors';
+import { addDailyCaloriesFormOperation } from '../../redux/operations/healthOperations';
 import DailyCaloriesFormStyled from './DailyCaloriesFormStyled';
 
 const initialState = {
@@ -10,19 +13,34 @@ const initialState = {
 };
 
 const DailyCaloriesForm = () => {
+  const dispatch = useDispatch();
+  const auth = useSelector(isAuth);
+  //const auth1 = true;
   const [state, setState] = useState({ ...initialState });
 
   const onHandleChange = e => {
     const { name, value } = e.target;
-
     setState(prev => ({ ...prev, [name]: value }));
-    console.log('name', e.target.name);
-    console.log('value', e.target.value);
+  };
+
+  const onHandlerSubmit = e => {
+    e.preventDefault();
+    console.log('state', state);
+
+    dispatch(addDailyCaloriesFormOperation(state));
+    !auth && setState({ ...initialState });
   };
 
   return (
     <DailyCaloriesFormStyled>
-      <form className="coloriesForm">
+      {auth ? (
+        <h2 className="homeTitle">Узнай свою суточную норму калорий</h2>
+      ) : (
+        <h2 className="homeTitle">
+          Просчитай свою суточную норму калорий прямо сейчас
+        </h2>
+      )}
+      <form className="coloriesForm" onSubmit={onHandlerSubmit}>
         <div className="coloriesFormList">
           <label className="coloriesFormListItem">
             <span className="coloriesFormListItemTitle">Рост *</span>
