@@ -104,13 +104,13 @@ const Wrapper = styled.div`
     //flex-direction: column;
   }
   //label
-  .coloriesFormCheckboxListItem {
-    padding-left: 25px;
+  .coloriesFormCheckboxListItem:not(:last-child) {
+    padding-right: 25px;
   }
   //input
   .coloriesFormCheckbox {
-    margin-right: 6px;
-    margin-left: 15px;
+    /* margin-right: 6px;
+    margin-left: 15px; */
 
     //hidden input
     position: absolute;
@@ -118,21 +118,21 @@ const Wrapper = styled.div`
     -moz-appearance: none;
     appearance: none;
   }
-  //span
-  .coloriesFormCheckboxVisible {
-    position: absolute;
-    margin-left: -25px;
-    width: 20px;
-    height: 20px;
-    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 22 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='11' cy='11' r='10' fill='white' stroke='%23E0E0E0'/%3E%3C/svg%3E");
-  }
 
   //checked
-  .coloriesFormCheckbox:checked + .coloriesFormCheckboxVisible {
-    background-image: url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 10 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='5' cy='5' r='5' fill='%23FC842D'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
+  .coloriesFormCheckbox:checked + .coloriesFormSvg {
+    fill: #fc842d;
   }
 
+  .coloriesFormCheckbox:checked + .coloriesFormCheckboxListItem {
+    color: #fc842d;
+  }
+  .coloriesFormSvg {
+    fill: #9b9faa;
+    width: 20px;
+    height: 20px;
+    margin-right: 6px;
+  }
   .coloriesFormBtn {
     display: flex;
     width: 176px;

@@ -2,15 +2,23 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { isAuth } from '../../redux/selectors/authSelectors';
 import { addDailyCaloriesFormOperation } from '../../redux/operations/healthOperations';
-import DailyCaloriesFormStyled from './DailyCaloriesFormStyled';
 import Modal from '../modal/Modal';
+import sprite from '../../assets/svg/sprite.svg';
+import DailyCaloriesFormStyled from './DailyCaloriesFormStyled';
 
 const initialState = {
   height: '',
   age: '',
   weight: '',
   desiredWeight: '',
-  bloodType: '',
+  bloodType: null,
+};
+
+const booldType = {
+  type1: 1,
+  type2: 2,
+  type3: 3,
+  type4: 4,
 };
 
 const DailyCaloriesForm = () => {
@@ -19,16 +27,20 @@ const DailyCaloriesForm = () => {
   const auth = useSelector(isAuth);
   //const auth1 = true;
   const [state, setState] = useState({ ...initialState });
+  const [blood, setBlood] = useState({ ...booldType });
 
   const onHandleChange = e => {
     const { name, value } = e.target;
     setState(prev => ({ ...prev, [name]: value }));
   };
 
+  const onHandleRadioChange = e => {
+    setState({ ...state, bloodType: Number(e.target.value) });
+  };
+
   const onHandlerSubmit = e => {
     e.preventDefault();
     console.log('state', state);
-
     dispatch(addDailyCaloriesFormOperation(state));
     !auth && setState({ ...initialState });
     toggleModal();
@@ -100,44 +112,77 @@ const DailyCaloriesForm = () => {
                 <input
                   className="coloriesFormCheckbox checked"
                   type="radio"
-                  checked="true"
-                  value="1"
-                  name="bloodType"
-                  data="1"
-                  onChange={onHandleChange}
+                  value={blood.type1}
+                  checked={blood.type1 === state.bloodType}
+                  onChange={onHandleRadioChange}
                 />
-                <span className="coloriesFormCheckboxVisible"></span>1
+                <svg className="coloriesFormSvg">
+                  <use
+                    href={
+                      blood.type1 === state.bloodType
+                        ? sprite + '#button-on'
+                        : sprite + '#button-off'
+                    }
+                  />
+                </svg>
+                1
               </label>
               <label className="coloriesFormCheckboxListItem">
                 <input
                   className="coloriesFormCheckbox"
                   type="radio"
-                  value="2"
-                  name="bloodType"
-                  data="2"
-                  onChange={onHandleChange}
+                  value={blood.type2}
+                  checked={blood.type2 === state.bloodType}
+                  onChange={onHandleRadioChange}
                 />
-                <span className="coloriesFormCheckboxVisible"></span>2
+                <svg className="coloriesFormSvg">
+                  <use
+                    href={
+                      blood.type2 === state.bloodType
+                        ? sprite + '#button-on'
+                        : sprite + '#button-off'
+                    }
+                  />
+                </svg>
+                2
               </label>
               <label className="coloriesFormCheckboxListItem">
                 <input
                   className="coloriesFormCheckbox"
                   type="radio"
-                  value="3"
-                  name="bloodType"
-                  onChange={onHandleChange}
+                  value={blood.type3}
+                  checked={blood.type3 === state.bloodType}
+                  onChange={onHandleRadioChange}
                 />
-                <span className="coloriesFormCheckboxVisible"></span>3
+                <svg className="coloriesFormSvg">
+                  <use
+                    href={
+                      blood.type3 === state.bloodType
+                        ? sprite + '#button-on'
+                        : sprite + '#button-off'
+                    }
+                  />
+                </svg>
+                3
               </label>
               <label className="coloriesFormCheckboxListItem">
                 <input
                   className="coloriesFormCheckbox"
                   type="radio"
-                  value="4"
-                  name="bloodType"
-                  onChange={onHandleChange}
+                  value={blood.type4}
+                  checked={blood.type4 === state.bloodType}
+                  onChange={onHandleRadioChange}
                 />
-                <span className="coloriesFormCheckboxVisible"></span>4
+                <svg className="coloriesFormSvg">
+                  <use
+                    href={
+                      blood.type4 === state.bloodType
+                        ? sprite + '#button-on'
+                        : sprite + '#button-off'
+                    }
+                  />
+                </svg>
+                4
               </label>
             </div>
           </label>
