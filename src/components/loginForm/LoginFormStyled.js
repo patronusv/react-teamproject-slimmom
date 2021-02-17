@@ -6,7 +6,7 @@ const LoginFormWrapper = styled.div`
 
   @media screen and (min-width: 768px) {
     width: 382px;
-    height: 287px;
+    height: 290px;
   }
   @media (min-width: 1280px) {
     width: 382px;
@@ -14,6 +14,7 @@ const LoginFormWrapper = styled.div`
   }
 
   .pageTitle {
+    position: relative;
     margin-bottom: 60px;
     color: #fc842d;
     font-family: Gotham Pro;
@@ -29,6 +30,22 @@ const LoginFormWrapper = styled.div`
 
     @media (min-width: 1280px) {
       margin-bottom: 70px;
+    }
+  }
+
+  .error {
+    position: absolute;
+    bottom: 40%;
+
+    color: red;
+    font-weight: 700;
+    font-size: 12px;
+
+    @media (min-width: 767px) {
+      bottom: 55%;
+    }
+    @media (min-width: 1280px) {
+      bottom: 45%;
     }
   }
 
