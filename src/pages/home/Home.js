@@ -1,12 +1,14 @@
 import DailyCaloriesForm from '../../components/dailyCaloriesForm/DailyCaloriesForm';
-import RightSideBar from '../../components/rightSideBar/RightSideBar';
+import HomePageStyled from './HomeStyled';
 
 const Home = () => {
     return (
-        <>
+        <HomePageStyled>
+            {/* <div className="container"> */}
             <DailyCaloriesForm />
-        </>
-    )
+            {/* </div> */}
+        </HomePageStyled>
+    );
 };
 
 export default Home;
