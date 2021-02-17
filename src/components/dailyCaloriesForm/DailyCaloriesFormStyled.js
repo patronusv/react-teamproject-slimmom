@@ -101,9 +101,15 @@ const Wrapper = styled.div`
   }
   .coloriesFormCheckboxList {
     display: flex;
+    align-items: baseline;
+
     //flex-direction: column;
   }
   //label
+  .coloriesFormCheckboxListItem {
+    display: flex;
+    justify-content: center;
+  }
   .coloriesFormCheckboxListItem:not(:last-child) {
     padding-right: 25px;
   }
@@ -123,7 +129,9 @@ const Wrapper = styled.div`
   .coloriesFormCheckbox:checked + .coloriesFormSvg {
     fill: #fc842d;
   }
-
+  .coloriesFormCheckboxListItem {
+    //text-align: center;
+  }
   .coloriesFormCheckbox:checked + .coloriesFormCheckboxListItem {
     color: #fc842d;
   }
@@ -135,7 +143,6 @@ const Wrapper = styled.div`
   }
   .coloriesFormBtn {
     display: flex;
-    width: 176px;
     background: #fc842d;
     box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
     border-radius: 30px;
@@ -147,6 +154,11 @@ const Wrapper = styled.div`
     color: #ffffff;
     padding: 13px 48px;
     margin-top: 40px;
+
+    @media screen and (max-width: 767px) {
+      margin: 0 auto;
+      margin-top: 60px;
+    }
 
     @media screen and (min-width: 768px) {
       margin-top: 60px;

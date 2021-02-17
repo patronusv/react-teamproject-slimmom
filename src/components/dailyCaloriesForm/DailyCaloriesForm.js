@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { isAuth } from '../../redux/selectors/authSelectors';
-import { addDailyCaloriesFormOperation } from '../../redux/operations/healthOperations';
+//import { addDailyCaloriesFormOperation } from '../../redux/operations/healthOperations';
 import Modal from '../modal/Modal';
 import sprite from '../../assets/svg/sprite.svg';
 import DailyCaloriesFormStyled from './DailyCaloriesFormStyled';
@@ -41,7 +41,7 @@ const DailyCaloriesForm = () => {
   const onHandlerSubmit = e => {
     e.preventDefault();
     console.log('state', state);
-    dispatch(addDailyCaloriesFormOperation(state));
+    //dispatch(addDailyCaloriesFormOperation(state));
     !auth && setState({ ...initialState });
     toggleModal();
   };
@@ -125,7 +125,7 @@ const DailyCaloriesForm = () => {
                     }
                   />
                 </svg>
-                1
+                <span>1</span>
               </label>
               <label className="coloriesFormCheckboxListItem">
                 <input
@@ -144,7 +144,7 @@ const DailyCaloriesForm = () => {
                     }
                   />
                 </svg>
-                2
+                <span>2</span>
               </label>
               <label className="coloriesFormCheckboxListItem">
                 <input
@@ -163,7 +163,7 @@ const DailyCaloriesForm = () => {
                     }
                   />
                 </svg>
-                3
+                <span>3</span>
               </label>
               <label className="coloriesFormCheckboxListItem">
                 <input
@@ -182,7 +182,7 @@ const DailyCaloriesForm = () => {
                     }
                   />
                 </svg>
-                4
+                <span>4</span>
               </label>
             </div>
           </label>
