@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { isAuth } from '../../redux/selectors/authSelectors';
 import { addDailyCaloriesFormOperation } from '../../redux/operations/healthOperations';
 import DailyCaloriesFormStyled from './DailyCaloriesFormStyled';
+import Modal from '../modal/Modal';
 
 const initialState = {
   height: '',
@@ -14,6 +15,7 @@ const initialState = {
 
 const DailyCaloriesForm = () => {
   const dispatch = useDispatch();
+  const [openModal, setOpenModal] = useState(false);
   const auth = useSelector(isAuth);
   //const auth1 = true;
   const [state, setState] = useState({ ...initialState });
@@ -29,6 +31,11 @@ const DailyCaloriesForm = () => {
 
     dispatch(addDailyCaloriesFormOperation(state));
     !auth && setState({ ...initialState });
+    toggleModal();
+  };
+
+  const toggleModal = () => {
+    setOpenModal(!openModal);
   };
 
   return (
@@ -93,6 +100,7 @@ const DailyCaloriesForm = () => {
                 <input
                   className="coloriesFormCheckbox checked"
                   type="radio"
+                  checked="true"
                   value="1"
                   name="bloodType"
                   data="1"
@@ -138,6 +146,7 @@ const DailyCaloriesForm = () => {
           Похудеть
         </button>
       </form>
+      <Modal openModal={openModal} toggleModal={toggleModal} />
     </DailyCaloriesFormStyled>
   );
 };
