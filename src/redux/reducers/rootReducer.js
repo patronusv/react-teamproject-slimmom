@@ -14,7 +14,7 @@ const authPersistConfig = {
 const rootReducer = combineReducers({
   auth: persistReducer(authPersistConfig, authReducer),
   health: healthReducer,
-  load: loaderReducer,
+  loading: loaderReducer,
 });
 
 export default rootReducer;
