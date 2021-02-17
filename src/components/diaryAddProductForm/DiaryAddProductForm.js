@@ -1,14 +1,21 @@
 import React, { useState, useEffect } from 'react';
+import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
 import { DiaryFormWrapper } from './DiaryAddProductFormStyle';
+import { addNewProductDairyOperation } from '../../redux/operations/healthOperations';
+import DiaryDateCalendar from '../diaryDateCalendar/DiaryDateCalendar';
+// import Modal from '../modal/Modal';
 
-const DiaryAddProductForm = () => {
-  const [state, setState] = useState({
-    date: '',
-    product: '',
-    gram: '',
-  });
-
+const DiaryAddProductForm = ({ gram, product, onSubmit, onChange }) => {
   const size = useWindowSize();
+  // const idToken = useSelector((state) => state.auth.user.accessToken)
+  // const dispatch = useDispatch();
+  // const [state, setState] = useState({
+  //   date: '',
+  //   product: '',
+  //   gram: '',
+  // });
+
 
   function useWindowSize() {
     // Initialize state with undefined width/height so server and client renders match
@@ -42,52 +49,64 @@ const DiaryAddProductForm = () => {
   }
 
 
-  const handleChange = e => {
-    const { name, value } = e.target;
-    setState(prev => ({
-      ...prev, [name]: value
-    }))
-  }
+  // const handleChange = e => {
+  //   const { name, value } = e.target;
+  //   setState(prev => ({
+  //     ...prev, [name]: value
+  //   }))
+  //   // console.log(state)
+  // }
 
-  const handleSubmit = e => {
-    e.preventDefault();
-  }
+  // const handleSubmit = e => {
+  //   e.preventDefault();
+  //   // dispatch(addNewProductDairyOperation(state))
+  //   axios.post(
+  //     `https://slimmom-backend.goit.global/day?auth=${idToken}`,
+  //     state
+  //   )
+  //     .then(response => console.log(response))
+  //   setState({
+  //     date: '',
+  //     product: '',
+  //     gram: '',
+  //   })
+  // }
 
 
   return (
+    <>
+      {/* <DiaryDateCalendar /> */}
+      <DiaryFormWrapper>
+        <form onSubmit={onSubmit} className='formDairyAddProduct'>
+          <div className='inputBlockDairyAddProduct'>
+            <label>
+              <input type="text"
+                name="product"
+                value={product}
+                onChange={onChange}
+                placeholder='Введите название продукта'
+                className='inputDairyAddProduct' />
+            </label>
+            <label>
+              <input type="number"
+                name="gram"
+                value={gram}
+                onChange={onChange}
+                placeholder='Граммы'
+                className='inputDairyAddProduct secondInputLength' />
+            </label>
+          </div>
+          {product && (<select className='selectDairyAddProduct'>
+            <option ></option>
+          </select>)}
+          <button type='submit' className='buttonDairyAddProduct'>
+            {size.width < 768 ? 'Добавить' : '+'}
+          </button>
 
-
-    <DiaryFormWrapper>
-      <form onSubmit={handleSubmit} className='formDairyAddProduct'>
-        <div className='inputBlockDairyAddProduct'>
-          <label>
-            <input type="text"
-              name="product"
-              value={state.product}
-              onChange={handleChange}
-              placeholder='Введите название продукта'
-              className='inputDairyAddProduct' />
-          </label>
-          <label>
-            <input type="number"
-              name="gram"
-              value={state.gram}
-              onChange={handleChange}
-              placeholder='Граммы'
-              className='inputDairyAddProduct secondInputLength' />
-          </label>
-        </div>
-        <select className='selectDairyAddProduct'>
-          <option ></option>
-        </select>
-        <button type='submit' className='buttonDairyAddProduct'>
-          {size.width < 768 ? 'Добавить' : '+'}
-        </button>
-        {/* {size.width < 768 && <button type='submit' className='buttonDairyAddProduct'>
-          Отмена
-        </button>} */}
-      </form>
-    </DiaryFormWrapper>
+        </form>
+        {/* <Modal openModal={openModal} toggleModal={toggleModal} /> */}
+      </DiaryFormWrapper>
+    </>
   )
 }
 

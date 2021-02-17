@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-
+import { useSelector, useDispatch } from "react-redux";
 import DiaryProductList from '../../components/diaryProductList/DiaryProductList';
 import DiaryAddProductForm from '../../components/diaryAddProductForm/DiaryAddProductForm'
 import DiaryDateCalendar from '../../components/diaryDateCalendar/DiaryDateCalendar'
@@ -7,9 +7,27 @@ import { DiaryWrapper } from './DiaryStyle';
 
 const Diary = () => {
     const size = useWindowSize();
-    // const [state, setState] = useState({
-    //     modal: false,
-    // });
+    // const idToken = useSelector((state) => state.auth.user.accessToken)
+    const dispatch = useDispatch();
+    const [state, setState] = useState({
+        date: '',
+        product: '',
+        gram: '',
+    });
+
+    const handleChange = e => {
+        const { name, value } = e.target;
+        setState(prev => ({
+            ...prev, [name]: value
+        }))
+        console.log(state)
+    }
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        // dispatch(addNewProductDairyOperation(state))
+
+    }
 
     function useWindowSize() {
         // Initialize state with undefined width/height so server and client renders match
@@ -44,16 +62,10 @@ const Diary = () => {
         return windowSize;
     }
 
-    // const handleClick = () => {
-    //     setState(prev => ({
-    //         ...prev, modal: true
-    //     }))
-
-    // }
     return (
         <DiaryWrapper>
-            <DiaryDateCalendar />
-            <DiaryAddProductForm />
+            <DiaryDateCalendar onChange={handleChange} />
+            <DiaryAddProductForm gram={state.gram} product={state.product} nSubmit={handleSubmit} onChange={handleChange} />
             <DiaryProductList />
             {size.width < 768 && (<button type='submit' className='buttomDiaryProductList'>+
             </button>)}
