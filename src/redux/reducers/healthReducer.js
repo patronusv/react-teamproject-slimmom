@@ -48,7 +48,6 @@ const dayInfoReducer = createReducer(
             console.log('item.id', item.id);
             console.log('payload', payload);
            return item.id !== payload
-        
         })]
     }),
     [healthActions.deleteDiaryItemRequest]:(state,{payload})=>({

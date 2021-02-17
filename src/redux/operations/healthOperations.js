@@ -75,21 +75,23 @@ const deleteDiaryItemOperation = (id) => async(dispatch,getState) =>{
   };
 
   console.log('dayId', day, 'eatenProductId',id);
-  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-  axios.defaults.headers.common.accept = 'application/json';
+  // axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  // axios.defaults.headers.common.accept = 'application/json';
  
       dispatch(healthActions.deleteDiaryItemRequest());
   
       try {
-          const response = await axios.delete('https://slimmom-backend.goit.global/day',{
-            body: JSON.stringify(obj),
+          const response = await axios.delete('/day', obj,{
+            // body: JSON.stringify(obj),
             headers: {
-              'Content-Type': 'application/json'
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${token}`,
+              "Accept": "application/json"
             },  
           });
    
           console.log(response);
-          dispatch(healthActions.deleteDiaryItemSuccess(id));
+          // dispatch(healthActions.deleteDiaryItemSuccess(response.data));
         } catch (error) {
           dispatch(healthActions.deleteDiaryItemError(error.message));
         } finally {
