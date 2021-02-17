@@ -2,19 +2,21 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { DiaryFormWrapper } from './DiaryAddProductFormStyle';
-import { addNewProductDairyOperation } from '../../redux/operations/healthOperations';
+import healthOperations, { addNewProductDairyOperation } from '../../redux/operations/healthOperations';
 import DiaryDateCalendar from '../diaryDateCalendar/DiaryDateCalendar';
-// import Modal from '../modal/Modal';
 
-const DiaryAddProductForm = ({ gram, product, onSubmit, onChange }) => {
+
+const DiaryAddProductForm = () => {
   const size = useWindowSize();
-  // const idToken = useSelector((state) => state.auth.user.accessToken)
-  // const dispatch = useDispatch();
-  // const [state, setState] = useState({
-  //   date: '',
-  //   product: '',
-  //   gram: '',
-  // });
+  const date = useSelector(state => state.health.getDate.date)
+  const product = useSelector(state => state.health.product)
+
+  const dispatch = useDispatch();
+  const [state, setState] = useState({
+    productName: '',
+    weight: '',
+    productId: '',
+  });
 
 
   function useWindowSize() {
@@ -49,63 +51,70 @@ const DiaryAddProductForm = ({ gram, product, onSubmit, onChange }) => {
   }
 
 
-  // const handleChange = e => {
-  //   const { name, value } = e.target;
-  //   setState(prev => ({
-  //     ...prev, [name]: value
-  //   }))
-  //   // console.log(state)
-  // }
+  const handleChange = e => {
+    const { name, value } = e.target;
+    setState(prev =>
+      ({ ...prev, [name]: value })
+    )
+    name === 'productName' && dispatch(healthOperations.getProductOperation(state.productName));
+    console.log(state)
+  }
 
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-  //   // dispatch(addNewProductDairyOperation(state))
-  //   axios.post(
-  //     `https://slimmom-backend.goit.global/day?auth=${idToken}`,
-  //     state
-  //   )
-  //     .then(response => console.log(response))
-  //   setState({
-  //     date: '',
-  //     product: '',
-  //     gram: '',
-  //   })
-  // }
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log(date)
+    dispatch(healthOperations.postEatenProductOperation({ date, productId: state.productId, weight: state.weight }))
+    // dispatch(addNewProductDairyOperation(state))
+    // axios.post(
+    //   `https://slimmom-backend.goit.global/day?auth=${idToken}`,
+    //   state
+    // )
+    //   .then(response => console.log(response))
+    setState({
+      productName: '',
+      weight: '',
+      productId: '',
+    })
+  }
 
 
   return (
     <>
       {/* <DiaryDateCalendar /> */}
       <DiaryFormWrapper>
-        <form onSubmit={onSubmit} className='formDairyAddProduct'>
+        <form onSubmit={handleSubmit} className='formDairyAddProduct'>
           <div className='inputBlockDairyAddProduct'>
             <label>
               <input type="text"
-                name="product"
-                value={product}
-                onChange={onChange}
+                name="productName"
+                value={state.productName}
+                onChange={handleChange}
                 placeholder='Введите название продукта'
                 className='inputDairyAddProduct' />
             </label>
             <label>
               <input type="number"
-                name="gram"
-                value={gram}
-                onChange={onChange}
+                name="weight"
+                value={state.weight}
+                onChange={handleChange}
                 placeholder='Граммы'
                 className='inputDairyAddProduct secondInputLength' />
             </label>
           </div>
-          {product && (<select className='selectDairyAddProduct'>
-            <option ></option>
-          </select>)}
+          {product.length ? (product.length < 20 ?
+            (<select className='selectDairyAddProduct' onChange={handleChange} name='productId' value={state.productId}>
+              <option>Выберите продукт из списка</option>
+              {product.map(item => <option value={item._id}>{item.title.ru}</option>)}
+            </select>) :
+            <p>Введите более точное название</p>) : null}
           <button type='submit' className='buttonDairyAddProduct'>
             {size.width < 768 ? 'Добавить' : '+'}
           </button>
 
         </form>
-        {/* <Modal openModal={openModal} toggleModal={toggleModal} /> */}
+
       </DiaryFormWrapper>
+
     </>
   )
 }

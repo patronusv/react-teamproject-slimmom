@@ -1,19 +1,35 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from "react-redux";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import moment from 'moment';
 import { DateCalendarWrapper } from './DiaryDateCalendarStyle';
 import IconCalendar from './IconCalendar';
+import healthOperations from '../../redux/operations/healthOperations'
 
-const DiaryDateCalendar = ({ onChange }) => {
+const DiaryDateCalendar = () => {
 
-
+  const [state, setState] = useState({ date: '', });
   const [startDate, setStartDate] = useState(new Date());
+  const dispatch = useDispatch();
 
-  const handleChange = (date) => {
-    setStartDate(date)
-    onChange(date)
+
+
+  const handleChange = (day) => {
+
+    setStartDate(day)
+    // const dateX = { date: day.format('YYYY-MM-DD') }
+    // setState(prev => ({
+    //   ...prev, date: moment(day).format('YYYY-MM-DD')
+    // }))
+
+    const date = { date: moment(day).format('YYYY-MM-DD') };
+    dispatch(healthOperations.getDayInfoOperation(date));
+    dispatch(healthOperations.setDateOperation(date))
+    console.log('current ==>', day)
     console.log(date)
-    console.log(startDate)
+    // console.log('user ==>', date)
+    // console.log(startDate)
   }
 
 

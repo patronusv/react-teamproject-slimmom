@@ -32,7 +32,7 @@ const Modal = ({ children, openModal, toggleModal }) => {
     }
   };
   const handleClick = e => {
-    if (e.target.dataset.name !== 'overlay') {
+    if (e.target.dataset.name !== 'overlay' && e.code === 'Escape') {
       return;
     }
     toggleModal();

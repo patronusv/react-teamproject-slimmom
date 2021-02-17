@@ -20,6 +20,10 @@ const postEatenProductRequest = createAction('health/postEatenProductRequest');
 const postEatenProductSuccess = createAction('health/postEatenProductSuccess');
 const postEatenProductError = createAction('health/postEatenProductError');
 
+
+const getDateSuccess = createAction('health/getDateSuccess');
+
+
 export default {
   getUserInfoRequest,
   getUserInfoSuccess,
@@ -36,4 +40,5 @@ export default {
   postEatenProductRequest,
   postEatenProductSuccess,
   postEatenProductError,
+  getDateSuccess
 };

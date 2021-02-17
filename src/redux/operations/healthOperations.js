@@ -65,10 +65,15 @@ const postEatenProductOperation = product => async dispatch => {
   }
 };
 
+const setDateOperation = date => async dispatch => {
+  dispatch(healthActions.getDateSuccess(date))
+}
+
 export default {
   getUserInfoOperation,
   getDailyRateOperation,
   getProductOperation,
   getDayInfoOperation,
   postEatenProductOperation,
+  setDateOperation
 };
