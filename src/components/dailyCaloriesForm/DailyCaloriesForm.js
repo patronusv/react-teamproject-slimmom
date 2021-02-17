@@ -5,6 +5,7 @@ import { isAuth } from '../../redux/selectors/authSelectors';
 import Modal from '../modal/Modal';
 import sprite from '../../assets/svg/sprite.svg';
 import DailyCaloriesFormStyled from './DailyCaloriesFormStyled';
+import DailyCalorieIntake from '../dailyCalorieIntake/DailyCalorieIntake';
 
 const initialState = {
   height: '',
@@ -191,7 +192,9 @@ const DailyCaloriesForm = () => {
           Похудеть
         </button>
       </form>
-      <Modal openModal={openModal} toggleModal={toggleModal} />
+      <Modal openModal={openModal} toggleModal={toggleModal}>
+        <DailyCalorieIntake />
+      </Modal>
     </DailyCaloriesFormStyled>
   );
 };
