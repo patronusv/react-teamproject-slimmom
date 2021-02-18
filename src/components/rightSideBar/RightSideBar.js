@@ -21,7 +21,7 @@ const RightSideBar = () => {
       <div className='rightSideBar'>
         <div className='blockLeft'>
           <h2 className='title'>Сводка за {daySummary.getDaySummary.date ? daySummary.getDaySummary.date : (currenDate.getDate() + '.' + (currenDate.getMonth() + 1) + '.' + currenDate.getFullYear())} </h2>
-          {!!daySummary.getDaySummary ?
+          {daySummary.getDaySummary ?
             <ul className='list'>
               <li className='listItem'>
                 <p className='listItemText'>Осталось
@@ -79,9 +79,9 @@ const RightSideBar = () => {
         </div>
         <div className='blockRight'>
           <h2 className='title'>Нерекомендуемые продукты</h2>
-          {!!daySummary.getNotAllowedProducts ?
+          {daySummary.getNotAllowedProducts ?
             <ul className='list'>
-              {!!daySummary.getNotAllowedProducts ?
+              {daySummary.getNotAllowedProducts ?
                 <li className='listItem'><p className='listItemText'>{daySummary.getNotAllowedProducts.slice(0, 5).join(', ')}</p></li>
                 : <li><p>Здесь будет отображаться Ваш рацион</p></li>
               }
