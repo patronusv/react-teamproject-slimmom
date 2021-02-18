@@ -2,13 +2,13 @@ import DailyCaloriesForm from '../../components/dailyCaloriesForm/DailyCaloriesF
 import HomePageStyled from './HomeStyled';
 
 const Home = () => {
-    return (
-        <HomePageStyled>
-            {/* <div className="container"> */}
-            <DailyCaloriesForm />
-            {/* </div> */}
-        </HomePageStyled>
-    );
+  return (
+    <HomePageStyled>
+      <div className="container">
+        <DailyCaloriesForm />
+      </div>
+    </HomePageStyled>
+  );
 };
 
 export default Home;
