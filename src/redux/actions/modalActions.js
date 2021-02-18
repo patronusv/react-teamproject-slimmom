@@ -4,4 +4,4 @@ const toggleModal = createAction('auth/toggleModal');
 const onModal = createAction('auth/onModal');
 const offModal = createAction('auth/offModal');
 
-export default { toggleModal };
+export default { toggleModal, onModal, offModal };
