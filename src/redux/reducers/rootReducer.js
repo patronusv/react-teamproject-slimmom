@@ -5,6 +5,7 @@ import authReducer from './authReducer';
 import errorReducer from './errorReducer';
 import healthReducer from './healthReducer';
 import loaderReducer from './loaderReducer';
+import modalReducer from './modalReducer';
 
 const authPersistConfig = {
   key: 'auth',
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   health: healthReducer,
   loading: loaderReducer,
   error: errorReducer,
+  modal: modalReducer,
 });
 
 export default rootReducer;
