@@ -1,10 +1,12 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import authOperations from '../../redux/operations/authOperations';
+import { isAuth } from '../../redux/selectors/authSelectors';
 
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as yup from 'yup';
 
-import authOperations from '../../redux/operations/authOperations';
 import LoginFormWrapper from './LoginFormStyled';
 
 const initialState = {
@@ -27,11 +29,14 @@ const LoginForm = () => {
   });
 
   const dispatch = useDispatch();
+  const authFlag = useSelector(state => state.auth.accessToken);
+  const history = useHistory();
   const [state, setState] = useState({ ...initialState });
 
   const onHandleSubmit = values => {
     dispatch(authOperations.loginOperation(values));
     setState({ ...initialState });
+    history.push('/calculator');
   };
 
   return (
@@ -67,7 +72,11 @@ const LoginForm = () => {
                   name="password"
                   value={values.password}
                 />
-                <ErrorMessage className="error" name="email" component="div" />
+                <ErrorMessage
+                  className="error"
+                  name="password"
+                  component="div"
+                />
               </label>
             </div>
 

@@ -4,7 +4,7 @@ import Logo from '../logo/Logo';
 
 import UserInfo from '../userInfo/UserInfo';
 import Navigation from '../navigation/Navigation';
-import { isAuth } from '../../redux/selectors/authSelectors';
+import {isAuth} from '../../redux/selectors/authSelectors';
 import {
   HeaderContainer,
   Nav,
@@ -23,7 +23,6 @@ const Header = () => {
   const [menuBurger, setMenuBurger] = useState(false);
   const toggleBurger = () => setMenuBurger(!menuBurger);
   // console.log(menuBurger, setMenuBurger);
-  // const authFlag = true;
 
   return (
     <>
