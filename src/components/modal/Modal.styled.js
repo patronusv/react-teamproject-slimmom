@@ -1,4 +1,8 @@
 import styled from 'styled-components';
+import arrowCloseOrange from './image/arrowCloseOrange.svg';
+import arrowClose from './image/arrowClose.svg';
+import iconClose from './image/iconClose.svg';
+import iconCloseWhite from './image/iconCloseWhite.svg';
 
 const ModalWindow = styled.div`
   position: fixed;
@@ -17,7 +21,6 @@ const ModalWindow = styled.div`
   }
 
   @media (min-width: 1280px) and (orientation: landscape) {
-    top: 170px;
   }
 
   .open {
@@ -58,7 +61,7 @@ const ModalWindow = styled.div`
       min-width: 200px;
       min-height: 200px;
       height: auto;
-      top: 40%;
+      top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       padding: 0 40px;
@@ -87,7 +90,7 @@ const ModalWindow = styled.div`
     cursor: pointer;
     transition: background-color 200ms ease-in-out;
     outline: none;
-    background-image: url('./image/icon-close.svg');
+    background-image: url(${iconClose});
     background-position: center;
     background-size: 60%;
     background-repeat: no-repeat;
@@ -96,7 +99,7 @@ const ModalWindow = styled.div`
 
   .closeButton:hover,
   .closeButton:focus {
-    background-image: url('./image/icon-close-wite.svg');
+    background-image: url(${iconCloseWhite});
     background-color: #fc842d;
   }
   .arrowCloseButton {
@@ -111,13 +114,13 @@ const ModalWindow = styled.div`
     cursor: pointer;
     transition: background-color 200ms ease-in-out;
     outline: none;
-    background-image: url('./image/arrow-close.svg');
+    background-image: url(${arrowClose});
     background-repeat: no-repeat;
     transition: all 300ms ease-in;
   }
   .arrowCloseButton:hover,
   .arrowCloseButton:focus {
-    background-image: url('./image/arrow-close-orange.svg');
+    background-image: url(${arrowCloseOrange});
   }
 `;
 export default ModalWindow;

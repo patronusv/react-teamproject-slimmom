@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
+import moment from 'moment';
 import healthActions from '../actions/healthActions';
 import authActions from '../actions/authActions';
-import moment from 'moment';
+
 
 const initialState = {
   userData: {},
@@ -74,11 +75,16 @@ const dayInfoReducer = createReducer(
   },
 );
 
+const getDateReducer = createReducer(moment(Date.now()).format('YYYY-MM-DD'),
+  { [healthActions.getDateSuccess]: (_, { payload }) => payload }
+)
+
 const healthReducer = combineReducers({
   userInfo: userInfoReducer,
   dailyRate: dailyRateReducer,
   product: productReducer,
   dayInfo: dayInfoReducer,
+  getDate: getDateReducer,
 });
 
 export default healthReducer;

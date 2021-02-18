@@ -9,7 +9,7 @@ margin-top:100px;
 margin-bottom:60px;
 padding-left:92px;
 }
-@media screen and (min-width:1200px){
+@media screen and (min-width:1280px){
 margin-top:143px;
 padding-left:115px;
 }
