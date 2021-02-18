@@ -12,7 +12,6 @@ const DiaryProductList = () => {
 
   useEffect(() => {
     healthOperations.getDayInfoOperation();
-    
   }, [])
  
  

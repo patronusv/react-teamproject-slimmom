@@ -74,8 +74,6 @@ const deleteDiaryItemOperation = (id) => async(dispatch,getState) =>{
     eatenProductId: id
   };
 
-  console.log('dayId', day, 'eatenProductId',id);
- 
       dispatch(healthActions.deleteDiaryItemRequest());
   
       try {
@@ -87,18 +85,13 @@ const deleteDiaryItemOperation = (id) => async(dispatch,getState) =>{
             // },  
             data: obj
           });
-   
-          console.log(response);
           dispatch(healthActions.deleteDiaryItemSuccess(id));
             // setTimeout(() => {
               
             // }, 2000);
         } catch (error) {
           dispatch(healthActions.deleteDiaryItemError(error.message));
-        } finally {
-          dispatch(healthActions.deleteDiaryItemRequest());
-        }
-  
+        } 
   }
 
 export default {

@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
 import healthActions from '../actions/healthActions';
 import authActions from '../actions/authActions';
+import moment from 'moment';
 
 const initialState = {
   userData: {},
@@ -20,7 +21,7 @@ const dailyRateReducer = createReducer(
   {},
   {
     [healthActions.getDailyRateSuccess]: (_, { payload }) => payload,
-    [authActions.logOutSuccess]: () => {},
+    [authActions.logOutSuccess]: () => { },
   },
 );
 
@@ -29,12 +30,24 @@ const productReducer = createReducer([], {
   [authActions.logOutSuccess]: () => [],
 });
 
-const dayInfoReducer = createReducer(
+const initDayInfoState = {
+  date: moment(Date.now()).format('YYYY-MM-DD'),
+  id: '',
+  eatenProducts: [],
+  daySummary: {
+    date: moment(Date.now()).format('YYYY-MM-DD'),
+    id: '',
+    userId: '',
+    kcalLeft: 0,
+    kcalConsumed: 0,
+    dailyRate: 0,
+    percentsOfDailyRate: 0,
+  }
 
-  {
-    error:"", 
-    loading:false, 
-    },
+}
+
+const dayInfoReducer = createReducer(
+  { ...initDayInfoState },
   {
     [healthActions.getDayInfoSuccess]: (_, { payload }) => payload,
     [healthActions.postEatenProductSuccess]: (state, { payload }) => ({
@@ -45,20 +58,19 @@ const dayInfoReducer = createReducer(
     [healthActions.deleteDiaryItemSuccess]: (state,{payload})=>({
         ...state,
         eatenProducts: [...state.eatenProducts.filter(item=>{
-            console.log('item.id', item.id);
-            console.log('payload', payload);
            return item.id !== payload
         })]
     }),
-    [healthActions.deleteDiaryItemRequest]:(state,{payload})=>({
-        ...state,
-        loading: !state.loading
-    }),
-    [healthActions.deleteDiaryItemError]:(state,{payload})=>({
-        ...state,
-        error: payload
-    }),
+    // [healthActions.deleteDiaryItemRequest]:(state,{payload})=>({
+    //     ...state,
+    //     loading: !state.loading
+    // }),
+    // [healthActions.deleteDiaryItemError]:(state,{payload})=>({
+    //     ...state,
+    //     error: payload
+    // }),
     [authActions.logOutSuccess]: () => {},
+    [authActions.logOutSuccess]: () => { },
   },
 );
 

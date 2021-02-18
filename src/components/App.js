@@ -5,6 +5,7 @@ import Header from './header/Header';
 import Main from './main/Main';
 import healthOperations from '../redux/operations/healthOperations';
 import moment from 'moment';
+import RightSideBar from './rightSideBar/RightSideBar';
 
 const App = () => {
   const dispatch = useDispatch();

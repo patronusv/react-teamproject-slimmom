@@ -4,9 +4,9 @@ import HomePageStyled from './HomeStyled';
 const Home = () => {
   return (
     <HomePageStyled>
-      {/* <div className="container"> */}
-      <DailyCaloriesForm />
-      {/* </div> */}
+      <div className="container">
+        <DailyCaloriesForm />
+      </div>
     </HomePageStyled>
   );
 };
