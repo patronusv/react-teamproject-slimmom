@@ -6,7 +6,6 @@ const Wrapper = styled.div`
   justify-content: center;
 
   width: 290px;
-  margin-top: 30px;
   padding-bottom: 15px;
 
   @media screen and (min-width: 768px) {
@@ -52,6 +51,7 @@ const Wrapper = styled.div`
   .coloriesFormListItem {
     display: flex;
     width: 240px;
+    //margin-top: 30px;
     //border-bottom: 1px solid #e0e0e0;
   }
   .coloriesFormListItem:not(:last-child) {
@@ -193,12 +193,12 @@ const Wrapper = styled.div`
     @media screen and (min-width: 1280px) {
     }
   }
+  .coloriesFormError {
+    position: absolute;
+    top: 650px;
+    width: 300px;
+    color: red;
+  }
 `;
-
-// export const SpanStyled = styled.span`
-//   color: ${props =>
-//     //console.log('props', props)
-//     props.checked ? props.className.color[0] : props.className.color[1]};
-// `;
 
 export default Wrapper;
