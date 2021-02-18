@@ -27,7 +27,7 @@ const DailyCalorieIntake = () => {
           Ваша рекомендуемая суточная норма калорий составляет
         </h1>
         <p className={styles.info}>
-          <span className={styles.ccal}>{DailyRate}</span> ккал
+          <span className={styles.ccal}>{DailyRate.dailyRate}</span> ккал
         </p>
         <div className={styles.mustntEatDiv}>
           <h2 className={styles.mustntEat}>

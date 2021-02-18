@@ -3,7 +3,7 @@ import { useWindowWidth } from '@react-hook/window-size';
 // import style from './Modal.module.css';
 import ModalWindow from './Modal.styled';
 
-const Modal = ({ children, openModal, toggleModal }) => {
+const Modal = ({ children }) => {
   //   у компоненті, який викликає модальне вікно, потрібно створити локальний стейт:
   //   const [openModal, setOpenModal]= useState(false)
   //   та прописати логіку тогла (закриття/відкриття модального вікна):
