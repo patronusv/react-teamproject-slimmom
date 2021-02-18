@@ -171,6 +171,7 @@ const Wrapper = styled.div`
       margin-top: 60px;
     }
     @media screen and (min-width: 1280px) {
+      margin: 60px 0 0 auto;
     }
   }
 
