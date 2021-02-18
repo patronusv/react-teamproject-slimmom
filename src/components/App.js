@@ -48,7 +48,7 @@ const App = () => {
     // dispatch(healthOperations.getProductOperation('ябл'));
     // dispatch(healthOperations.getDayInfoOperation(date));
     // dispatch(healthOperations.postEatenProductOperation(product));
-    dispatch(modalActions.toggleModal());
+    // dispatch(modalActions.toggleModal());
   }, []);
 
   return (
