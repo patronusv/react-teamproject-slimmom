@@ -73,5 +73,23 @@ export const NavListContainer = styled.ul`
     line-height: 13px;
     text-align: right;
     letter-spacing: 0.04em;
+
+    ${props =>
+      props.isActive &&
+      ` 
+        font-family: Verdana;
+        font-size: 24px;
+        line-height: 29px;
+        text-align: center;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: #9B9FAA;
+        :hover, :focus, :active { color: white; }
+        @media screen and (min-width: 320px) and (max-width: 767px) {
+            font-size: 18px;
+            line-height: 22px;;   
+        }
+        
+    `}
   }
 `;
