@@ -20,7 +20,7 @@ const Main = () => {
           {mainRoutes.map(route => {
             if (route.isPrivate === true) {
               return (
-                dailyRate.dailyRate && (
+                dailyRate && (
                   <PrivateRoute {...route} isAuth={authFlag} key={route.path} />
                 )
               );
