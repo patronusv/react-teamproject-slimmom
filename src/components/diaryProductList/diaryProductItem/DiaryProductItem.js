@@ -9,14 +9,17 @@ const DiaryProductItem = ({onClick,title,kcal,weight,id}) => {
             <LI>
                 <ul className='innerListDairyProduct'>
                     <li className='innerItemDairyProduct'>{title}</li>
-                    <li className='innerItemDairyProduct'>{weight}</li>
-                    <li className='innerItemDairyProduct'>{kcal}</li>
+                    <li className='innerItemDairyProduct'>{weight}г</li>
+                    <li className='innerItemDairyProduct'>{kcal}ккал</li>
+                    <li className='innerItemDairyProduct'>
+                        <button className='buttonItemDairyProduct' type="button" onClick={onClick} data-id={id}>
+                            &#10005;
+                    {/* <CloseIcon/> */}
+                        </button>
+                    </li>
                 </ul>
 
-                <button className='buttonItemDairyProduct' type="button" onClick={onClick} data-id={id}>
-                   &#10005;
-                    {/* <CloseIcon/> */}
-                </button>
+               
             </LI>
         </>
     )

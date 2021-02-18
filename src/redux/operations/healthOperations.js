@@ -75,23 +75,24 @@ const deleteDiaryItemOperation = (id) => async(dispatch,getState) =>{
   };
 
   console.log('dayId', day, 'eatenProductId',id);
-  // axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-  // axios.defaults.headers.common.accept = 'application/json';
  
       dispatch(healthActions.deleteDiaryItemRequest());
   
       try {
-          const response = await axios.delete('/day', obj,{
-            // body: JSON.stringify(obj),
-            headers: {
-              "Content-Type": "application/json",
-              "Authorization": `Bearer ${token}`,
-              "Accept": "application/json"
-            },  
+          const response = await axios.delete('/day', {
+            // headers: {
+            //   "Content-Type": "application/json",
+            //   "Authorization": `Bearer ${token}`,
+            //   "Accept": "application/json"
+            // },  
+            data: obj
           });
    
           console.log(response);
-          // dispatch(healthActions.deleteDiaryItemSuccess(response.data));
+          dispatch(healthActions.deleteDiaryItemSuccess(id));
+            // setTimeout(() => {
+              
+            // }, 2000);
         } catch (error) {
           dispatch(healthActions.deleteDiaryItemError(error.message));
         } finally {
