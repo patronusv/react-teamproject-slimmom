@@ -14,10 +14,10 @@ const initialState = {
 
 const RegistrationForm = () => {
   const validateSchema = yup.object().shape({
-    name: yup
+    username: yup
       .string()
       .typeError(' Должно быть строкой ')
-      .required('Обязательно'),
+      .required('!!! Необходимо заполнить =_='),
     email: yup
       .string()
       .email(' Введите верный email ')
@@ -37,7 +37,6 @@ const RegistrationForm = () => {
     dispatch(authOperations.registerOperation(values));
     // dispatch(authOperations.loginOperation(values));
     setState({ ...initialState });
-    console.log('hello');
   };
 
   return (
@@ -48,12 +47,10 @@ const RegistrationForm = () => {
         initialValues={{ username: '', email: '', password: '' }}
         validationSchema={validateSchema}
         onSubmit={values => {
-          console.log('hello');
           onHandleSubmit(values);
-          console.log(values);
         }}
       >
-        {({ values, isValid, dirty, isSubmitting, handleBlur }) => (
+        {({ values, isValid, dirty, isSubmitting }) => (
           <Form>
             <div className="form">
               <label className="formLabel">
@@ -63,7 +60,6 @@ const RegistrationForm = () => {
                   type="text"
                   name="username"
                   value={values.username}
-                  onBlur={handleBlur}
                 />
                 <ErrorMessage
                   className="error"
@@ -79,7 +75,6 @@ const RegistrationForm = () => {
                   type="email"
                   name="email"
                   value={values.email}
-                  onBlur={handleBlur}
                 />
                 <ErrorMessage className="error" name="email" component="div" />
               </label>
@@ -91,7 +86,6 @@ const RegistrationForm = () => {
                   type="password"
                   name="password"
                   value={values.password}
-                  onBlur={handleBlur}
                 />
                 <ErrorMessage
                   className="error"

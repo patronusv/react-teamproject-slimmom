@@ -31,7 +31,6 @@ const LoginForm = () => {
 
   const onHandleSubmit = values => {
     dispatch(authOperations.loginOperation(values));
-    console.log('object');
     setState({ ...initialState });
   };
 
@@ -46,7 +45,7 @@ const LoginForm = () => {
           onHandleSubmit(values);
         }}
       >
-        {({ values, isValid, dirty, isSubmitting, handleBlur }) => (
+        {({ values, isValid, dirty, isSubmitting }) => (
           <Form>
             <div className="form">
               <label className="formLabel">
@@ -55,7 +54,6 @@ const LoginForm = () => {
                   className="formInput"
                   type="email"
                   name="email"
-                  // onBlur={handleBlur}
                   value={values.email}
                 />
                 <ErrorMessage className="error" name="email" component="div" />
@@ -67,14 +65,17 @@ const LoginForm = () => {
                   className="formInput"
                   type="password"
                   name="password"
-                  // onBlur={handleBlur}
                   value={values.password}
                 />
                 <ErrorMessage className="error" name="email" component="div" />
               </label>
             </div>
 
-            <button className="formBtn" type="submit">
+            <button
+              className="formBtn"
+              type="submit"
+              disabled={!isValid && !dirty && isSubmitting}
+            >
               <span className="formBtnText">Вход</span>
             </button>
           </Form>

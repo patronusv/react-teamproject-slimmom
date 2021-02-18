@@ -13,22 +13,12 @@ const RegistrationFormWrapper = styled.div`
     height: 363px;
   }
 
-  .success-msg {
-    color: #1d3557;
-    background: #8fffab;
-    display: inline-block;
-    width: 100%;
-    text-align: center;
-    padding: 0.5rem;
-    border-radius: 4px;
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-    font-weight: 600;
-  }
   .error {
+    position: absolute;
+    top: calc(100% + 0.2em);
+
     color: #e63946;
     font-size: 1rem;
-    margin-top: 0.3rem;
   }
 
   .pageTitle {
@@ -53,6 +43,8 @@ const RegistrationFormWrapper = styled.div`
   }
 
   .formLabel {
+    position: relative;
+
     display: flex;
     height: 35.5px;
     border-bottom: 1px solid #e0e0e0;

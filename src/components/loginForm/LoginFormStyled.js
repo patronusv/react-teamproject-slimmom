@@ -33,24 +33,11 @@ const LoginFormWrapper = styled.div`
   }
 
   .error {
+    position: absolute;
+    top: calc(100% + 0.2em);
+
     color: #e63946;
     font-size: 1rem;
-
-    position: absolute;
-    top: calc(100% + 0.5em);
-
-    /* @media (min-width: 767px) {
-      bottom: 55%;
-    }
-    @media (min-width: 814px) {
-      bottom: 55%;
-    }
-    @media (min-width: 1024px) {
-      top: 38%;
-    }
-    @media (min-width: 1440px) {
-      top: 33%;
-    } */
   }
 
   .formLabel {
