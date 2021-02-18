@@ -12,7 +12,6 @@ const token = {
   },
 };
 
-
 const registerOperation = data => async dispatch => {
   dispatch(authActions.registerRequest());
   try {
@@ -56,6 +55,7 @@ const refreshOperation = () => async (dispatch, getState) => {
   dispatch(authActions.refreshRequest());
   try {
     const response = await axios.post(`/auth/refresh`, { sid: persistSid });
+    console.log('response', response);
     dispatch(authActions.refreshSuccess(response.data));
     token.set(response.data.newAccessToken);
     const userResponse = await axios.get('/user');

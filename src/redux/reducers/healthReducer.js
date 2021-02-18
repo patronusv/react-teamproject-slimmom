@@ -21,7 +21,7 @@ const dailyRateReducer = createReducer(
   {},
   {
     [healthActions.getDailyRateSuccess]: (_, { payload }) => payload,
-    [authActions.logOutSuccess]: () => { },
+    [authActions.logOutSuccess]: () => {},
   },
 );
 
@@ -42,9 +42,8 @@ const initDayInfoState = {
     kcalConsumed: 0,
     dailyRate: 0,
     percentsOfDailyRate: 0,
-  }
-
-}
+  },
+};
 
 const dayInfoReducer = createReducer(
   { ...initDayInfoState },
@@ -55,7 +54,7 @@ const dayInfoReducer = createReducer(
       eatenProducts: [...state.eatenProducts, payload.eatenProduct],
       daySummary: payload.daySummary,
     }),
-    [authActions.logOutSuccess]: () => { },
+    [authActions.logOutSuccess]: () => {},
   },
 );
 

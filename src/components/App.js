@@ -7,6 +7,7 @@ import healthOperations from '../redux/operations/healthOperations';
 import moment from 'moment';
 import RightSideBar from './rightSideBar/RightSideBar';
 import modalActions from '../redux/actions/modalActions';
+import authActions from '../redux/actions/authActions';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -49,6 +50,13 @@ const App = () => {
     // dispatch(healthOperations.getDayInfoOperation(date));
     // dispatch(healthOperations.postEatenProductOperation(product));
     // dispatch(modalActions.toggleModal());
+  }, []);
+  useEffect(() => {
+    try {
+      dispatch(authOperations.refreshOperation());
+    } catch (error) {
+      dispatch(authActions.logOutSuccess());
+    }
   }, []);
 
   return (
