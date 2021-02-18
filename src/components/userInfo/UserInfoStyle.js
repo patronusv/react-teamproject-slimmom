@@ -9,14 +9,14 @@ const User = styled.div`
     background: #eff1f3;
     margin: 0px auto;
   }
-  @media screen and (min-width: 768px) and (max-width: 1079px) {
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
     width: 202px;
     /* margin-left: 174px;
     margin-top: 34px; */
   }
-  @media screen and (min-width: 1080px) {
+  @media screen and (min-width: 1280px) {
     width: 215px;
-    /* transform: translate(100px, 21px); */
+    transform: translate(100px, 21px);
     /* margin-right: 50px; */
     /* margin-top: 134px; */
   } ;

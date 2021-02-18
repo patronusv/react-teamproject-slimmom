@@ -25,9 +25,8 @@ export const NavListContainer = styled.ul`
             margin-top: 140px;  
         }
 
-        @media screen and (min-width: 768px) and (max-width: 1079px) {
+        @media screen and (min-width: 768px) and (max-width: 1279px) {
             width: 306px;
-            margin-left: 231px;
             margin-top: 188px;
         }
     `}

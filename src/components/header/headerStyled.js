@@ -11,7 +11,7 @@ export const HeaderContainer = styled.header`
     height: 80px;
   }
 
-  @media screen and (min-width: 768px) and (max-width: 1079px) {
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
     width: 768px;
     height: 80px;
   }
@@ -40,7 +40,7 @@ export const Nav = styled.nav`
     
     `}
 
-  @media (max-width: 1079px) {
+  @media (max-width: 1279px) {
     display: ${props => (props.isAuth ? 'none' : 'block')};
   }
 
@@ -86,11 +86,11 @@ export const BurgerButton = styled.button`
     /* margin-left: 110px; */
   }
 
-  @media screen and (min-width: 768px) and (max-width: 1079px) {
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
     margin-left: 56px;
   }
 
-  @media (min-width: 1079px) {
+  @media (min-width: 1280px) {
     display: none;
   }
 `;
