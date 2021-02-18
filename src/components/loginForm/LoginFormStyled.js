@@ -6,7 +6,7 @@ const LoginFormWrapper = styled.div`
 
   @media screen and (min-width: 768px) {
     width: 382px;
-    height: 290px;
+    height: 310px;
   }
   @media (min-width: 1280px) {
     width: 382px;
@@ -14,7 +14,6 @@ const LoginFormWrapper = styled.div`
   }
 
   .pageTitle {
-    position: relative;
     margin-bottom: 60px;
     color: #fc842d;
     font-family: Gotham Pro;
@@ -34,22 +33,29 @@ const LoginFormWrapper = styled.div`
   }
 
   .error {
+    color: #e63946;
+    font-size: 1rem;
+
     position: absolute;
-    bottom: 40%;
+    top: calc(100% + 0.5em);
 
-    color: red;
-    font-weight: 700;
-    font-size: 12px;
-
-    @media (min-width: 767px) {
+    /* @media (min-width: 767px) {
       bottom: 55%;
     }
-    @media (min-width: 1280px) {
-      bottom: 45%;
+    @media (min-width: 814px) {
+      bottom: 55%;
     }
+    @media (min-width: 1024px) {
+      top: 38%;
+    }
+    @media (min-width: 1440px) {
+      top: 33%;
+    } */
   }
 
   .formLabel {
+    position: relative;
+
     display: flex;
     height: 35.5px;
     border-bottom: 1px solid #e0e0e0;

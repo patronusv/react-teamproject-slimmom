@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { ErrorMessage, Field, Form, Formik, useFormik } from 'formik';
+import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as yup from 'yup';
 
 import authOperations from '../../redux/operations/authOperations';
@@ -13,61 +13,41 @@ const initialState = {
 };
 
 const LoginForm = () => {
-  const validationsSchema = yup.object().shape({
+  const validateSchema = yup.object().shape({
     email: yup
       .string()
       .email(' Введите верный email ')
-      .required(' Обязательно '),
+      .required('!!! Необходимо заполнить =_='),
     password: yup
       .string()
-      .min(8)
+      .min(8, 'Пароль должен быть не меньше 8 символов')
+      .max(16, 'Пароль должен быть не больше 16 символов')
       .typeError('Должно быть строкой')
-      .required('Обязательно'),
+      .required('!!! Необходимо заполнить =_= '),
   });
 
   const dispatch = useDispatch();
   const [state, setState] = useState({ ...initialState });
 
-  const onHandleChange = e => {
-    const { name, value } = e.target;
-    setState(prev => ({ ...prev, [name]: value }));
-  };
-
-  const onHandleSubmit = e => {
-    e.preventDefault();
-    dispatch(authOperations.loginOperation(state));
+  const onHandleSubmit = values => {
+    dispatch(authOperations.loginOperation(values));
+    console.log('object');
     setState({ ...initialState });
   };
-
-  const { email, password } = state;
 
   return (
     <LoginFormWrapper>
       <h2 className="pageTitle">Вход</h2>
 
       <Formik
-        initialValues={{ ...initialState }}
-        validationsSchema={validationsSchema}
-        validate={values => {
-          const errors = {};
-
-          if (!values.email) {
-            errors.email = 'Введите email';
-          } else if (
-            !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-          )
-            return errors;
-        }}
-        validateOnBlur
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-          }, 400);
+        initialValues={{ email: '', password: '' }}
+        validationSchema={validateSchema}
+        onSubmit={values => {
+          onHandleSubmit(values);
         }}
       >
-        {({ isValid, dirty, isSubmitting, errors, touched, handleBlur }) => (
-          <Form onSubmit={onHandleSubmit}>
+        {({ values, isValid, dirty, isSubmitting, handleBlur }) => (
+          <Form>
             <div className="form">
               <label className="formLabel">
                 <span className="formLabelText">Логин *</span>
@@ -75,18 +55,11 @@ const LoginForm = () => {
                   className="formInput"
                   type="email"
                   name="email"
-                  value={email}
-                  onChange={onHandleChange}
-                  onBlur={handleBlur}
+                  // onBlur={handleBlur}
+                  value={values.email}
                 />
+                <ErrorMessage className="error" name="email" component="div" />
               </label>
-
-              {/* <ErrorMessage name="email" component="span" /> */}
-
-              {/* {touched.email && errors.email && (
-                <p className={'error'}>{errors.email}</p>
-              )} */}
-              {/* {touched.email && errors.email && errors.email} */}
 
               <label className="formLabel">
                 <span className="formLabelText">Пароль *</span>
@@ -94,20 +67,14 @@ const LoginForm = () => {
                   className="formInput"
                   type="password"
                   name="password"
-                  value={password}
-                  onChange={onHandleChange}
+                  // onBlur={handleBlur}
+                  value={values.password}
                 />
+                <ErrorMessage className="error" name="email" component="div" />
               </label>
-
-              <ErrorMessage name="password" />
-              {/* {touched.password && errors.password && errors.password} */}
             </div>
 
-            <button
-              className="formBtn"
-              type="submit"
-              disabled={!isValid && !dirty && isSubmitting}
-            >
+            <button className="formBtn" type="submit">
               <span className="formBtnText">Вход</span>
             </button>
           </Form>
