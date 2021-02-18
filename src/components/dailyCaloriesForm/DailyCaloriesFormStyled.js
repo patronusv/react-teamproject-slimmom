@@ -49,6 +49,7 @@ const Wrapper = styled.div`
   }
 
   .coloriesFormListItem {
+    position: relative;
     display: flex;
     width: 240px;
     //margin-top: 30px;
@@ -195,9 +196,10 @@ const Wrapper = styled.div`
   }
   .coloriesFormError {
     position: absolute;
-    top: 650px;
-    width: 300px;
-    color: red;
+    top: calc(100% + 0.2em);
+
+    color: #e63946;
+    font-size: 13px;
   }
 `;
 

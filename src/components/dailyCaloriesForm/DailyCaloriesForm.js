@@ -11,41 +11,24 @@ import DailyCalorieIntake from '../dailyCalorieIntake/DailyCalorieIntake';
 import getModalState from '../../redux/selectors/modalSelector';
 import modalActions from '../../redux/actions/modalActions';
 
-// const initialState = {
-//   height: '',
-//   age: '',
-//   weight: '',
-//   desiredWeight: '',
-//   bloodType: null,
-// };
-
 const schema = Yup.object().shape({
   height: Yup.number()
-    .min(
-      100,
-      'Вам нужно кушать ВСЕ и не считать калории, чтобы подрасти еще до 100 см',
-    )
-    .max(250, 'Введите значени не больше 250 см')
-    .required('Заполните поле "Рост *"'),
+    .min(100, 'Min значение 100')
+    .max(250, 'Max значение 250')
+    .required('Заполните поле "Рост"'),
   age: Yup.number()
-    .min(18, 'Вы слишком молоды, чтобы считать калории, ждем вас в 18 лет')
-    .max(100, 'Вам больше 100 лет?! Кушайте ВСЕ и не считайте калории')
-    .required('Заполните поле "Возраст *"'),
+    .min(18, 'Min значение 18')
+    .max(100, 'Max значение 100')
+    .required('Заполните поле "Возраст"'),
   weight: Yup.number()
-    .min(
-      20,
-      'Мы можем предложить Вам кирпичи, чтобы Вас не уносило ветром, потому что 20, это слишком мало',
-    )
-    .max(500, 'Введите значени не больше 500 кг')
-    .required('Заполните поле "Текущий вес *"'),
+    .min(20, 'Min значение 20')
+    .max(500, 'Max значение 500')
+    .required('Заполните поле "Текущий вес"'),
   desiredWeight: Yup.number()
-    .min(
-      20,
-      'Мы можем предложить Вам кирпичи, чтобы Вас не уносило ветром, потому что 20, это слишком мало',
-    )
-    .max(500, 'Введите значени не больше 500 кг')
-    .required('Заполните поле "Желаемый вес *"'),
-  bloodType: Yup.number().required('Выбирите Вашу группу крови'),
+    .min(20, 'Min значение 20')
+    .max(500, 'Max значение 500')
+    .required('Заполните поле "Желаемый вес"'),
+  bloodType: Yup.number().required('Выбирите группу крови'),
 });
 
 const initialState = {
@@ -65,21 +48,10 @@ const booldType = {
 
 const DailyCaloriesForm = () => {
   const dispatch = useDispatch();
-  // const [openModal, setOpenModal] = useState(false);
   const auth = useSelector(isAuth);
-  //const auth1 = true;
   const [state, setState] = useState({ ...initialState });
   const [blood, setBlood] = useState({ ...booldType });
   const isModal = useSelector(getModalState);
-
-  // const onHandleChange = e => {
-  //   const { name, value } = e.target;
-  //   setState(prev => ({ ...prev, [name]: value }));
-  // };
-
-  // const onHandleRadioChange = e => {
-  //   setState({ ...state, bloodType: Number(e.target.value) });
-  // };
 
   const onHandlerSubmit = ({
     height,
@@ -100,13 +72,8 @@ const DailyCaloriesForm = () => {
     );
 
     !auth && setState({ ...initialState });
-    //toggleModal();
     !auth && dispatch(modalActions.toggleModal());
   };
-
-  // const toggleModal = () => {
-  //   setOpenModal(!openModal);
-  // };
 
   return (
     <DailyCaloriesFormStyled>
@@ -142,12 +109,12 @@ const DailyCaloriesForm = () => {
                   value={values.height}
                   name="height"
                 />
+                <ErrorMessage
+                  className="coloriesFormError"
+                  component="div"
+                  name="height"
+                />
               </label>
-              <ErrorMessage
-                className="coloriesFormError"
-                component="div"
-                name="height"
-              />
 
               <label className="coloriesFormListItem">
                 <span className="coloriesFormListItemTitle">Возраст *</span>
@@ -157,12 +124,12 @@ const DailyCaloriesForm = () => {
                   value={values.age}
                   name="age"
                 />
+                <ErrorMessage
+                  className="coloriesFormError"
+                  component="div"
+                  name="age"
+                />
               </label>
-              <ErrorMessage
-                className="coloriesFormError"
-                component="div"
-                name="age"
-              />
 
               <label className="coloriesFormListItem">
                 <span className="coloriesFormListItemTitle">Текущий вес *</span>
@@ -172,12 +139,12 @@ const DailyCaloriesForm = () => {
                   value={values.weight}
                   name="weight"
                 />
+                <ErrorMessage
+                  className="coloriesFormError"
+                  component="div"
+                  name="weight"
+                />
               </label>
-              <ErrorMessage
-                className="coloriesFormError"
-                component="div"
-                name="weight"
-              />
 
               <label className="coloriesFormListItem">
                 <span className="coloriesFormListItemTitle">
@@ -190,12 +157,13 @@ const DailyCaloriesForm = () => {
                   value={values.desiredWeight}
                   name="desiredWeight"
                 />
+                <ErrorMessage
+                  className="coloriesFormError"
+                  component="div"
+                  name="desiredWeight"
+                />
               </label>
-              <ErrorMessage
-                className="coloriesFormError"
-                component="div"
-                name="desiredWeight"
-              />
+
               <label className="coloriesFormListItem">
                 <span className="coloriesFormListItemTitle">
                   Группа крови *
@@ -310,12 +278,12 @@ const DailyCaloriesForm = () => {
                     4
                   </label>
                 </div>
+                <ErrorMessage
+                  className="coloriesFormError"
+                  component="div"
+                  name="bloodType"
+                />
               </label>
-              <ErrorMessage
-                className="coloriesFormError"
-                component="div"
-                name="bloodType"
-              />
             </div>
             <button type="submit" className="coloriesFormBtn">
               Похудеть
