@@ -6,6 +6,7 @@ import Main from './main/Main';
 import healthOperations from '../redux/operations/healthOperations';
 import moment from 'moment';
 import RightSideBar from './rightSideBar/RightSideBar';
+import modalActions from '../redux/actions/modalActions';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -47,6 +48,7 @@ const App = () => {
     // dispatch(healthOperations.getProductOperation('ябл'));
     // dispatch(healthOperations.getDayInfoOperation(date));
     // dispatch(healthOperations.postEatenProductOperation(product));
+    // dispatch(modalActions.toggleModal());
   }, []);
 
   return (
