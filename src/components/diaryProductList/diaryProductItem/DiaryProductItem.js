@@ -3,24 +3,23 @@ import { LI } from './DiaryProductItemStyle'
 import CloseIcon from './CloseIcon'
 
 
-const DiaryProductItem = () => {
+const DiaryProductItem = ({onClick,title,kcal,weight,id}) => {
     return (
         <>
-            <LI >
+            <LI>
                 <ul className='innerListDairyProduct'>
-                    <li className='innerItemDairyProduct'>Банан</li>
-                    <li className='innerItemDairyProduct'>100 г</li>
-                    <li className='innerItemDairyProduct'>300 ккал</li>
+                    <li className='innerItemDairyProduct'>{title}</li>
+                    <li className='innerItemDairyProduct'>{weight}г</li>
+                    <li className='innerItemDairyProduct'>{kcal}ккал</li>
+                    <li className='innerItemDairyProduct'>
+                        <button className='buttonItemDairyProduct' type="button" onClick={onClick} data-id={id}>
+                            &#10005;
+                    {/* <CloseIcon/> */}
+                        </button>
+                    </li>
                 </ul>
-                <button className='buttonItemDairyProduct'><CloseIcon /></button>
-            </LI>
-            <LI >
-                <ul className='innerListDairyProduct'>
-                    <li className='innerItemDairyProduct'>Банан</li>
-                    <li className='innerItemDairyProduct'>100 г</li>
-                    <li className='innerItemDairyProduct'>300 ккал</li>
-                </ul>
-                <button className='buttonItemDairyProduct'><CloseIcon /></button>
+
+               
             </LI>
         </>
     )
