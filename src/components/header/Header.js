@@ -21,6 +21,7 @@ import closeMenu from '../../assets/images/burgerMenu/closeMenu.svg';
 const Header = () => {
   const authFlag = useSelector(isAuth);
   const [menuBurger, setMenuBurger] = useState(false);
+  const toggleBurger = () => setMenuBurger(!menuBurger);
   // console.log(menuBurger, setMenuBurger);
   // const authFlag = true;
 
@@ -41,10 +42,7 @@ const Header = () => {
               </UserInfoContainerTablet>
 
               {authFlag && (
-                <BurgerButton
-                  type="button"
-                  onClick={() => setMenuBurger(!menuBurger)}
-                >
+                <BurgerButton type="button" onClick={toggleBurger}>
                   {!menuBurger ? (
                     <img src={openMenu} alt="" />
                   ) : (
@@ -56,7 +54,10 @@ const Header = () => {
               {authFlag && menuBurger && (
                 <div className="navWrapper">
                   <Nav isActive={menuBurger}>
-                    <Navigation isActive={menuBurger} />
+                    <Navigation
+                      isActive={menuBurger}
+                      onToggleBurger={toggleBurger}
+                    />
                   </Nav>
                 </div>
               )}
