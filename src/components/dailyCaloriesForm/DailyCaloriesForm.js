@@ -28,7 +28,7 @@ const schema = Yup.object().shape({
     .min(20, 'Min значение 20')
     .max(500, 'Max значение 500')
     .required('Заполните поле "Желаемый вес"'),
-  bloodType: Yup.number().required('Выбирите группу крови'),
+  bloodType: Yup.number().nullable().required('Выберите группу крови'),
 });
 
 const initialState = {
@@ -40,7 +40,7 @@ const initialState = {
 };
 
 const booldType = {
-  type1: ' 1',
+  type1: '1',
   type2: '2',
   type3: '3',
   type4: '4',
@@ -53,23 +53,9 @@ const DailyCaloriesForm = () => {
   const [blood, setBlood] = useState({ ...booldType });
   const isModal = useSelector(getModalState);
 
-  const onHandlerSubmit = ({
-    height,
-    age,
-    weight,
-    desiredWeight,
-    bloodType,
-  }) => {
-    //console.log('values', { height, age, weight, desiredWeight, bloodType });
-    dispatch(
-      healthOperations.getDailyRateOperation({
-        height,
-        age,
-        weight,
-        desiredWeight,
-        bloodType: Number(bloodType),
-      }),
-    );
+  const onHandlerSubmit = values => {
+    //console.log('valuesON', values);
+    dispatch(healthOperations.getDailyRateOperation(values));
 
     !auth && setState({ ...initialState });
     !auth && dispatch(modalActions.toggleModal());
@@ -94,7 +80,7 @@ const DailyCaloriesForm = () => {
         }}
         validationSchema={schema}
         onSubmit={values => {
-          onHandlerSubmit(values);
+          onHandlerSubmit({ ...values, bloodType: Number(values.bloodType) });
           //console.log('values', values);
         }}
       >
@@ -108,6 +94,7 @@ const DailyCaloriesForm = () => {
                   type="text"
                   value={values.height}
                   name="height"
+                  autocomplete="off"
                 />
                 <ErrorMessage
                   className="coloriesFormError"
@@ -123,6 +110,7 @@ const DailyCaloriesForm = () => {
                   type="text"
                   value={values.age}
                   name="age"
+                  autocomplete="off"
                 />
                 <ErrorMessage
                   className="coloriesFormError"
@@ -138,6 +126,7 @@ const DailyCaloriesForm = () => {
                   type="text"
                   value={values.weight}
                   name="weight"
+                  autocomplete="off"
                 />
                 <ErrorMessage
                   className="coloriesFormError"
@@ -156,6 +145,7 @@ const DailyCaloriesForm = () => {
                   type="text"
                   value={values.desiredWeight}
                   name="desiredWeight"
+                  autocomplete="off"
                 />
                 <ErrorMessage
                   className="coloriesFormError"

@@ -51,6 +51,8 @@ const Wrapper = styled.div`
   .coloriesFormListItem {
     position: relative;
     display: flex;
+    justify-content: space-between;
+
     width: 240px;
     //margin-top: 30px;
     //border-bottom: 1px solid #e0e0e0;
@@ -99,14 +101,22 @@ const Wrapper = styled.div`
   }
   .coloriesFormInput {
     flex-grow: 1;
-    /* text-align: center; */
-    font-weight: 700;
-    font-size: 14px;
+    max-width: 105px;
+    text-align: center;
+    font-weight: 400;
     line-height: 1.21;
-    color: #9b9faa;
+    //color: #9b9faa;
+    color: #212121;
     border: none;
     outline: none;
-    padding-left: 20%;
+    //padding-left: 40px;
+
+    @media screen and (min-width: 768px) {
+      font-size: 18px;
+    }
+    @media screen and (min-width: 1280px) {
+      font-size: 20px;
+    }
   }
   .coloriesFormCheckboxList {
     display: flex;
