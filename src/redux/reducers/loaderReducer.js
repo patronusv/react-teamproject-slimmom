@@ -18,7 +18,9 @@ const loaderReducer = createReducer(false, {
   [healthActions.postEatenProductSuccess]: () => false,
   [healthActions.postEatenProductError]: () => false,
 
-  //delete product
+  [healthActions.deleteDiaryItemRequest]: () => true,
+  [healthActions.deleteDiaryItemSuccess]: () => false,
+  [healthActions.deleteDiaryItemError]: () => false,
 });
 
 export default loaderReducer;

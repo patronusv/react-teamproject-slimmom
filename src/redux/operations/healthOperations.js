@@ -67,9 +67,40 @@ const postEatenProductOperation = product => async dispatch => {
   }
 };
 
+<<<<<<< HEAD
 const setDateOperation = date => async dispatch => {
   dispatch(healthActions.getDateSuccess(date))
 }
+=======
+
+const deleteDiaryItemOperation = (id) => async(dispatch,getState) =>{
+  const day = getState().health.dayInfo.id;
+  const token = getState().auth.accessToken;
+  const obj={
+    dayId: day,
+    eatenProductId: id
+  };
+
+      dispatch(healthActions.deleteDiaryItemRequest());
+  
+      try {
+          const response = await axios.delete('/day', {
+            // headers: {
+            //   "Content-Type": "application/json",
+            //   "Authorization": `Bearer ${token}`,
+            //   "Accept": "application/json"
+            // },  
+            data: obj
+          });
+          dispatch(healthActions.deleteDiaryItemSuccess(id));
+            // setTimeout(() => {
+              
+            // }, 2000);
+        } catch (error) {
+          dispatch(healthActions.deleteDiaryItemError(error.message));
+        } 
+  }
+>>>>>>> dev
 
 export default {
   getUserInfoOperation,
@@ -77,5 +108,9 @@ export default {
   getProductOperation,
   getDayInfoOperation,
   postEatenProductOperation,
+<<<<<<< HEAD
   setDateOperation
+=======
+  deleteDiaryItemOperation
+>>>>>>> dev
 };

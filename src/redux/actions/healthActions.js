@@ -22,6 +22,9 @@ const postEatenProductError = createAction('health/postEatenProductError');
 
 
 const getDateSuccess = createAction('health/getDateSuccess');
+const deleteDiaryItemRequest = createAction('health/deleteDiaryItemRequest');
+const deleteDiaryItemSuccess = createAction('health/deleteDiaryItemSuccess');
+const deleteDiaryItemError = createAction('health/deleteDiaryItemError');
 
 
 export default {
@@ -41,4 +44,7 @@ export default {
   postEatenProductSuccess,
   postEatenProductError,
   getDateSuccess
+  deleteDiaryItemRequest,
+  deleteDiaryItemSuccess,
+  deleteDiaryItemError
 };
