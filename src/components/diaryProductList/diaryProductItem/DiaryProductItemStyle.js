@@ -43,9 +43,9 @@ export const LI = styled.li`
             margin-right:31px;
         }
 
-        @media screen and (min-width:1280px){
+        /* @media screen and (min-width:1280px){
             margin-right:15px;
-        }
+        } */
 
         :last-child{
             margin-right:0;
@@ -53,6 +53,7 @@ export const LI = styled.li`
     }
 
     .innerItemDairyProduct:first-child{
+        justify-content: flex-start;
     
         @media screen and (min-width:768px){
             min-width: calc(100% - 104px - 31px - 31px - 31px - 104px);

@@ -10,7 +10,7 @@ const DiaryProductItem = ({onClick,title,kcal,weight,id}) => {
                 <ul className='innerListDairyProduct'>
                     <li className='innerItemDairyProduct'>{title}</li>
                     <li className='innerItemDairyProduct'>{weight}г</li>
-                    <li className='innerItemDairyProduct'>{kcal}ккал</li>
+                    <li className='innerItemDairyProduct'>{kcal.toFixed(0)}ккал</li>
                     <li className='innerItemDairyProduct'>
                         <button className='buttonItemDairyProduct' type="button" onClick={onClick} data-id={id}>
                             &#10005;
