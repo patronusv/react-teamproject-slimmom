@@ -16,7 +16,7 @@ const User = styled.div`
   }
   @media screen and (min-width: 1280px) {
     width: 215px;
-    transform: translate(100px, 21px);
+    transform: translate(400px, 21px);
     /* margin-right: 50px; */
     /* margin-top: 134px; */
   } ;
