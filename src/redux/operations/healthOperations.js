@@ -27,11 +27,13 @@ const getDailyRateOperation = (data, id = '') => async dispatch => {
 
 const getProductOperation = query => async dispatch => {
   dispatch(healthActions.getProductRequest);
-  try {
-    const response = await axios.get(`/product?search=${query}`);
-    dispatch(healthActions.getProductSuccess(response.data));
-  } catch (error) {
-    dispatch(healthActions.getProductError(error));
+  if (query.length >= 2) {
+    try {
+      const response = await axios.get(`/product?search=${query}`);
+      dispatch(healthActions.getProductSuccess(response.data));
+    } catch (error) {
+      dispatch(healthActions.getProductError(error));
+    }
   }
 };
 
@@ -58,7 +60,7 @@ const getDayInfoOperation = (
 const postEatenProductOperation = product => async dispatch => {
   dispatch(healthActions.postEatenProductRequest());
   try {
-    const response = await axios.post('/day', product);
+    const response = await axios.post('/day', { ...product, date: product.date ? product.date : moment(Date.now()).format('YYYY-MM-DD') });
     dispatch(healthActions.postEatenProductSuccess(response.data));
   } catch (error) {
     dispatch(healthActions.postEatenProductError(error));
