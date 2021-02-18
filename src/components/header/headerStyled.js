@@ -5,7 +5,7 @@ export const HeaderContainer = styled.header`
   align-items: center;
   padding: 10px;
   border-bottom: 2px solid #e0e0e0;
-  position: fixed;
+  /* position: fixed; */
   background-color: transparent;
 
   @media screen and (min-width: 320px) and (max-width: 767px) {
