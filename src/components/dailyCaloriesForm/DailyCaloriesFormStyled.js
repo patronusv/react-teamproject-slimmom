@@ -114,11 +114,17 @@ const Wrapper = styled.div`
     //flex-direction: column;
   }
   //label
-  .coloriesFormCheckboxListItem {
+  .coloriesFormCheckboxListItem,
+  .coloriesFormCheckboxListItemCheked {
     display: flex;
     justify-content: center;
   }
-  .coloriesFormCheckboxListItem:not(:last-child) {
+
+  .coloriesFormCheckboxListItemCheked {
+    color: #fc842d;
+  }
+  .coloriesFormCheckboxListItem:not(:last-child),
+  .coloriesFormCheckboxListItemCheked:not(:last-child) {
     padding-right: 25px;
   }
   //input
@@ -137,12 +143,7 @@ const Wrapper = styled.div`
   .coloriesFormCheckbox:checked + .coloriesFormSvg {
     fill: #fc842d;
   }
-  .coloriesFormCheckboxListItem {
-    //text-align: center;
-  }
-  .coloriesFormCheckbox:checked + .coloriesFormCheckboxListItem {
-    color: #fc842d;
-  }
+
   .coloriesFormSvg {
     fill: #9b9faa;
     width: 20px;
@@ -193,5 +194,11 @@ const Wrapper = styled.div`
     }
   }
 `;
+
+// export const SpanStyled = styled.span`
+//   color: ${props =>
+//     //console.log('props', props)
+//     props.checked ? props.className.color[0] : props.className.color[1]};
+// `;
 
 export default Wrapper;

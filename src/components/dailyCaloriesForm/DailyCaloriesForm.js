@@ -51,6 +51,10 @@ const DailyCaloriesForm = () => {
     setOpenModal(!openModal);
   };
 
+  // const colorForType = {
+  //   color: ['#fc842d', ' #e0e0e0'],
+  // };
+
   return (
     <DailyCaloriesFormStyled>
       {auth ? (
@@ -109,7 +113,13 @@ const DailyCaloriesForm = () => {
           <label className="coloriesFormListItem">
             <span className="coloriesFormListItemTitle">Группа крови *</span>
             <div className="coloriesFormCheckboxList">
-              <label className="coloriesFormCheckboxListItem">
+              <label
+                className={
+                  blood.type1 === state.bloodType
+                    ? 'coloriesFormCheckboxListItemCheked'
+                    : 'coloriesFormCheckboxListItem'
+                }
+              >
                 <input
                   className="coloriesFormCheckbox checked"
                   type="radio"
@@ -126,9 +136,15 @@ const DailyCaloriesForm = () => {
                     }
                   />
                 </svg>
-                <span>1</span>
+                1
               </label>
-              <label className="coloriesFormCheckboxListItem">
+              <label
+                className={
+                  blood.type2 === state.bloodType
+                    ? 'coloriesFormCheckboxListItemCheked'
+                    : 'coloriesFormCheckboxListItem'
+                }
+              >
                 <input
                   className="coloriesFormCheckbox"
                   type="radio"
@@ -145,9 +161,15 @@ const DailyCaloriesForm = () => {
                     }
                   />
                 </svg>
-                <span>2</span>
+                2
               </label>
-              <label className="coloriesFormCheckboxListItem">
+              <label
+                className={
+                  blood.type3 === state.bloodType
+                    ? 'coloriesFormCheckboxListItemCheked'
+                    : 'coloriesFormCheckboxListItem'
+                }
+              >
                 <input
                   className="coloriesFormCheckbox"
                   type="radio"
@@ -164,9 +186,15 @@ const DailyCaloriesForm = () => {
                     }
                   />
                 </svg>
-                <span>3</span>
+                3
               </label>
-              <label className="coloriesFormCheckboxListItem">
+              <label
+                className={
+                  blood.type4 === state.bloodType
+                    ? 'coloriesFormCheckboxListItemCheked'
+                    : 'coloriesFormCheckboxListItem'
+                }
+              >
                 <input
                   className="coloriesFormCheckbox"
                   type="radio"
@@ -183,7 +211,7 @@ const DailyCaloriesForm = () => {
                     }
                   />
                 </svg>
-                <span>4</span>
+                4
               </label>
             </div>
           </label>
