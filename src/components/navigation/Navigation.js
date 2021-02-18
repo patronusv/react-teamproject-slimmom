@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import { useSelector } from 'react-redux';
-import { isAuth } from '../../redux/selectors/authSelectors';
+import {isAuth} from '../../redux/selectors/authSelectors';
 import mainRoutes from '../../routes/mainRoutes';
 import NavigationItem from '../navItem/NavigationItem';
 import { NavListContainer } from '../navigation/Navigation.styled';
@@ -8,7 +8,7 @@ import { NavListContainer } from '../navigation/Navigation.styled';
 const Navigation = ({ isActive }) => {
   const authFlag = useSelector(isAuth);
   const burgerFlag = isActive;
-  // const authFlag  = true;
+
   // console.log(burgerFlag);
 
   return (

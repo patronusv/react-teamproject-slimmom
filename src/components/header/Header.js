@@ -4,7 +4,7 @@ import Logo from '../logo/Logo';
 
 import UserInfo from '../userInfo/UserInfo';
 import Navigation from '../navigation/Navigation';
-import { isAuth } from '../../redux/selectors/authSelectors';
+import {isAuth} from '../../redux/selectors/authSelectors';
 import {
   HeaderContainer,
   Nav,
@@ -22,7 +22,6 @@ const Header = () => {
   const authFlag = useSelector(isAuth);
   const [menuBurger, setMenuBurger] = useState(false);
   // console.log(menuBurger, setMenuBurger);
-  // const authFlag = true;
 
   return (
     <>

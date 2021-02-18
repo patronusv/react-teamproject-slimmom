@@ -1,6 +1,8 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useState,useEffect } from 'react';
+import { useDispatch, useSelector} from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import authOperations from '../../redux/operations/authOperations';
+import { isAuth } from '../../redux/selectors/authSelectors';
 
 import LoginFormWrapper from './LoginFormStyled';
 
@@ -9,9 +11,13 @@ const initialState = {
   password: '',
 };
 
+
 const LoginForm = () => {
   const dispatch = useDispatch();
+  const authFlag = useSelector(state=>state.auth.accessToken);
+  const history = useHistory();
   const [state, setState] = useState({ ...initialState });
+  
 
   const onHandleChange = e => {
     const { name, value } = e.target;
@@ -22,6 +28,7 @@ const LoginForm = () => {
     e.preventDefault();
     dispatch(authOperations.loginOperation(state));
     setState({ ...initialState });
+    history.push('/calculator');
   };
 
   const { email, password } = state;

@@ -6,8 +6,9 @@ const mainRoutes = [
     name: 'Home',
     exact: true,
     component: lazy(() => import('../pages/home/Home' /* webpackChunkName: "HomePage"*/)),
-    // isPrivate: false,
-    general: true,
+    isPrivate: false,
+    general:true,
+    restricted: true
   },
   {
     path: '/login',
@@ -15,8 +16,7 @@ const mainRoutes = [
     exact: false,
     component: lazy(() => import('../pages/login/Login' /* webpackChunkName: "LoginPage"*/)),
     isPrivate: false,
-    general: false,
-    // restricted: true,
+    restricted: true,
   },
   {
     path: '/register',
@@ -24,8 +24,7 @@ const mainRoutes = [
     exact: false,
     component: lazy(() => import('../pages/registration/Registration' /* webpackChunkName: "RegistrationPage"*/)),
     isPrivate: false,
-    general: false,
-    // restricted: true,
+    restricted: true,
   },
   {
     path: '/diary',
@@ -33,8 +32,7 @@ const mainRoutes = [
     exact: false,
     component: lazy(() => import('../pages/diary/Diary' /* webpackChunkName: "DiaryPage"*/)),
     isPrivate: true,
-    general: false,
-    // restricted: false,
+    restricted: true,
   },
   {
     path: '/calculator',
@@ -42,8 +40,7 @@ const mainRoutes = [
     exact: false,
     component: lazy(() => import('../pages/calculator/Calculator' /* webpackChunkName: "CalculatorPage"*/)),
     isPrivate: true,
-    general: false,
-    // restricted: false,
+    restricted: false,
   },
 ];
 

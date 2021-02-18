@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { isAuth } from '../../redux/selectors/authSelectors';
+import {isAuth} from '../../redux/selectors/authSelectors';
 import healthOperations from '../../redux/operations/healthOperations';
 import Modal from '../modal/Modal';
 import sprite from '../../assets/svg/sprite.svg';
