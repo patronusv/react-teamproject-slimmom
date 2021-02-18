@@ -43,7 +43,7 @@ export default {
   postEatenProductRequest,
   postEatenProductSuccess,
   postEatenProductError,
-  getDateSuccess
+  getDateSuccess,
   deleteDiaryItemRequest,
   deleteDiaryItemSuccess,
   deleteDiaryItemError
