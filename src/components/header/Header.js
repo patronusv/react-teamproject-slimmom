@@ -54,9 +54,11 @@ const Header = () => {
               )}
 
               {authFlag && menuBurger && (
-                <Nav isActive={menuBurger}>
-                  <Navigation isActive={menuBurger} />
-                </Nav>
+                <div className="navWrapper">
+                  <Nav isActive={menuBurger}>
+                    <Navigation isActive={menuBurger} />
+                  </Nav>
+                </div>
               )}
 
               <UserInfoContainerDesktop>

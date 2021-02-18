@@ -21,6 +21,11 @@ export const HeaderContainer = styled.header`
     align-items: center;
     border-bottom: none;
   }
+  .navWrapper {
+    @media (min-width: 1280px) {
+      display: none;
+    }
+  }
 `;
 
 export const Nav = styled.nav`
