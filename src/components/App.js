@@ -5,6 +5,7 @@ import Header from './header/Header';
 import Main from './main/Main';
 import healthOperations from '../redux/operations/healthOperations';
 import moment from 'moment';
+import RightSideBar from './rightSideBar/RightSideBar';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -18,6 +19,8 @@ const App = () => {
       password: 'qwerty123',
       username: 'Gustav Muhozhuk',
     };
+    dispatch(authOperations.registerOperation(registerUser))
+    dispatch(authOperations.loginOperation(loginUser));
     const dailyRateData = {
       weight: 100,
       height: 170,
@@ -39,12 +42,12 @@ const App = () => {
     // dispatch(authOperations.registerOperation(registerUser))
     // dispatch(authOperations.loginOperation(loginUser));
     // dispatch(authOperations.logOutOperation());
-    // dispatch(authOperations.refreshOperation());
+    dispatch(authOperations.refreshOperation());
     // dispatch(healthOperations.getUserInfoOperation());
     // dispatch(healthOperations.getDailyRateOperation(dailyRateData));
-    // dispatch(healthOperations.getDailyRateOperation(dailyRateData, userId));
+    dispatch(healthOperations.getDailyRateOperation(dailyRateData, userId));
     // dispatch(healthOperations.getProductOperation('ябл'));
-    // dispatch(healthOperations.getDayInfoOperation(date));
+    dispatch(healthOperations.getDayInfoOperation(date));
     // dispatch(healthOperations.postEatenProductOperation(product));
   }, []);
 
