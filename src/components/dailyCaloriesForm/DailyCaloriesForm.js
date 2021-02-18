@@ -43,7 +43,8 @@ const DailyCaloriesForm = () => {
     //console.log('state', state);
     dispatch(healthOperations.getDailyRateOperation(state));
     !auth && setState({ ...initialState });
-    toggleModal();
+    //toggleModal();
+    !auth && toggleModal();
   };
 
   const toggleModal = () => {
