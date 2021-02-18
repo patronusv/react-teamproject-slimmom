@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+
 import { useWindowWidth } from '@react-hook/window-size';
 // import style from './Modal.module.css';
 import ModalWindow from './Modal.styled';
@@ -11,6 +12,7 @@ const Modal = ({ children, openModal, toggleModal }) => {
   //    setOpenModal(!openModal)
   //  }
   //  та передати їх пропсами
+
 
   const onlyWidth = useWindowWidth();
   useEffect(() => {

@@ -3,22 +3,16 @@ import { debounce } from "debounce";
 import { useSelector, useDispatch } from "react-redux";
 import { DiaryFormWrapper } from './DiaryAddProductFormStyle';
 import healthOperations from '../../redux/operations/healthOperations';
+import modalActions from '../../redux/actions/modalActions';
+import healthSelectors from '../../redux/selectors/healthSelectors';
 
 
 
 const DiaryAddProductForm = () => {
-
-  const [openModal, setOpenModal] = useState(false)
-
-  const toggleModal = () => {
-    setOpenModal(!openModal)
-  }
-
-
   const debounce = require('debounce');
   const size = useWindowSize();
-  const date = useSelector(state => state.health.getDate.date)
-  const products = useSelector(state => state.health.product)
+  const date = useSelector((state) => healthSelectors.getDate(state))
+  const products = useSelector((state) => healthSelectors.getProducts(state))
 
   const dispatch = useDispatch();
   const [state, setState] = useState({
@@ -91,6 +85,7 @@ const DiaryAddProductForm = () => {
       weight: '',
       productId: '',
     })
+    dispatch(modalActions.offModal())
   }
 
 
@@ -114,7 +109,7 @@ const DiaryAddProductForm = () => {
                 className='inputDairyAddProduct secondInputLength' />
             </label>
           </div>
-          <button type='submit' className='buttonDairyAddProduct' onClick={toggleModal}>
+          <button type='submit' className='buttonDairyAddProduct' >
             {size.width < 768 ? 'Добавить' : '+'}
           </button>
 

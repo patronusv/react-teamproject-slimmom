@@ -51,6 +51,7 @@ color: #9B9FAA;
    @media screen and (min-width:768px){
  width: 104.36px;
  margin-left:31px;
+text-align:left;
 } 
 }
 
