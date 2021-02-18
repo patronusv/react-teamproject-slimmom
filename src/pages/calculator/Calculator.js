@@ -1,6 +1,10 @@
+import RightSideBar from "../../components/rightSideBar/RightSideBar"
+
 const Calculator = () => {
-    return(
-        <></>
+    return (
+        <>
+            <RightSideBar />
+        </>
     )
 };
 

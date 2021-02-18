@@ -52,13 +52,16 @@ const Diary = () => {
 
     // }
     return (
-        <DiaryWrapper>
-            <DiaryDateCalendar />
-            <DiaryAddProductForm />
-            <DiaryProductList />
-            {size.width < 768 && (<button type='submit' className='buttomDiaryProductList'>+
-            </button>)}
-        </DiaryWrapper>
+        <>
+            <DiaryWrapper>
+                <DiaryDateCalendar />
+                <DiaryAddProductForm />
+                <DiaryProductList />
+                {size.width < 768 && (<button type='submit' className='buttomDiaryProductList'>+
+                </button>)}
+            </DiaryWrapper>
+            <RightSideBar />
+        </>
     )
 }
 

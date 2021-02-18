@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
 import healthActions from '../actions/healthActions';
 import authActions from '../actions/authActions';
+import moment from 'moment';
 
 const initialState = {
   userData: {},
@@ -29,8 +30,24 @@ const productReducer = createReducer([], {
   [authActions.logOutSuccess]: () => [],
 });
 
+const initDayInfoState = {
+  date: moment(Date.now()).format('YYYY-MM-DD'),
+  id: '',
+  eatenProducts: {},
+  daySummary: {
+    date: moment(Date.now()).format('YYYY-MM-DD'),
+    id: '',
+    userId: '',
+    kcalLeft: 0,
+    kcalConsumed: 0,
+    dailyRate: 0,
+    percentsOfDailyRate: 0,
+  }
+
+}
+
 const dayInfoReducer = createReducer(
-  {},
+  { ...initDayInfoState },
   {
     [healthActions.getDayInfoSuccess]: (_, { payload }) => payload,
     [healthActions.postEatenProductSuccess]: (state, { payload }) => ({

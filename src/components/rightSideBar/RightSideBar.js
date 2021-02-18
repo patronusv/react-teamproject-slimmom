@@ -13,42 +13,44 @@ import healthSelectors from '../../redux/selectors/healthSelectors';
 
 const RightSideBar = () => {
   const currenDate = new Date();
-  const daySummary = useSelector(healthSelectors);
+  const daySummary = useSelector(healthSelectors.getDaySummary);
+  const notAllowedProducts = useSelector(healthSelectors.getNotAllowedProducts);
   // const notAllowedProducts = useSelector(getNotAllowedProducts);
 
   return <>
     <RightSideBarStyled>
       <div className='rightSideBar'>
         <div className='blockLeft'>
-          <h2 className='title'>Сводка за {daySummary.getDaySummary.date ? daySummary.getDaySummary.date : (currenDate.getDate() + '.' + (currenDate.getMonth() + 1) + '.' + currenDate.getFullYear())} </h2>
-          {daySummary.getDaySummary ?
+          <h2 className='title'>Сводка за {daySummary.date ? daySummary.date : (currenDate.getDate() + '.' + (currenDate.getMonth() + 1) + '.' + currenDate.getFullYear())} </h2>
+          {daySummary ?
             <ul className='list'>
               <li className='listItem'>
                 <p className='listItemText'>Осталось
               <span className='listItemTextRight'>
-                    {daySummary.getDaySummary.kcalLeft ? ((daySummary.getDaySummary.kcalLeft) + ' ккал') : '000 ккал'}
+
+                    {daySummary.kcalLeft ? ((daySummary.kcalConsumed > daySummary.dailyRate ? 0 : daySummary.kcalLeft) + ' ккал') : '000 ккал'}
                   </span>
                 </p>
               </li>
               <li className='listItem'>
                 <p className='listItemText'>Употреблено
             <span className='listItemTextRight'>
-                    {daySummary.getDaySummary.kcalConsumed ? ((daySummary.getDaySummary.kcalConsumed) + ' ккал') : '000 ккал'}
-                  000 ккал</span>
+                    {daySummary.kcalConsumed ? ((daySummary.kcalConsumed) + ' ккал') : '000 ккал'}
+                  </span>
                 </p>
               </li>
               <li className='listItem'>
                 <p className='listItemText'>Дневная норма
             <span className='listItemTextRight'>
-                    {daySummary.getDaySummary.dailyRate ? ((daySummary.getDaySummary.dailyRate) + ' ккал') : '000 ккал'}
-                  000 ккал</span>
+                    {daySummary.dailyRate ? ((daySummary.dailyRate) + ' ккал') : '000 ккал'}
+                  </span>
                 </p>
               </li>
               <li className='listItem'>
                 <p className='listItemText'>n% от нормы
             <span className='listItemTextRight'>
-                    {daySummary.getDaySummary.percentsOfDailyRate ? ((Math.round(daySummary.getDaySummary.percentsOfDailyRate)) + ' %') : '000 ккал'}
-                  000 ккал</span>
+                    {daySummary.percentsOfDailyRate ? ((Math.round(daySummary.percentsOfDailyRate)) + ' %') : '000 ккал'}
+                  </span>
                 </p>
               </li>
             </ul>
@@ -79,10 +81,10 @@ const RightSideBar = () => {
         </div>
         <div className='blockRight'>
           <h2 className='title'>Нерекомендуемые продукты</h2>
-          {daySummary.getNotAllowedProducts ?
+          {notAllowedProducts ?
             <ul className='list'>
-              {daySummary.getNotAllowedProducts ?
-                <li className='listItem'><p className='listItemText'>{daySummary.getNotAllowedProducts.slice(0, 5).join(', ')}</p></li>
+              {notAllowedProducts ?
+                <li className='listItem'><p className='listItemText'>{notAllowedProducts.slice(0, 5).join(', ')}</p></li>
                 : <li><p>Здесь будет отображаться Ваш рацион</p></li>
               }
             </ul> :
