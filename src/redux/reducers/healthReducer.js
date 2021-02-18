@@ -33,7 +33,7 @@ const productReducer = createReducer([], {
 const initDayInfoState = {
   date: moment(Date.now()).format('YYYY-MM-DD'),
   id: '',
-  eatenProducts: {},
+  eatenProducts: [],
   daySummary: {
     date: moment(Date.now()).format('YYYY-MM-DD'),
     id: '',
@@ -55,6 +55,21 @@ const dayInfoReducer = createReducer(
       eatenProducts: [...state.eatenProducts, payload.eatenProduct],
       daySummary: payload.daySummary,
     }),
+    [healthActions.deleteDiaryItemSuccess]: (state,{payload})=>({
+        ...state,
+        eatenProducts: [...state.eatenProducts.filter(item=>{
+           return item.id !== payload
+        })]
+    }),
+    // [healthActions.deleteDiaryItemRequest]:(state,{payload})=>({
+    //     ...state,
+    //     loading: !state.loading
+    // }),
+    // [healthActions.deleteDiaryItemError]:(state,{payload})=>({
+    //     ...state,
+    //     error: payload
+    // }),
+    [authActions.logOutSuccess]: () => {},
     [authActions.logOutSuccess]: () => { },
   },
 );
@@ -67,3 +82,18 @@ const healthReducer = combineReducers({
 });
 
 export default healthReducer;
+
+
+// const healthReducer = createReducer({dailyRate: null, dailyEatenProd:[], error:"",loading:false,userData:{}},{
+//     [diarySetLoading]:(state,action)=>{
+//         return {...state, loading:!state.loading}
+//     },
+//     [diarySetError]:(state,action)=>{
+//         return {...state, error:action.payload}
+//     },
+//     [deleteDiaryItem]:(state,action)=>{
+//         return {...state, dailyEatenProd:[...state.dailyEatenProd, action.payload]}
+//     },
+//     [getUserData]:(state,action)=>{
+//         return {...state,userData:{...action.payload}}
+//     }
