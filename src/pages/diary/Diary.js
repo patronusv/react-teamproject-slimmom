@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from 'react';
-
+import { useDispatch } from "react-redux";
 import DiaryProductList from '../../components/diaryProductList/DiaryProductList';
 import DiaryAddProductForm from '../../components/diaryAddProductForm/DiaryAddProductForm';
 import DiaryDateCalendar from '../../components/diaryDateCalendar/DiaryDateCalendar';
 import { DiaryWrapper } from './DiaryStyle';
-import RightSideBar from '../../components/rightSideBar/RightSideBar';
+import Modal from '../../components/modal/Modal';
+import modalActions from '../../redux/actions/modalActions';
+
+
+
 
 const Diary = () => {
   const size = useWindowSize();
-  // const [state, setState] = useState({
-  //     modal: false,
-  // });
+  const dispatch = useDispatch();
+
+
 
   function useWindowSize() {
     // Initialize state with undefined width/height so server and client renders match
@@ -44,27 +48,23 @@ const Diary = () => {
     return windowSize;
   }
 
-  // const handleClick = () => {
-  //     setState(prev => ({
-  //         ...prev, modal: true
-  //     }))
+  const handleClick = () => {
+    dispatch(modalActions.onModal())
+  }
 
-  // }
   return (
-    <>
-      <DiaryWrapper>
-        <DiaryDateCalendar />
+    <DiaryWrapper>
+      <DiaryDateCalendar />
+      {size.width < 768 ? (<Modal >
         <DiaryAddProductForm />
-        <DiaryProductList />
-        {size.width < 768 && (
-          <button type="submit" className="buttomDiaryProductList">
-            +
-          </button>
-        )}
-      </DiaryWrapper>
-      <RightSideBar />
-    </>
-  );
-};
 
-export default Diary;
+      </Modal>) : <DiaryAddProductForm />}
+      <DiaryProductList />
+      {size.width < 768 && (<button type='submit' className='buttomDiaryProductList' onClick={handleClick}>+
+      </button>)}
+
+    </DiaryWrapper>
+  )
+}
+
+export default Diary

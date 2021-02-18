@@ -32,11 +32,13 @@ const Modal = ({ children }) => {
   }, [openModal]);
 
   const handleKeyDown = e => {
+
     if (e.code === 'Escape') {
       dispatch(modalActions.toggleModal());
     }
   };
   const handleClick = e => {
+
     if (e.target.dataset.name !== 'overlay') {
       return;
     }
