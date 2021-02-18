@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { useWindowWidth } from '@react-hook/window-size';
 // import style from './Modal.module.css';
 import ModalWindow from './Modal.styled';
+import getModalState from '../../redux/selectors/modalSelector';
+import modalActions from '../../redux/actions/modalActions';
 
 const Modal = ({ children }) => {
   //   у компоненті, який викликає модальне вікно, потрібно створити локальний стейт:
@@ -12,6 +15,8 @@ const Modal = ({ children }) => {
   //  }
   //  та передати їх пропсами
 
+  const openModal = useSelector(getModalState);
+  const dispatch = useDispatch();
   const onlyWidth = useWindowWidth();
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
@@ -28,14 +33,17 @@ const Modal = ({ children }) => {
 
   const handleKeyDown = e => {
     if (e.code === 'Escape') {
-      toggleModal();
+      dispatch(modalActions.toggleModal());
     }
   };
   const handleClick = e => {
     if (e.target.dataset.name !== 'overlay') {
       return;
     }
-    toggleModal();
+    dispatch(modalActions.toggleModal());
+  };
+  const closeModal = () => {
+    dispatch(modalActions.offModal());
   };
 
   return (
@@ -47,10 +55,17 @@ const Modal = ({ children }) => {
           data-name="overlay"
         >
           <div className="modal" data-name="modal">
+            {/* {onlyWidth < 768 && (
+              <button
+                className={'closeButton'}
+                type="button"
+                onClick={closeModal}
+              ></button>
+            )} */}
             <button
               className={onlyWidth < 768 ? 'arrowCloseButton' : 'closeButton'}
               type="button"
-              onClick={toggleModal}
+              onClick={closeModal}
             ></button>
             {children}
           </div>

@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import healthSelectors from '../../redux/selectors/healthSelectors';
 import styles from './DailyCalorieIntake.module.css';
+import modalActions from '../../redux/actions/modalActions';
 
 const DailyCalorieIntake = () => {
   const history = useHistory();
+  const dispatch = useDispatch();
   const token = useSelector(state => state.token);
   const notAllowedProducts = useSelector(healthSelectors.getNotAllowedProducts);
   const DailyRate = useSelector(healthSelectors.getDailyRate);
@@ -14,11 +15,10 @@ const DailyCalorieIntake = () => {
     (product, index) => index < 5,
   );
 
-  const [isModal, setIsModal] = useState(false);
-  const modalHandler = () => setIsModal(false);
+  const modalHandler = () => dispatch(modalActions.toggleModal());
   const btnSubmit = () => {
     modalHandler();
-    history.push(token ? '/diary' : '/registration');
+    history.push(!token && '/register');
   };
   return (
     <>

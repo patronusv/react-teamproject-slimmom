@@ -6,6 +6,8 @@ import Modal from '../modal/Modal';
 import sprite from '../../assets/svg/sprite.svg';
 import DailyCaloriesFormStyled from './DailyCaloriesFormStyled';
 import DailyCalorieIntake from '../dailyCalorieIntake/DailyCalorieIntake';
+import getModalState from '../../redux/selectors/modalSelector';
+import modalActions from '../../redux/actions/modalActions';
 
 const initialState = {
   height: '',
@@ -24,12 +26,12 @@ const booldType = {
 
 const DailyCaloriesForm = () => {
   const dispatch = useDispatch();
-  const [openModal, setOpenModal] = useState(false);
+  // const [openModal, setOpenModal] = useState(false);
   const auth = useSelector(isAuth);
   //const auth1 = true;
   const [state, setState] = useState({ ...initialState });
   const [blood, setBlood] = useState({ ...booldType });
-
+  const isModal = useSelector(getModalState);
   const onHandleChange = e => {
     const { name, value } = e.target;
     setState(prev => ({ ...prev, [name]: value }));
@@ -45,12 +47,12 @@ const DailyCaloriesForm = () => {
     dispatch(healthOperations.getDailyRateOperation(state));
     !auth && setState({ ...initialState });
     //toggleModal();
-    !auth && toggleModal();
+    !auth && dispatch(modalActions.toggleModal());
   };
 
-  const toggleModal = () => {
-    setOpenModal(!openModal);
-  };
+  // const toggleModal = () => {
+  //   setOpenModal(!openModal);
+  // };
 
   // const colorForType = {
   //   color: ['#fc842d', ' #e0e0e0'],
@@ -221,9 +223,11 @@ const DailyCaloriesForm = () => {
           Похудеть
         </button>
       </form>
-      <Modal openModal={openModal} toggleModal={toggleModal}>
-        <DailyCalorieIntake />
-      </Modal>
+      {isModal && (
+        <Modal>
+          <DailyCalorieIntake />
+        </Modal>
+      )}
     </DailyCaloriesFormStyled>
   );
 };
