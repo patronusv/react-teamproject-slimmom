@@ -44,12 +44,6 @@ color: #9B9FAA;
  width: 239px;
 
 }
-/* .inputDairyAddProduct:last-child{
-    @media screen and (min-width:768px){
- margin-left:31px;
-
-} */
- 
 }
 }
 

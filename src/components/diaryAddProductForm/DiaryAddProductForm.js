@@ -7,6 +7,14 @@ import healthOperations from '../../redux/operations/healthOperations';
 
 
 const DiaryAddProductForm = () => {
+
+  const [openModal, setOpenModal] = useState(false)
+
+  const toggleModal = () => {
+    setOpenModal(!openModal)
+  }
+
+
   const debounce = require('debounce');
   const size = useWindowSize();
   const date = useSelector(state => state.health.getDate.date)
@@ -106,7 +114,7 @@ const DiaryAddProductForm = () => {
                 className='inputDairyAddProduct secondInputLength' />
             </label>
           </div>
-          <button type='submit' className='buttonDairyAddProduct'>
+          <button type='submit' className='buttonDairyAddProduct' onClick={toggleModal}>
             {size.width < 768 ? 'Добавить' : '+'}
           </button>
 

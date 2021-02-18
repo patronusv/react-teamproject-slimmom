@@ -15,27 +15,7 @@ const Diary = () => {
     const toggleModal = () => {
         setOpenModal(!openModal)
     }
-    // const idToken = useSelector((state) => state.auth.user.accessToken)
-    // const dispatch = useDispatch();
-    // const [state, setState] = useState({
-    //     date: '',
-    //     product: '',
-    //     gram: '',
-    // });
 
-    // const handleChange = e => {
-    //     const { name, value } = e.target;
-    //     setState(prev => ({
-    //         ...prev, [name]: value
-    //     }))
-    //     console.log(state)
-    // }
-
-    // const handleSubmit = e => {
-    //     e.preventDefault();
-    //     // dispatch(addNewProductDairyOperation(state))
-
-    // }
 
     function useWindowSize() {
         // Initialize state with undefined width/height so server and client renders match
@@ -75,6 +55,7 @@ const Diary = () => {
             <DiaryDateCalendar />
             {size.width < 768 ? (<Modal openModal={openModal} toggleModal={toggleModal} >
                 <DiaryAddProductForm />
+
             </Modal>) : <DiaryAddProductForm />}
             <DiaryProductList />
             {size.width < 768 && (<button type='submit' className='buttomDiaryProductList' onClick={toggleModal}>+

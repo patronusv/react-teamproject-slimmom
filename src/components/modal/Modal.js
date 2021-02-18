@@ -27,12 +27,14 @@ const Modal = ({ children, openModal, toggleModal }) => {
   }, [openModal]);
 
   const handleKeyDown = e => {
+
     if (e.code === 'Escape') {
       toggleModal();
     }
   };
   const handleClick = e => {
-    if (e.target.dataset.name !== 'overlay' && e.code === 'Escape') {
+
+    if (e.target.dataset.name !== 'overlay') {
       return;
     }
     toggleModal();
