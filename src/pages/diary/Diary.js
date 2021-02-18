@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { useSelector, useDispatch } from "react-redux";
+
 import DiaryProductList from '../../components/diaryProductList/DiaryProductList';
 import DiaryAddProductForm from '../../components/diaryAddProductForm/DiaryAddProductForm'
 import DiaryDateCalendar from '../../components/diaryDateCalendar/DiaryDateCalendar'
 import { DiaryWrapper } from './DiaryStyle';
 import Modal from '../../components/modal/Modal';
-import RightSideBar from '../../components/rightSideBar/RightSideBar';
+
 
 const Diary = () => {
     const size = useWindowSize();
