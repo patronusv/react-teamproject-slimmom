@@ -5,6 +5,13 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
 
+  width: 290px;
+  margin-top: 30px;
+
+  @media screen and (min-width: 768px) {
+    width: 605px;
+  }
+
   .homeTitle {
     font-weight: 700;
     font-size: 18px;
@@ -153,11 +160,10 @@ const Wrapper = styled.div`
     line-height: 1.21;
     color: #ffffff;
     padding: 13px 48px;
-    margin-top: 40px;
 
     @media screen and (max-width: 767px) {
       margin: 0 auto;
-      margin-top: 60px;
+      margin-top: 41.5px;
     }
 
     @media screen and (min-width: 768px) {
