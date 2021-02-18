@@ -7,11 +7,12 @@ import PublicRoute from '../publicRoute/PublicRoute';
 import GeneralRoute from '../publicRoute/GeneralRoute';
 import PrivateRoute from '../privateRoute/PrivateRoute';
 import Home from '../../pages/home/Home';
+import healthSelectors from '../../redux/selectors/healthSelectors';
 
 const Main = () => {
   const authFlag = useSelector(isAuth);
-  // const authFlag = true;
-  const dailyRate = useSelector(state => state.health.dailyRate);
+  const dailyRate = useSelector(healthSelectors.getDailyRate);
+  console.log('dailyRate', dailyRate);
 
   return (
     <>
