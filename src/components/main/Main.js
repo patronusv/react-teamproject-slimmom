@@ -12,7 +12,8 @@ const Main = () => {
 
   const authFlag  = useSelector(isAuth);
   // const authFlag = true;
-  const dailyRate = useSelector(state => state.health.dailyRate);
+  const dailyRate = (useSelector(state => state.health.dailyRate)).dailyRate;
+  
 
   return (
     <>
@@ -20,7 +21,6 @@ const Main = () => {
     
         <Switch>
           
-        
         {mainRoutes.map((route) => {
             if (route.isPrivate===true){
             return dailyRate && (<PrivateRoute {...route} isAuth={authFlag} key={route.path}/>) 

@@ -38,8 +38,8 @@ const App = () => {
       weight: 100,
     };
     // dispatch(authOperations.registerOperation(registerUser))
-    // dispatch(authOperations.loginOperation(loginUser));
-    // dispatch(authOperations.logOutOperation());
+    dispatch(authOperations.loginOperation(loginUser));
+    dispatch(authOperations.logOutOperation());
     // dispatch(authOperations.refreshOperation());
     // dispatch(healthOperations.getUserInfoOperation());
     // dispatch(healthOperations.getDailyRateOperation(dailyRateData));
