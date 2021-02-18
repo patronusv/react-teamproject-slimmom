@@ -9,7 +9,7 @@ padding-left:15px;
     margin-bottom:59.5px;
     padding-left:92px;
 }
-@media screen and (min-width:1200px){
+@media screen and (min-width:1280px){
 padding-left:115px;
 }
 .formDairyAddProduct{
@@ -48,10 +48,12 @@ color: #9B9FAA;
 }
 
 .secondInputLength{
+    
    @media screen and (min-width:768px){
  width: 104.36px;
  margin-left:31px;
-text-align:left;
+ text-indent: 30px;
+
 } 
 }
 

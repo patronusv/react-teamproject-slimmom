@@ -122,14 +122,3 @@ const DiaryAddProductForm = () => {
 }
 
 export default DiaryAddProductForm
-
-
-
-
-
-{/* {product.length ? (product.length < 20 ?
-            (<select className='selectDairyAddProduct' onChange={handleChange} name='productId' value={state.productId}>
-              <option>Выберите продукт из списка</option>
-              {product.map(item => <option value={item._id}>{item.title.ru}</option>)}
-            </select>) :
-            <p>Введите более точное название</p>) : null} */}
