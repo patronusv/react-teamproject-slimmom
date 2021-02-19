@@ -16,6 +16,7 @@ const Wrapper = styled.div`
     margin-bottom: 73px;
     background-size: contain;
     background-position: center;
+    background-repeat: repeat;
     background-image: url(${imageTablet});
   }
   @media (min-width: 1280px) {
@@ -24,6 +25,15 @@ const Wrapper = styled.div`
     padding-top: 143px;
     padding-bottom: 111px;
     background-image: url(${imageDesktop});
+
+    position: absolute;
+    background-size: cover;
+    top: 0;
+    z-index: -100;
+    width: 100vw;
+    height: 100%;
+    min-height: 850px;
+    overflow: hidden;    
   }
 
   .calculatorPage {
