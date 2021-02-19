@@ -4,19 +4,23 @@ import imageDesktop from '../../assets/images/loginRegistr/desktop-home.jpg';
 import imageTablet from '../../assets/images/loginRegistr/tablet-home.jpg';
 
 const RegistrationWrapper = styled.div`
-  padding-top: 244px;
-  padding-bottom: 243px;
+  padding-top: 120px;
+  padding-bottom: 101px;
 
   width: 100%;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: right;
 
   @media (min-width: 768px) {
+    padding-top: 237px;
+    padding-bottom: 466px;
     background-image: url(${imageTablet});
   }
 
   @media (min-width: 1280px) {
+    padding-top: 244px;
+    padding-bottom: 244px;
     background-image: url(${imageDesktop});
   }
 `;

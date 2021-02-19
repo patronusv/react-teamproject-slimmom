@@ -13,6 +13,7 @@ const errorReducer = createReducer(null, {
   [healthActions.getProductError]: (_, { payload }) => payload,
   [healthActions.getUserInfoError]: (_, { payload }) => payload,
   [healthActions.postEatenProductError]: (_, { payload }) => payload,
+  [healthActions.deleteDiaryItemError]: (_, { payload }) => payload,
 
   [authActions.registerRequest]: () => null,
   [authActions.loginRequest]: () => null,
@@ -24,6 +25,7 @@ const errorReducer = createReducer(null, {
   [healthActions.getProductRequest]: () => null,
   [healthActions.getUserInfoRequest]: () => null,
   [healthActions.postEatenProductRequest]: () => null,
+  [healthActions.deleteDiaryItemRequest]: () => null,
 });
 
 export default errorReducer;

@@ -7,7 +7,7 @@ import {LogoContainerMobile,LogoContainerTablet,LogoContainerDesktop} from './Lo
 const Logo = ({isAuth}) => {
   return (
     <>
-      <a href="/diary">
+      <a href={isAuth ? "/diary" : "/calculator"}>
         {isAuth ?(
         <LogoContainerMobile src={logoMobAuth} width="162.3" height="44"/> 
         ) : (

@@ -3,13 +3,11 @@ import LoginWrapper from './LoginStyled';
 
 const Login = () => {
   return (
-    <>
-      <LoginWrapper>
-        <div className="container">
-          <LoginForm />
-        </div>
-      </LoginWrapper>
-    </>
+    <LoginWrapper>
+      <div className="container">
+        <LoginForm />
+      </div>
+    </LoginWrapper>
   );
 };
 

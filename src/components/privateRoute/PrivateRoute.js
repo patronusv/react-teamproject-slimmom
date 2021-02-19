@@ -1,13 +1,24 @@
-import React from "react";
-import { Route, Redirect } from "react-router-dom";
+import React from 'react';
+import { Route, Redirect } from 'react-router-dom';
+import Calculator from '../../pages/calculator/Calculator';
 
-const PrivateRoute = ({ path, exact, component, isAuth}) => {
-  return isAuth  ? (
+const PrivateRoute = ({
+  path,
+  exact,
+  component,
+  isPrivate,
+  restricted,
+  dailyRate,
+}) => {
+  return !isPrivate ? (
+    <Redirect to="/login" />
+  ) : restricted && dailyRate ? (
+    <Route path={path} exact={exact} component={component} />
+  ) : !restricted ? (
     <Route path={path} exact={exact} component={component} />
   ) : (
-    <Redirect to='/login' />
+    <Redirect to="/calculator" />
   );
-  
 };
 
 export default PrivateRoute;
