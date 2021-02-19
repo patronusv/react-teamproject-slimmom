@@ -41,7 +41,7 @@ const App = () => {
     // dispatch(authOperations.registerOperation(registerUser))
     // dispatch(authOperations.loginOperation(loginUser));
     // dispatch(authOperations.logOutOperation());
-    dispatch(authOperations.refreshOperation());
+    // dispatch(authOperations.refreshOperation());
     // dispatch(healthOperations.getUserInfoOperation());
     // dispatch(healthOperations.getDailyRateOperation(dailyRateData));
     // dispatch(healthOperations.getDailyRateOperation(dailyRateData, userId));

@@ -5,16 +5,14 @@ export const HeaderContainer = styled.header`
   align-items: center;
   padding: 10px;
   border-bottom: 2px solid #e0e0e0;
-  /* position: fixed; */
   background-color: transparent;
+  width: 100%;
 
   @media screen and (min-width: 320px) and (max-width: 767px) {
-    width: 320px;
     height: 80px;
   }
 
   @media screen and (min-width: 768px) and (max-width: 1279px) {
-    width: 768px;
     height: 80px;
   }
 
@@ -89,9 +87,6 @@ export const BurgerButton = styled.button`
   :active {
     outline: none;
   }
-  @media screen and (min-width: 320px) and (max-width: 767px) {
-    /* margin-left: 110px; */
-  }
 
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     margin-left: 56px;
@@ -120,10 +115,6 @@ export const UserInfoContainerTablet = styled.div`
 
 export const HeaderWrapper = styled.div`
   display: flex;
-
-  /* @media (min-width: 1280px) {
-        display:none;
-    } */
 `;
 
 export const UserInfoContainerDesktop = styled.div`

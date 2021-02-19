@@ -3,12 +3,14 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
 
   background-color: rgba(240, 241, 243, 1);
+    // background-color: unset;
   width: 100%;
   padding: 40px 0 85px;
 
 @media screen and (min-width: 768px) {
-    background: url('./img/tab.png') rgba(240, 241, 243, 1) bottom right
-      no-repeat;
+    // background: url('./img/tab.png') rgba(240, 241, 243, 1) bottom right
+    //   no-repeat;
+    background-color: unset;
     padding: 90px 0;
     height: 100%;
   }
@@ -18,8 +20,9 @@ const Wrapper = styled.div`
     padding-top: 292px;
     padding-left: 90px;
     padding-right: 115px;
-    background: url('./img/desk.png') rgba(240, 241, 243, 1) bottom right
-      no-repeat;
+    background-color: unset;
+    // background: url('./img/desk.png') rgba(240, 241, 243, 1) bottom right
+    //   no-repeat;
   }
 
 .rightSideBar {
@@ -67,11 +70,20 @@ const Wrapper = styled.div`
     display: flex;
     justify-content: center;
      flex-wrap: wrap;
+     align-items: baseline;
+    //   flex-direction: column;
   }
 
-//   .blockRight {
-//     margin-top: 40;
+//   .rightSideBar {
+//     display: flex;
+//     justify-content: space-around;
+//     align-items: baseline;
+//     padding-bottom: 0;
 //   }
+
+  .blockRight {
+    margin-top: 40;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -81,11 +93,6 @@ const Wrapper = styled.div`
     align-items: baseline;
     padding-bottom: 0;
   }
-
-//   .bgImageLogin {
-//     width: 100%;
-//     height: 100%;
-//   }
 
   .blockLeft {
     width: 290px;
@@ -112,7 +119,32 @@ const Wrapper = styled.div`
   }
 }
 
+.scrollbar {
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  scrollbar-width: thin;
+  scrollbar-color: #264061;
+}
 
+.scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.scrollbar::-webkit-scrollbar-track {
+  background-color: #afb1b6;
+}
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: #264061;
+}
+
+.scrollbarText {
+  max-height: 150px;
+  z-index: 1;
+  position: relative;
+  overscroll-behavior: contain;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 2px;
+}
 
 `;
 
