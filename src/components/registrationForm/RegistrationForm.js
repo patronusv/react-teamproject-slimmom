@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as yup from 'yup';
+import { useHistory } from 'react-router-dom';
 
 import authOperations from '../../redux/operations/authOperations';
 import RegistrationFormWrapper from './RegistrationFormStyled';
@@ -31,11 +32,14 @@ const RegistrationForm = () => {
   });
 
   const dispatch = useDispatch();
+  const history = useHistory();
   const [state, setState] = useState({ ...initialState });
 
-  const onHandleSubmit = values => {
-    dispatch(authOperations.registerOperation(values));
-    // dispatch(authOperations.loginOperation(values));
+  const onHandleSubmit = async values => {
+    await dispatch(authOperations.registerOperation(values));
+    const loginValues = { email: values.email, password: values.password };
+    dispatch(authOperations.loginOperation(loginValues));
+    history.push('/calculator');
     setState({ ...initialState });
   };
 
