@@ -11,8 +11,10 @@ const Calculator = () => {
   const notification = useSelector(notificSelectors.getNotificState);
   return (
     <CalculatorStyled>
-      <div className="container">
-        <div className="calculatorPage">
+
+      
+      <div className="calculatorPage">
+       <div className="container">
           {notification && (
             <div className="alert">
               <CSSTransition
@@ -29,7 +31,11 @@ const Calculator = () => {
               </CSSTransition>
             </div>
           )}
+
           <DailyCaloriesForm />
+        </div>
+
+        <div className="RightSideBar">
           <RightSideBar />
         </div>
       </div>
