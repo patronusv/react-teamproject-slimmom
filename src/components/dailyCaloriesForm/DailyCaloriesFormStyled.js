@@ -157,12 +157,25 @@ const Wrapper = styled.div`
     fill: #fc842d;
   }
 
+  .coloriesFormCheckbox:focus + .coloriesFormSvg {
+    border: 1px solid #fc842d;
+    border-radius: 50%;
+  }
+
   .coloriesFormSvg {
     fill: #9b9faa;
     width: 20px;
     height: 20px;
     margin-right: 6px;
   }
+
+  /* .coloriesFormSvg:hover {
+    fill: #9b9faa;
+    width: 20px;
+    height: 20px;
+    margin-right: 6px;
+  } */
+
   .coloriesFormBtn {
     display: flex;
     background: #fc842d;
