@@ -4,12 +4,14 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-right: 115px;
 
   width: 290px;
-  padding-bottom: 15px;
+  padding-bottom: 60px;
 
   @media screen and (min-width: 768px) {
-    width: 605px;
+    padding-bottom: 73.5px;
+    min-width: 605px;
   }
 
   .homeTitle {

@@ -20,6 +20,17 @@ const Wrapper = styled.div`
     padding-bottom: 111px;
     background-image: url(${imageDesktop});
   }
+  .calculatorPage {
+    display: flex;
+    flex-direction: column;
+    //justify-content: space-between;
+    @media (min-width: 768px) {
+    }
+
+    @media (min-width: 1280px) {
+      flex-direction: row;
+    }
+  }
 `;
 
 export default Wrapper;
