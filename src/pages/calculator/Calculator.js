@@ -5,9 +5,12 @@ import CalculatorStyled from './CalculatorStyled';
 const Calculator = () => {
   return (
     <CalculatorStyled>
-      <div className="container">
-        <div className="calculatorPage">
+      <div className="calculatorPage">
+        <div className="container">
           <DailyCaloriesForm />
+        </div>
+
+        <div className="RightSideBar">
           <RightSideBar />
         </div>
       </div>
