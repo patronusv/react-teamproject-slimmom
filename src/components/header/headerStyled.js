@@ -6,14 +6,13 @@ export const HeaderContainer = styled.header`
   padding: 10px;
   border-bottom: 2px solid #e0e0e0;
   background-color: transparent;
+  width: 100%;
 
   @media screen and (min-width: 320px) and (max-width: 767px) {
-    width: 320px;
     height: 80px;
   }
 
   @media screen and (min-width: 768px) and (max-width: 1279px) {
-    width: 768px;
     height: 80px;
   }
 
@@ -116,7 +115,6 @@ export const UserInfoContainerTablet = styled.div`
 
 export const HeaderWrapper = styled.div`
   display: flex;
-
 `;
 
 export const UserInfoContainerDesktop = styled.div`

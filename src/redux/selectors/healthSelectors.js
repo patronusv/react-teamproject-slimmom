@@ -3,13 +3,9 @@ const getEatenProducts = state => state.health.dayInfo.eatenProducts;
 const getNotAllowedProducts = state =>
   state.health.dailyRate.notAllowedProducts;
 
-const getDailyRate = state=>state.health.dailyRate.dailyRate;
+const getDailyRate = state => state.health.dailyRate.dailyRate;
 const getDate = state => state.health.getDate.date;
 const getProducts = state => state.health.product;
-
-const getDate = state => state.health.getDate.date;
-const getProducts = state => state.health.product;
-
 
 export default {
   getDaySummary,
@@ -17,5 +13,5 @@ export default {
   getNotAllowedProducts,
   getDailyRate,
   getDate,
-  getProducts
+  getProducts,
 };
