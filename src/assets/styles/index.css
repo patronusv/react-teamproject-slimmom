@@ -32,7 +32,7 @@ img {
   .container {
     margin-left: auto;
     margin-right: auto;
-    width: 290px;
+    width: 320px;
   }
 }
 @media screen and (min-width: 768px) {
@@ -43,7 +43,6 @@ img {
 @media screen and (min-width: 1280px) {
   .container {
     width: 1080px;
-
   }
 }
 
@@ -55,8 +54,3 @@ img {
   margin: 0;
   list-style: none;
 }
-
-
-
-
-
