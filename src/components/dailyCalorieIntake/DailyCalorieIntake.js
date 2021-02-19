@@ -1,8 +1,9 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import healthSelectors from '../../redux/selectors/healthSelectors';
-import styles from './DailyCalorieIntake.module.css';
+// import styles from './DailyCalorieIntake.module.css';
 import modalActions from '../../redux/actions/modalActions';
+import DailyCalorieIntakeStyle from './DailyCalorieIntake.styled';
 
 const DailyCalorieIntake = () => {
   const history = useHistory();
@@ -10,7 +11,6 @@ const DailyCalorieIntake = () => {
   const token = useSelector(state => state.token);
   const notAllowedProducts = useSelector(healthSelectors.getNotAllowedProducts);
   const DailyRate = useSelector(healthSelectors.getDailyRate);
-
 
   const filtredProducts = notAllowedProducts?.filter(
     (product, index) => index < 5,
@@ -23,29 +23,29 @@ const DailyCalorieIntake = () => {
   };
   return (
     <>
-      <div className={styles.dailyCalorieIntake}>
-        <h1 className={styles.title}>
+      <DailyCalorieIntakeStyle>
+        {/* <div className={styles.dailyCalorieIntake}> */}
+        <h2 className="title">
           Ваша рекомендуемая суточная норма калорий составляет
-        </h1>
-        <p className={styles.info}>
-
-          <span className={styles.ccal}>{DailyRate}</span> ккал
-
+        </h2>
+        <p className="info">
+          <span className="ccal">{DailyRate}</span> ккал
         </p>
-        <div className={styles.mustntEatDiv}>
-          <h2 className={styles.mustntEat}>
+        <div className="mustntEatDiv">
+          <h2 className="mustntEat">
             Продукты, которые вам <br /> не рекомендуется употреблять
           </h2>
-          <ol className={styles.list}>
+          <ol className="list">
             {filtredProducts?.map(product => (
               <li key={product}>{product}</li>
             ))}
           </ol>
         </div>
-        <button type="button" className={styles.btn} onClick={btnSubmit}>
+        <button type="button" className="btn" onClick={btnSubmit}>
           Начать худеть
         </button>
-      </div>
+      </DailyCalorieIntakeStyle>
+      {/* </div> */}
     </>
   );
 };
