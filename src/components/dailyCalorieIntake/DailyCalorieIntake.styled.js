@@ -89,6 +89,9 @@ const DailyCalorieIntakeStyle = styled.div`
     letter-spacing: 0.04em;
 
     color: #9b9faa;
+
+    list-style-type: decimal;
+    list-style-position: inside;
   }
 
   .list > li {
@@ -148,6 +151,28 @@ const DailyCalorieIntakeStyle = styled.div`
     font-weight: 700;
 
     color: #212121;
+  }
+  .scrollbar {
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    scrollbar-width: thin;
+    scrollbar-color: $burger-background $secondary-beckground;
+  }
+  .scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .scrollbar::-webkit-scrollbar-track {
+    background-color: $secondary-beckground;
+  }
+  .scrollbar::-webkit-scrollbar-thumb {
+    background-color: $burger-background;
+    border-radius: 0px;
+  }
+  .scrollbar::-webkit-scrollbar-thumb:vertical {
+    min-height: 1.5rem;
+  }
+  .scrollbar::-webkit-scrollbar-thumb:horizontal {
+    min-width: 1.5rem;
   }
 `;
 export default DailyCalorieIntakeStyle;

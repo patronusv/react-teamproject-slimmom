@@ -13,7 +13,7 @@ const DailyCalorieIntake = () => {
   const DailyRate = useSelector(healthSelectors.getDailyRate);
 
   const filtredProducts = notAllowedProducts?.filter(
-    (product, index) => index < 5,
+    (product, index) => index < 15,
   );
 
   const modalHandler = () => dispatch(modalActions.toggleModal());
@@ -31,11 +31,11 @@ const DailyCalorieIntake = () => {
         <p className="info">
           <span className="ccal">{DailyRate}</span> ккал
         </p>
-        <div className="mustntEatDiv">
+        <div className="mustntEatDiv scrollbar">
           <h2 className="mustntEat">
             Продукты, которые вам <br /> не рекомендуется употреблять
           </h2>
-          <ol className="list">
+          <ol className="list scrollbar">
             {filtredProducts?.map(product => (
               <li key={product}>{product}</li>
             ))}
