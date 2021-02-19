@@ -19,8 +19,9 @@ const Wrapper = styled.div`
     background-repeat: repeat;
     background-image: url(${imageTablet});
   }
-
   @media (min-width: 1280px) {
+    position: relative;
+
     padding-top: 143px;
     padding-bottom: 111px;
     background-image: url(${imageDesktop});
@@ -34,16 +35,25 @@ const Wrapper = styled.div`
     min-height: 850px;
     overflow: hidden;    
   }
+
   .calculatorPage {
     display: flex;
     flex-direction: column;
-    //justify-content: space-between;
-    @media (min-width: 768px) {
-    }
+  }
 
+  .RightSideBar {
     @media (min-width: 1280px) {
-      flex-direction: row;
+      position: absolute;
+      left: 52%;
+      bottom: 15%;
     }
+  }
+
+  .alert {
+    position: absolute;
+    top: 125px;
+    left: auto;
+    width: max-content;
   }
 `;
 

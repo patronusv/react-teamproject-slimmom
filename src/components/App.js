@@ -33,7 +33,7 @@ const App = () => {
     const dateNow = moment(Date.now()).format('YYYY-MM-DD');
     const date = {
       // date: dateNow,
-      date: '2020-02-15',
+      date: '2020-02-19',
     };
     const userId = '602a3cebb358b53ec8eb1eaa';
     const product = {
@@ -47,7 +47,7 @@ const App = () => {
     dispatch(authOperations.refreshOperation());
     // dispatch(healthOperations.getUserInfoOperation());
     // dispatch(healthOperations.getDailyRateOperation(dailyRateData));
-    dispatch(healthOperations.getDailyRateOperation(dailyRateData, userId));
+    // dispatch(healthOperations.getDailyRateOperation(dailyRateData, userId));
     // dispatch(healthOperations.getProductOperation('ябл'));
     // dispatch(healthOperations.getDayInfoOperation(date));
     // dispatch(healthOperations.postEatenProductOperation(product));
