@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import authOperations from '../redux/operations/authOperations';
 import Header from './header/Header';
 import Main from './main/Main';
@@ -7,8 +7,11 @@ import healthOperations from '../redux/operations/healthOperations';
 import moment from 'moment';
 import RightSideBar from './rightSideBar/RightSideBar';
 import modalActions from '../redux/actions/modalActions';
+import LoaderSpinner from '../components/loader/Loader';
+import isLoading from '../redux/selectors/loaderSelector';
 
 const App = () => {
+  const loading = useSelector(isLoading);
   const dispatch = useDispatch();
   useEffect(() => {
     const loginUser = {
@@ -54,6 +57,7 @@ const App = () => {
   return (
     <>
       <Header />
+      {loading && <LoaderSpinner />}
       <Main />
     </>
   );
