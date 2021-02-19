@@ -83,12 +83,7 @@ const deleteDiaryItemOperation = (id) => async (dispatch, getState) => {
   dispatch(healthActions.deleteDiaryItemRequest());
 
   try {
-    const response = await axios.delete('/day', {
-      // headers: {
-      //   "Content-Type": "application/json",
-      //   "Authorization": `Bearer ${token}`,
-      //   "Accept": "application/json"
-      // },  
+    const response = await axios.delete('/day', { 
       data: obj
     });
     dispatch(healthActions.deleteDiaryItemSuccess(id));

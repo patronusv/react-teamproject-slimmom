@@ -9,7 +9,7 @@ import healthSelectors from '../../redux/selectors/healthSelectors';
 
 
 const DiaryAddProductForm = () => {
-  // const debounce = require('debounce');
+  const debounce = require('debounce');
   const size = useWindowSize();
   const date = useSelector((state) => healthSelectors.getDate(state))
   const products = useSelector((state) => healthSelectors.getProducts(state))
