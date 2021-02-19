@@ -20,9 +20,9 @@ const Wrapper = styled.div`
     background-image: url(${imageTablet});
   }
   @media (min-width: 1280px) {
-    position: relative;
+    /* position: relative; */
 
-    padding-top: 143px;
+    padding-top: 223px;
     padding-bottom: 111px;
     background-image: url(${imageDesktop});
 
@@ -33,19 +33,14 @@ const Wrapper = styled.div`
     width: 100vw;
     height: 100%;
     min-height: 850px;
-    overflow: hidden;    
+    overflow: hidden;
   }
 
   .calculatorPage {
     display: flex;
     flex-direction: column;
-  }
-
-  .RightSideBar {
     @media (min-width: 1280px) {
-      position: absolute;
-      left: 52%;
-      bottom: 15%;
+      flex-direction: row;
     }
   }
 
