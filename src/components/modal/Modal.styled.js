@@ -22,14 +22,13 @@ const ModalWindow = styled.div`
 
   @media (min-width: 1280px) and (orientation: landscape) {
   }
-
   .open {
     overflow: hidden;
-    scroll-behavior: none;
   }
   .close {
     overflow: visible;
   }
+
   /* .overlay {
     position: fixed;
     top: 80px;
@@ -58,10 +57,10 @@ const ModalWindow = styled.div`
     }
 
     @media (min-width: 768px) {
-      max-width: 594px;
+      width: 594px;
       min-width: 200px;
       min-height: 200px;
-      height: auto;
+      height: 580px;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -70,7 +69,7 @@ const ModalWindow = styled.div`
 
     @media (min-width: 1280px) and (orientation: landscape) {
       max-width: 690px;
-      padding: 0 90px;
+      /* padding: 0 90px; */
     }
   }
 

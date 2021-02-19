@@ -101,7 +101,7 @@ const DailyCalorieIntakeStyle = styled.div`
   }
 
   .productList > li:not(:last-child) {
-    margin-bottom: 14px;
+    margin-bottom: 10px;
   }
 
   .btn {
@@ -160,6 +160,7 @@ const DailyCalorieIntakeStyle = styled.div`
     scrollbar-width: thin;
     scrollbar-color: #264061 #f0f1f3;
   }
+
   .scrollbar::-webkit-scrollbar {
     width: 15px;
   }
