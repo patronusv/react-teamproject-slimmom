@@ -9,7 +9,12 @@ const Navigation = ({ isActive, onToggleBurger }) => {
   const authFlag = useSelector(isAuth);
   const burgerFlag = isActive;
 
+
   // console.log(burgerFlag);
+
+  // const authFlag  = true;
+  // console.log(onToggleBurger);
+
 
   return (
     <>

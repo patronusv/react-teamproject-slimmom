@@ -97,6 +97,7 @@ const deleteDiaryItemOperation = (id) => async (dispatch, getState) => {
     setTimeout(() => {
       dispatch(notificActions.hideNotification());
     }, 3000);
+ 
   }
 }
 
