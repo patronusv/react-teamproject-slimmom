@@ -7,7 +7,6 @@ const RightSideBar = () => {
   const currenDate = new Date();
   const daySummary = useSelector(healthSelectors.getDaySummary);
   const notAllowedProducts = useSelector(healthSelectors.getNotAllowedProducts);
-
   return (
     <>
       <RightSideBarStyled>

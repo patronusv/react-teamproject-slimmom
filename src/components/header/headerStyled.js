@@ -98,6 +98,7 @@ export const BurgerButton = styled.button`
 `;
 export const UserInfoContainerMobile = styled.div`
   display: none;
+  background-color: #eff1f3;
 
   @media (max-width: 767px) {
     display: block;

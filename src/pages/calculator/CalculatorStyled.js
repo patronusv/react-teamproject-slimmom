@@ -1,4 +1,5 @@
 import imageDesktop from '../../assets/images/calculatorPage/desktop.jpg';
+import imageTablet from '../../assets/images/calculatorPage/tablet.jpg';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -13,6 +14,9 @@ const Wrapper = styled.div`
   @media (min-width: 768px) {
     padding-top: 100px;
     margin-bottom: 73px;
+    background-size: contain;
+    background-position: center;
+    background-image: url(${imageTablet});
   }
   @media (min-width: 1280px) {
     position: relative;

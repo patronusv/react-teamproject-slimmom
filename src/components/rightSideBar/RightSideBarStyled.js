@@ -3,6 +3,11 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
   padding: 40px 15px 24px 10px;
 
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+  padding: 40px 15px 24px 10px;
+
   @media screen and (min-width: 768px) {
     padding: 90px 120px 90px 87px;
   }

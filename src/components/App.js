@@ -49,7 +49,7 @@ const App = () => {
     // dispatch(healthOperations.getDailyRateOperation(dailyRateData));
     dispatch(healthOperations.getDailyRateOperation(dailyRateData, userId));
     // dispatch(healthOperations.getProductOperation('ябл'));
-    // dispatch(healthOperations.getDayInfoOperation(date));
+    dispatch(healthOperations.getDayInfoOperation(date));
     // dispatch(healthOperations.postEatenProductOperation(product));
     // dispatch(modalActions.toggleModal());
   }, []);
