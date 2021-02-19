@@ -4,13 +4,14 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-right: 115px;
 
   width: 290px;
-  margin-top: 30px;
-  padding-bottom: 15px;
+  padding-bottom: 60px;
 
   @media screen and (min-width: 768px) {
-    width: 605px;
+    padding-bottom: 73.5px;
+    min-width: 605px;
   }
 
   .homeTitle {
@@ -50,12 +51,18 @@ const Wrapper = styled.div`
   }
 
   .coloriesFormListItem {
+    position: relative;
     display: flex;
+    justify-content: space-between;
+
     width: 240px;
-    //border-bottom: 1px solid #e0e0e0;
   }
   .coloriesFormListItem:not(:last-child) {
     border-bottom: 1px solid #e0e0e0;
+  }
+
+  .coloriesFormListItem:not(:last-child):hover {
+    border-bottom: 1px solid #fc842d;
   }
 
   .coloriesFormListItem:not(:last-child) {
@@ -98,14 +105,22 @@ const Wrapper = styled.div`
   }
   .coloriesFormInput {
     flex-grow: 1;
-    /* text-align: center; */
-    font-weight: 700;
-    font-size: 14px;
+    max-width: 105px;
+    text-align: center;
+    font-weight: 400;
     line-height: 1.21;
-    color: #9b9faa;
+    //color: #9b9faa;
+    color: #212121;
     border: none;
     outline: none;
-    padding-left: 20%;
+    //padding-left: 40px;
+
+    @media screen and (min-width: 768px) {
+      font-size: 18px;
+    }
+    @media screen and (min-width: 1280px) {
+      font-size: 20px;
+    }
   }
   .coloriesFormCheckboxList {
     display: flex;
@@ -144,12 +159,25 @@ const Wrapper = styled.div`
     fill: #fc842d;
   }
 
+  .coloriesFormCheckbox:focus + .coloriesFormSvg {
+    border: 1px solid #fc842d;
+    border-radius: 50%;
+  }
+
   .coloriesFormSvg {
     fill: #9b9faa;
     width: 20px;
     height: 20px;
     margin-right: 6px;
   }
+
+  /* .coloriesFormSvg:hover {
+    fill: #9b9faa;
+    width: 20px;
+    height: 20px;
+    margin-right: 6px;
+  } */
+
   .coloriesFormBtn {
     display: flex;
     background: #fc842d;
@@ -193,12 +221,13 @@ const Wrapper = styled.div`
     @media screen and (min-width: 1280px) {
     }
   }
-`;
+  .coloriesFormError {
+    position: absolute;
+    top: calc(100% + 0.2em);
 
-// export const SpanStyled = styled.span`
-//   color: ${props =>
-//     //console.log('props', props)
-//     props.checked ? props.className.color[0] : props.className.color[1]};
-// `;
+    color: #e63946;
+    font-size: 13px;
+  }
+`;
 
 export default Wrapper;
