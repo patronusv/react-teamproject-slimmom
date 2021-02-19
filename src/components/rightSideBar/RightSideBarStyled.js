@@ -73,7 +73,7 @@ const Wrapper = styled.div`
 
 @media screen and (min-width: 320px) {
   .rightSideBar {
-    //   width: 320px;
+       //   width: 320px;
     
     display: flex;
     justify-content: center;

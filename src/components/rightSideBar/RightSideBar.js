@@ -2,9 +2,11 @@ import React from 'react';
 import RightSideBarStyled from './RightSideBarStyled';
 import { useSelector } from 'react-redux';
 import healthSelectors from '../../redux/selectors/healthSelectors';
+import moment from 'moment';
 
 const RightSideBar = () => {
-  const currenDate = new Date();
+  // const currenDate = new Date();
+  const currenDate = moment(Date.now()).format('DD.MM.YYYY');
   const daySummary = useSelector(healthSelectors.getDaySummary);
   const notAllowedProducts = useSelector(healthSelectors.getNotAllowedProducts);
 
@@ -13,13 +15,13 @@ const RightSideBar = () => {
     <RightSideBarStyled>
       <div className='rightSideBar'>
         <div className='blockLeft'>
-          <h2 className='title'>Сводка за {daySummary.date ? daySummary.date.split('-').reverse().join('.') : (currenDate.getDate() + '.' + (currenDate.getMonth() + 1) + '.' + currenDate.getFullYear())} </h2>
+          <h2 className='title'>Сводка за {daySummary.date ? daySummary.date.split('-').reverse().join('.') : (currenDate)} </h2>
           {daySummary ?
             <ul className='list'>
               <li className='listItem'>
                 <p className='listItemText'>Осталось
                   <span className='listItemTextRight'>
-                    {daySummary.kcalLeft ? ((daySummary.kcalConsumed > daySummary.dailyRate ? 0 : daySummary.kcalLeft) + ' ккал') : '000 ккал'}
+                    {daySummary.kcalLeft ? ((daySummary.kcalConsumed > daySummary.dailyRate ? 0 : Math.round(daySummary.kcalLeft)) + ' ккал') : '000 ккал'}
                   </span>
                 </p>
               </li>
