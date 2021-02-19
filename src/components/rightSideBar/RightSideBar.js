@@ -9,10 +9,11 @@ const RightSideBar = () => {
   const notAllowedProducts = useSelector(healthSelectors.getNotAllowedProducts);
 
   return <>
+
     <RightSideBarStyled>
       <div className='rightSideBar'>
         <div className='blockLeft'>
-          <h2 className='title'>Сводка за {daySummary.date ? daySummary.date : (currenDate.getDate() + '.' + (currenDate.getMonth() + 1) + '.' + currenDate.getFullYear())} </h2>
+          <h2 className='title'>Сводка за {daySummary.date ? daySummary.date.split('-').reverse().join('.') : (currenDate.getDate() + '.' + (currenDate.getMonth() + 1) + '.' + currenDate.getFullYear())} </h2>
           {daySummary ?
             <ul className='list'>
               <li className='listItem'>
@@ -39,7 +40,7 @@ const RightSideBar = () => {
               <li className='listItem'>
                 <p className='listItemText'>n% от нормы
                   <span className='listItemTextRight'>
-                    {daySummary.percentsOfDailyRate ? ((Math.round(daySummary.percentsOfDailyRate)) + ' %') : '000 ккал'}
+                    {daySummary.percentsOfDailyRate ? ((Math.round(daySummary.percentsOfDailyRate)) + ' %') : '000 %'}
                   </span>
                 </p>
               </li>

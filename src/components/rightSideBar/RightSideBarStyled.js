@@ -4,30 +4,36 @@ const Wrapper = styled.div`
 
   background-color: rgba(240, 241, 243, 1);
     // background-color: unset;
+    
   width: 100%;
-  padding: 40px 0 85px;
+  padding: 40px 5px 85px;
+
 
 @media screen and (min-width: 768px) {
     // background: url('./img/tab.png') rgba(240, 241, 243, 1) bottom right
     //   no-repeat;
     background-color: unset;
+    
     padding: 90px 0;
     height: 100%;
   }
 
 @media screen and (min-width: 1280px) {
-    width: 535px;
-    padding-top: 292px;
-    padding-left: 90px;
-    padding-right: 115px;
+    width: 635px;
+    padding-top: 10px;
+    // padding-left: 50px;
+    // padding-right: 30px;
+    // padding-left: 90px;
+    // padding-right: 115px;
+    // background: rgba(240, 241, 243, 1);
     background-color: unset;
     // background: url('./img/desk.png') rgba(240, 241, 243, 1) bottom right
     //   no-repeat;
   }
 
-.rightSideBar {
-  width: 100%;
-}
+// .rightSideBar {
+//   width: 100%;
+// }
 
 .title {
   font-style: normal;
@@ -67,6 +73,8 @@ const Wrapper = styled.div`
 
 @media screen and (min-width: 320px) {
   .rightSideBar {
+    //   width: 320px;
+    
     display: flex;
     justify-content: center;
      flex-wrap: wrap;
@@ -92,14 +100,17 @@ const Wrapper = styled.div`
     justify-content: space-around;
     align-items: baseline;
     padding-bottom: 0;
+    flex-direction: row;
+    min-width: 642px;
   }
 
   .blockLeft {
-    width: 290px;
+    // width: 270px;
+    margin-right: 60px;
   }
 
   .blockRight {
-    width: 270px;
+    // width: 270px;
     margin-top: 0;
   }
 }
@@ -113,6 +124,7 @@ const Wrapper = styled.div`
     /* padding-left: 90px;
         padding-right: 115px; 
     /* padding-bottom: 85px; */
+    flex-direction: column;
   }
   .blockRight {
     margin-top: 60px;
