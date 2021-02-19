@@ -31,6 +31,13 @@ const Wrapper = styled.div`
       flex-direction: row;
     }
   }
+
+  .alert {
+    position: absolute;
+    top: 125px;
+    left: auto;
+    width: max-content;
+  }
 `;
 
 export default Wrapper;
