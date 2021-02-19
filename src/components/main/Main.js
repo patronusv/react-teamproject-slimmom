@@ -1,47 +1,39 @@
-import {Suspense} from 'react';
-import {useSelector} from 'react-redux';
-import {isAuth} from '../../redux/selectors/authSelectors';
-import { Switch, Route, NavLink } from "react-router-dom";
+import { Suspense } from 'react';
+import { useSelector } from 'react-redux';
+import authSelectors from '../../redux/selectors/authSelectors';
+import { Switch, Route, NavLink,Redirect } from 'react-router-dom';
 import mainRoutes from '../../routes/mainRoutes';
 import PublicRoute from '../publicRoute/PublicRoute';
-import GeneralRoute from '../publicRoute/GeneralRoute';
 import PrivateRoute from '../privateRoute/PrivateRoute';
-import Home from '../../pages/home/Home';
+import healthSelectors from '../../redux/selectors/healthSelectors';
+
 
 const Main = () => {
-
-  const authFlag  = useSelector(isAuth);
-  // const authFlag = true;
-  const dailyRate = useSelector(state => state.health.dailyRate);
+  const isAuth = useSelector(authSelectors.isAuth);
+  const dailyRate = useSelector(healthSelectors.getDailyRate);
 
   return (
     <>
-     <Suspense fallback={<h2>...loading</h2>}>
-    
+      <Suspense fallback={<h2>...loading</h2>}>
         <Switch>
-          
-        
-        {mainRoutes.map((route) => {
-            if (route.isPrivate===true){
-            return dailyRate && (<PrivateRoute {...route} isAuth={authFlag} key={route.path}/>) 
-      
-            } 
-            if(route.isPrivate===false){
-              return (<PublicRoute {...route} isAuth={authFlag} key={route.path} dailyRate={dailyRate}/>)
+          {mainRoutes.map(route => {
+            if(isAuth){
+             return <PrivateRoute 
+              {...route} 
+              key={route.path} 
+              dailyRate={dailyRate}
+            />
+            } else {
+             return <PublicRoute
+              {...route}
+              key={route.path}
+            />
             }
-        })}
-
-        <Route path='/' exact={true} component={Home} />
-
-       
-
-          <GeneralRoute/>
+          })}
         </Switch>
-
-      
       </Suspense>
     </>
-    );
+  );
 };
 
 export default Main;

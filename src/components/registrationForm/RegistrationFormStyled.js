@@ -13,6 +13,14 @@ const RegistrationFormWrapper = styled.div`
     height: 363px;
   }
 
+  .error {
+    position: absolute;
+    top: calc(100% + 0.2em);
+
+    color: #e63946;
+    font-size: 1rem;
+  }
+
   .pageTitle {
     margin-bottom: 60px;
     color: #fc842d;
@@ -35,6 +43,8 @@ const RegistrationFormWrapper = styled.div`
   }
 
   .formLabel {
+    position: relative;
+
     display: flex;
     height: 35.5px;
     border-bottom: 1px solid #e0e0e0;
