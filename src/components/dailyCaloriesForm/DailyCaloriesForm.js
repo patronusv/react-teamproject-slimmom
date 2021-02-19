@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { isAuth } from '../../redux/selectors/authSelectors';
+import authSelectors from '../../redux/selectors/authSelectors';
 import healthOperations from '../../redux/operations/healthOperations';
 import Modal from '../modal/Modal';
 import sprite from '../../assets/svg/sprite.svg';
@@ -49,13 +50,16 @@ const booldType = {
 const DailyCaloriesForm = () => {
   const dispatch = useDispatch();
   const auth = useSelector(isAuth);
+  const id = useSelector(authSelectors.getId);
   const [state, setState] = useState({ ...initialState });
   const [blood, setBlood] = useState({ ...booldType });
   const isModal = useSelector(getModalState);
 
   const onHandlerSubmit = values => {
     //console.log('valuesON', values);
-    dispatch(healthOperations.getDailyRateOperation(values));
+    !auth
+      ? dispatch(healthOperations.getDailyRateOperation(values))
+      : dispatch(healthOperations.getDailyRateOperation(values, id));
 
     !auth && setState({ ...initialState });
     !auth && dispatch(modalActions.toggleModal());

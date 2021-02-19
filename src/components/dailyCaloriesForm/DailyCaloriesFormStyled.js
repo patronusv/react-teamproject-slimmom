@@ -54,11 +54,13 @@ const Wrapper = styled.div`
     justify-content: space-between;
 
     width: 240px;
-    //margin-top: 30px;
-    //border-bottom: 1px solid #e0e0e0;
   }
   .coloriesFormListItem:not(:last-child) {
     border-bottom: 1px solid #e0e0e0;
+  }
+
+  .coloriesFormListItem:not(:last-child):hover {
+    border-bottom: 1px solid #fc842d;
   }
 
   .coloriesFormListItem:not(:last-child) {
