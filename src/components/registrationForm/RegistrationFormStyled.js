@@ -75,6 +75,7 @@ const RegistrationFormWrapper = styled.div`
 
   .formBtn {
     display: block;
+    padding-bottom: 15px;
     margin-top: 60px;
     margin-bottom: 10px;
     padding: 5px 15px;
