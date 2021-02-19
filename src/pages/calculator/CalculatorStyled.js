@@ -6,7 +6,7 @@ const Wrapper = styled.div`
   margin-bottom: 60px;
 
   width: 100%;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: right;
 
@@ -14,21 +14,24 @@ const Wrapper = styled.div`
     padding-top: 100px;
     margin-bottom: 73px;
   }
-
   @media (min-width: 1280px) {
+    position: relative;
+
     padding-top: 143px;
     padding-bottom: 111px;
     background-image: url(${imageDesktop});
   }
+
   .calculatorPage {
     display: flex;
     flex-direction: column;
-    //justify-content: space-between;
-    @media (min-width: 768px) {
-    }
+  }
 
+  .RightSideBar {
     @media (min-width: 1280px) {
-      flex-direction: row;
+      position: absolute;
+      left: 52%;
+      bottom: 15%;
     }
   }
 `;
