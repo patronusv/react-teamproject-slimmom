@@ -13,7 +13,7 @@ const DailyCalorieIntake = () => {
   const DailyRate = useSelector(healthSelectors.getDailyRate);
 
   const filtredProducts = notAllowedProducts?.filter(
-    (product, index) => index < 15,
+    (product, index) => index < 50,
   );
 
   const modalHandler = () => dispatch(modalActions.toggleModal());
@@ -35,11 +35,11 @@ const DailyCalorieIntake = () => {
           <h2 className="mustntEat">
             Продукты, которые вам <br /> не рекомендуется употреблять
           </h2>
-          <ol className="list scrollbar">
+          <ul className="productList scrollbar">
             {filtredProducts?.map(product => (
               <li key={product}>{product}</li>
             ))}
-          </ol>
+          </ul>
         </div>
         <button type="button" className="btn" onClick={btnSubmit}>
           Начать худеть

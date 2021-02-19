@@ -25,6 +25,7 @@ const ModalWindow = styled.div`
 
   .open {
     overflow: hidden;
+    scroll-behavior: none;
   }
   .close {
     overflow: visible;

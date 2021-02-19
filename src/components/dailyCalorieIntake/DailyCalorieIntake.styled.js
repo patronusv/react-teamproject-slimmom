@@ -77,11 +77,13 @@ const DailyCalorieIntakeStyle = styled.div`
     margin-bottom: 22px;
   }
 
-  .list {
+  .productList {
+    overscroll-behavior: contain;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 150px;
     margin-top: 0;
     margin-bottom: 40px;
-
-    padding-left: 20px;
 
     font-weight: normal;
     font-size: 14px;
@@ -94,11 +96,11 @@ const DailyCalorieIntakeStyle = styled.div`
     list-style-position: inside;
   }
 
-  .list > li {
+  .productList > li {
     margin-top: 0;
   }
 
-  .list > li:not(:last-child) {
+  .productList > li:not(:last-child) {
     margin-bottom: 14px;
   }
 
@@ -156,17 +158,17 @@ const DailyCalorieIntakeStyle = styled.div`
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: -ms-autohiding-scrollbar;
     scrollbar-width: thin;
-    scrollbar-color: $burger-background $secondary-beckground;
+    scrollbar-color: #264061 #f0f1f3;
   }
   .scrollbar::-webkit-scrollbar {
-    width: 6px;
+    width: 15px;
   }
   .scrollbar::-webkit-scrollbar-track {
-    background-color: $secondary-beckground;
+    background-color: #f0f1f3;
   }
   .scrollbar::-webkit-scrollbar-thumb {
-    background-color: $burger-background;
-    border-radius: 0px;
+    background-color: #264061;
+    border-radius: 25px;
   }
   .scrollbar::-webkit-scrollbar-thumb:vertical {
     min-height: 1.5rem;
