@@ -77,6 +77,7 @@ const LoginFormWrapper = styled.div`
   }
 
   .formBtn {
+    padding-bottom: 15px;
     padding: 5px 15px;
     border: 1px solid #fc842d;
     background-color: #fc842d;

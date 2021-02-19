@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import authOperations from '../../redux/operations/authOperations';
@@ -18,14 +18,14 @@ const LoginForm = () => {
   const validateSchema = yup.object().shape({
     email: yup
       .string()
-      .email(' Введите верный email ')
-      .required('!!! Необходимо заполнить =_='),
+      .email(' Введите верный E-mail ')
+      .required('!!! Введите E-mail =_='),
     password: yup
       .string()
-      .min(8, 'Пароль должен быть не меньше 8 символов')
-      .max(16, 'Пароль должен быть не больше 16 символов')
+      .min(8, 'Пароль не меньше 8 символов')
+      .max(16, 'Пароль не больше 16 символов')
       .typeError('Должно быть строкой')
-      .required('!!! Необходимо заполнить =_= '),
+      .required('!!! Введите Пароль =_= '),
   });
 
   const dispatch = useDispatch();
@@ -54,7 +54,7 @@ const LoginForm = () => {
           <Form>
             <div className="form">
               <label className="formLabel">
-                <span className="formLabelText">Логин *</span>
+                <span className="formLabelText">E-mail *</span>
                 <Field
                   className="formInput"
                   type="email"

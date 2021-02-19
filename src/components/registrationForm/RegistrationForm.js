@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as yup from 'yup';
-import { useHistory } from 'react-router-dom';
 
 import authOperations from '../../redux/operations/authOperations';
 import RegistrationFormWrapper from './RegistrationFormStyled';
@@ -18,17 +19,17 @@ const RegistrationForm = () => {
     username: yup
       .string()
       .typeError(' Должно быть строкой ')
-      .required('!!! Необходимо заполнить =_='),
+      .required('!!! Введите ваше Имя =_='),
     email: yup
       .string()
-      .email(' Введите верный email ')
-      .required('!!! Необходимо заполнить =_='),
+      .email(' Введите верный E-mail ')
+      .required('!!! Введите E-mail =_='),
     password: yup
       .string()
-      .min(8, 'Пароль должен быть не меньше 8 символов')
-      .max(16, 'Пароль должен быть не больше 16 символов')
+      .min(8, 'Пароль не меньше 8 символов')
+      .max(16, 'Пароль не больше 16 символов')
       .typeError('Должно быть строкой')
-      .required('!!! Необходимо заполнить =_= '),
+      .required('!!! Введите Пароль =_= '),
   });
 
   const dispatch = useDispatch();
@@ -73,7 +74,7 @@ const RegistrationForm = () => {
               </label>
 
               <label className="formLabel">
-                <span className="formLabelText">Логин *</span>
+                <span className="formLabelText">E-mail *</span>
                 <Field
                   className="formInput"
                   type="email"
