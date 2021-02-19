@@ -10,10 +10,12 @@ import modalActions from '../redux/actions/modalActions';
 import authActions from '../redux/actions/authActions';
 import LoaderSpinner from '../components/loader/Loader';
 import isLoading from '../redux/selectors/loaderSelector';
+import { useHistory } from 'react-router-dom';
 
 const App = () => {
   const loading = useSelector(isLoading);
   const dispatch = useDispatch();
+  const history = useHistory();
   useEffect(() => {
     const loginUser = {
       email: 'user@mail.mail',
@@ -45,10 +47,10 @@ const App = () => {
     // dispatch(authOperations.registerOperation(registerUser))
     // dispatch(authOperations.loginOperation(loginUser));
     // dispatch(authOperations.logOutOperation());
-    dispatch(authOperations.refreshOperation());
+    // dispatch(authOperations.refreshOperation());
     // dispatch(healthOperations.getUserInfoOperation());
     // dispatch(healthOperations.getDailyRateOperation(dailyRateData));
-    dispatch(healthOperations.getDailyRateOperation(dailyRateData, userId));
+    // dispatch(healthOperations.getDailyRateOperation(dailyRateData, userId));
     // dispatch(healthOperations.getProductOperation('ябл'));
     // dispatch(healthOperations.getDayInfoOperation(date));
     // dispatch(healthOperations.postEatenProductOperation(product));
@@ -59,6 +61,7 @@ const App = () => {
       dispatch(authOperations.refreshOperation());
     } catch (error) {
       dispatch(authActions.logOutSuccess());
+      history.push('/');
     }
   }, []);
 

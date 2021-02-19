@@ -55,13 +55,16 @@ const refreshOperation = () => async (dispatch, getState) => {
   dispatch(authActions.refreshRequest());
   try {
     const response = await axios.post(`/auth/refresh`, { sid: persistSid });
-    console.log('response', response);
-    dispatch(authActions.refreshSuccess(response.data));
-    token.set(response.data.newAccessToken);
-    const userResponse = await axios.get('/user');
-    dispatch(authActions.getCurrentUserSuccess(userResponse.data));
+    if (response?.data) {
+      dispatch(authActions.refreshSuccess(response.data));
+      token.set(response.data.newAccessToken);
+      const userResponse = await axios.get('/user');
+      dispatch(authActions.getCurrentUserSuccess(userResponse.data));
+    }
   } catch (error) {
+    console.log('error', error);
     dispatch(authActions.refreshError(error));
+    dispatch(authActions.logOutSuccess());
   }
 };
 export default {
