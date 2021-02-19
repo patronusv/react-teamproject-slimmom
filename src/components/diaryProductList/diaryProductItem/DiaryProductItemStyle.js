@@ -27,7 +27,6 @@ export const LI = styled.li`
 
 
         align-items: center;
-        margin-right:10px;
         padding-bottom:5px;
         font-family: Verdana;
         font-style: normal;
@@ -38,46 +37,40 @@ export const LI = styled.li`
         color: #212121;
         border-bottom:1px solid #E0E0E0;
 
-
-        @media screen and (min-width:768px){
-            margin-right:31px;
-        }
-
-        @media screen and (min-width:1280px){
-            margin-right:15px;
-        }
-
-        :last-child{
-            margin-right:0;
-        }
     }
 
     .innerItemDairyProduct:first-child{
+            justify-content: flex-start;
+            width: 100px;
+            margin-right: 5px;
     
         @media screen and (min-width:768px){
-            min-width: calc(100% - 104px - 31px - 31px - 31px - 104px);
+            min-width: calc(100% - 104px - 20px - 104px - 50px);
+            margin-right: 10px;
         }
         
         @media screen and (min-width:1280px){
-            min-width:200px;
+            width:200px;
         }
     }
     .innerItemDairyProduct:nth-child(2){
-        min-width:50px;
-        text-align:right;
+        width:50px;
+        margin-right: 5px;
+
         @media screen and (min-width:768px){
-            min-width:109px;
+            width:109px;
+            margin-right: 10px;
+        }
+
+        @media screen and (min-width:1280px){
+            margin-right: 0;
         }
     }
     .innerItemDairyProduct:last-child{
-        /* text-align:right; */
         border: none;
     } 
 
     .buttonItemDairyProduct{
-        /* background-image: url(../../../img/icons/closeCross.svg);
-        background-repeat: no-repeat;
-        background-size: contain; */
 
         width: 20px;
         height:20px;
@@ -93,5 +86,8 @@ export const LI = styled.li`
         color: grey;
         transform: translateY(1px);
 
+        @media screen and (max-width: 767px){
+            transform: translateX(5px);
+        }
     }
 `

@@ -4,7 +4,6 @@ import moment from 'moment';
 import healthActions from '../actions/healthActions';
 import authActions from '../actions/authActions';
 
-
 const initialState = {
   userData: {},
   days: [],
@@ -22,7 +21,8 @@ const dailyRateReducer = createReducer(
   {},
   {
     [healthActions.getDailyRateSuccess]: (_, { payload }) => payload,
-    [authActions.logOutSuccess]: () => { },
+    [authActions.registerSuccess]: () => ({}),
+    [authActions.logOutSuccess]: () => ({}),
   },
 );
 
@@ -43,9 +43,8 @@ const initDayInfoState = {
     kcalConsumed: 0,
     dailyRate: 0,
     percentsOfDailyRate: 0,
-  }
-
-}
+  },
+};
 
 const dayInfoReducer = createReducer(
   { ...initDayInfoState },
@@ -56,11 +55,13 @@ const dayInfoReducer = createReducer(
       eatenProducts: [...state.eatenProducts, payload.eatenProduct],
       daySummary: payload.daySummary,
     }),
-    [healthActions.deleteDiaryItemSuccess]: (state,{payload})=>({
-        ...state,
-        eatenProducts: [...state.eatenProducts.filter(item=>{
-           return item.id !== payload
-        })]
+    [healthActions.deleteDiaryItemSuccess]: (state, { payload }) => ({
+      ...state,
+      eatenProducts: [
+        ...state.eatenProducts.filter(item => {
+          return item.id !== payload;
+        }),
+      ],
     }),
     // [healthActions.deleteDiaryItemRequest]:(state,{payload})=>({
     //     ...state,
@@ -70,14 +71,13 @@ const dayInfoReducer = createReducer(
     //     ...state,
     //     error: payload
     // }),
-    [authActions.logOutSuccess]: () => {},
-    [authActions.logOutSuccess]: () => { },
+    [authActions.logOutSuccess]: () => ({ ...initDayInfoState }),
   },
 );
 
-const getDateReducer = createReducer(moment(Date.now()).format('YYYY-MM-DD'),
-  { [healthActions.getDateSuccess]: (_, { payload }) => payload }
-)
+const getDateReducer = createReducer(moment(Date.now()).format('YYYY-MM-DD'), {
+  [healthActions.getDateSuccess]: (_, { payload }) => payload,
+});
 
 const healthReducer = combineReducers({
   userInfo: userInfoReducer,
@@ -88,7 +88,6 @@ const healthReducer = combineReducers({
 });
 
 export default healthReducer;
-
 
 // const healthReducer = createReducer({dailyRate: null, dailyEatenProd:[], error:"",loading:false,userData:{}},{
 //     [diarySetLoading]:(state,action)=>{

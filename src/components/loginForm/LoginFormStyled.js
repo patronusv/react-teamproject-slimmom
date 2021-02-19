@@ -6,7 +6,7 @@ const LoginFormWrapper = styled.div`
 
   @media screen and (min-width: 768px) {
     width: 382px;
-    height: 287px;
+    height: 310px;
   }
   @media (min-width: 1280px) {
     width: 382px;
@@ -32,7 +32,17 @@ const LoginFormWrapper = styled.div`
     }
   }
 
+  .error {
+    position: absolute;
+    top: calc(100% + 0.2em);
+
+    color: #e63946;
+    font-size: 1rem;
+  }
+
   .formLabel {
+    position: relative;
+
     display: flex;
     height: 35.5px;
     border-bottom: 1px solid #e0e0e0;
@@ -67,6 +77,7 @@ const LoginFormWrapper = styled.div`
   }
 
   .formBtn {
+    padding-bottom: 15px;
     padding: 5px 15px;
     border: 1px solid #fc842d;
     background-color: #fc842d;
