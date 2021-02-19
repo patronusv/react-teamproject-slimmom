@@ -57,6 +57,7 @@ const DiaryAddProductForm = () => {
 
   const handleChange = e => {
     const { name, value } = e.target;
+
     setState(prev =>
       ({ ...prev, [name]: value })
     )
