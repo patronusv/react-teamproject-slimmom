@@ -38,6 +38,13 @@ const Wrapper = styled.div`
       bottom: 15%;
     }
   }
+
+  .alert {
+    position: absolute;
+    top: 125px;
+    left: auto;
+    width: max-content;
+  }
 `;
 
 export default Wrapper;
