@@ -94,7 +94,7 @@ const DailyCaloriesForm = () => {
                   type="text"
                   value={values.height}
                   name="height"
-                  autocomplete="off"
+                  autoComplete="off"
                 />
                 <ErrorMessage
                   className="coloriesFormError"
@@ -110,7 +110,7 @@ const DailyCaloriesForm = () => {
                   type="text"
                   value={values.age}
                   name="age"
-                  autocomplete="off"
+                  autoComplete="off"
                 />
                 <ErrorMessage
                   className="coloriesFormError"
@@ -126,7 +126,7 @@ const DailyCaloriesForm = () => {
                   type="text"
                   value={values.weight}
                   name="weight"
-                  autocomplete="off"
+                  autoComplete="off"
                 />
                 <ErrorMessage
                   className="coloriesFormError"
@@ -145,7 +145,7 @@ const DailyCaloriesForm = () => {
                   type="text"
                   value={values.desiredWeight}
                   name="desiredWeight"
-                  autocomplete="off"
+                  autoComplete="off"
                 />
                 <ErrorMessage
                   className="coloriesFormError"
