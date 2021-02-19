@@ -11,6 +11,7 @@ const DailyCalorieIntake = () => {
   const notAllowedProducts = useSelector(healthSelectors.getNotAllowedProducts);
   const DailyRate = useSelector(healthSelectors.getDailyRate);
 
+
   const filtredProducts = notAllowedProducts?.filter(
     (product, index) => index < 5,
   );
@@ -27,7 +28,9 @@ const DailyCalorieIntake = () => {
           Ваша рекомендуемая суточная норма калорий составляет
         </h1>
         <p className={styles.info}>
+
           <span className={styles.ccal}>{DailyRate}</span> ккал
+
         </p>
         <div className={styles.mustntEatDiv}>
           <h2 className={styles.mustntEat}>
