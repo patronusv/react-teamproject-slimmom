@@ -97,6 +97,7 @@ export const BurgerButton = styled.button`
   }
 `;
 export const UserInfoContainerMobile = styled.div`
+  background-color:  #eff1f3;
   display: none;
 
   @media (max-width: 767px) {
