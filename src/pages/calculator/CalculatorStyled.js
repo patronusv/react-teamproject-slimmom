@@ -49,6 +49,10 @@ const Wrapper = styled.div`
     top: 125px;
     left: auto;
     width: max-content;
+
+    @media (min-width: 1280px) {
+      top: 168px;
+    }
   }
 `;
 

@@ -12,17 +12,16 @@ const NavigationItem = ({
   isAuth,
   general,
   onToggleBurger,
+  isActive
 }) => {
 
   const dispatch = useDispatch();
   const alertFlag = useSelector(healthSelectors.getDailyRate);
 
   const handleClick=e=>{
-    e.preventDefault();
-    // onToggleBurger();
-    // console.log(e);
-
-    if(!alertFlag){
+    isActive && onToggleBurger();
+   
+    if(!alertFlag && path ==='/diary'){
       dispatch(notificActions.showNotification());
 
         setTimeout(() => {
