@@ -16,23 +16,42 @@ const Wrapper = styled.div`
     margin-bottom: 73px;
     background-size: contain;
     background-position: center;
+    background-repeat: repeat;
     background-image: url(${imageTablet});
   }
-
   @media (min-width: 1280px) {
-    padding-top: 143px;
+    /* position: relative; */
+
+    padding-top: 223px;
     padding-bottom: 111px;
     background-image: url(${imageDesktop});
+
+    position: absolute;
+    background-size: cover;
+    top: 0;
+    z-index: -100;
+    width: 100vw;
+    height: 100%;
+    min-height: 850px;
+    overflow: hidden;
   }
+
   .calculatorPage {
     display: flex;
     flex-direction: column;
-    //justify-content: space-between;
-    @media (min-width: 768px) {
-    }
-
     @media (min-width: 1280px) {
       flex-direction: row;
+    }
+  }
+
+  .alert {
+    position: absolute;
+    top: 125px;
+    left: auto;
+    width: max-content;
+
+    @media (min-width: 1280px) {
+      top: 168px;
     }
   }
 `;

@@ -9,13 +9,6 @@ const Navigation = ({ isActive, onToggleBurger }) => {
   const authFlag = useSelector(isAuth);
   const burgerFlag = isActive;
 
-
-  // console.log(burgerFlag);
-
-  // const authFlag  = true;
-  // console.log(onToggleBurger);
-
-
   return (
     <>
       <NavListContainer isActive={burgerFlag}>
@@ -25,6 +18,7 @@ const Navigation = ({ isActive, onToggleBurger }) => {
             key={route.path}
             isAuth={authFlag}
             onToggleBurger={onToggleBurger}
+            isActive = {isActive}
           />
         ))}
       </NavListContainer>

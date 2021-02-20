@@ -22,7 +22,6 @@ const Header = () => {
   const authFlag = useSelector(isAuth);
   const [menuBurger, setMenuBurger] = useState(false);
   const toggleBurger = () => setMenuBurger(!menuBurger);
-  // console.log(menuBurger, setMenuBurger);
 
   return (
     <>
