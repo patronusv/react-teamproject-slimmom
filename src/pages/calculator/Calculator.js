@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useWindowWidth } from '@react-hook/window-size';
 import RightSideBar from '../../components/rightSideBar/RightSideBar';
 import DailyCaloriesForm from '../../components/dailyCaloriesForm/DailyCaloriesForm';
@@ -7,10 +7,32 @@ import notificSelectors from '../../redux/selectors/notificSelectors';
 import Notification from '../../components/notification/Notification';
 import { CSSTransition } from 'react-transition-group';
 import notificationStyles from '../../components/notification/Alert.module.css';
+import authSelectors from '../../redux/selectors/authSelectors';
+import { useEffect } from 'react';
+import healthOperations from '../../redux/operations/healthOperations';
 
 const Calculator = () => {
   const onlyWidth = useWindowWidth();
   const notification = useSelector(notificSelectors.getNotificState);
+  const id = useSelector(authSelectors.getId);
+  const userData = useSelector(authSelectors.getUserdata);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (
+      !id ||
+      !userData.weight ||
+      !userData.height ||
+      !userData.desiredWeight ||
+      !userData.age ||
+      !userData.bloodType
+    ) {
+      return;
+    } else {
+      dispatch(healthOperations.getDailyRateOperation(userData, id));
+    }
+  }, [id]);
+
   return (
     <CalculatorStyled>
       <div className="container">
