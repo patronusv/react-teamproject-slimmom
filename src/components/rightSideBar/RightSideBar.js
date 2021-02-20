@@ -18,7 +18,7 @@ const RightSideBar = () => {
           <div className="blockLeft">
             <h2 className="title">
               Сводка за{' '}
-              {daySummary.date
+              {daySummary?.date
                 ? daySummary.date.split('-').reverse().join('.')
                 : moment(currenDate).format('DD.MM.YYYY')}{' '}
             </h2>
