@@ -29,7 +29,7 @@ const LoginForm = () => {
   });
 
   const dispatch = useDispatch();
-  const authFlag = useSelector(state => state.auth.accessToken);
+
   const history = useHistory();
   const [state, setState] = useState({ ...initialState });
 

@@ -1,5 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import {useSelector,useDispatch} from 'react-redux';
+import healthSelectors from '../../redux/selectors/healthSelectors';
+import notificActions from '../../redux/actions/notificActions';
 
 const NavigationItem = ({
   path,
@@ -10,6 +13,25 @@ const NavigationItem = ({
   general,
   onToggleBurger,
 }) => {
+
+  const dispatch = useDispatch();
+  const alertFlag = useSelector(healthSelectors.getDailyRate);
+
+  const handleClick=e=>{
+    e.preventDefault();
+    // onToggleBurger();
+    // console.log(e);
+
+    if(!alertFlag){
+      dispatch(notificActions.showNotification());
+
+        setTimeout(() => {
+      dispatch(notificActions.hideNotification());
+      }, 4000);
+    
+  };
+}
+
   return (
     <>
       {!isPrivate && !general && !isAuth && (
@@ -32,7 +54,7 @@ const NavigationItem = ({
             exact={exact}
             className="link"
             activeClassName="activeLink"
-            onClick={onToggleBurger}
+            onClick={handleClick}
           >
             {name.toUpperCase()}
           </NavLink>

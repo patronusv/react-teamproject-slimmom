@@ -43,7 +43,6 @@ img {
 @media screen and (min-width: 1280px) {
   .container {
     width: 1080px;
-
   }
 }
 
@@ -55,8 +54,3 @@ img {
   margin: 0;
   list-style: none;
 }
-
-
-
-
-
