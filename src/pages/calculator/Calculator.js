@@ -10,12 +10,14 @@ import notificationStyles from '../../components/notification/Alert.module.css';
 import authSelectors from '../../redux/selectors/authSelectors';
 import { useEffect } from 'react';
 import healthOperations from '../../redux/operations/healthOperations';
+import healthSelectors from '../../redux/selectors/healthSelectors';
 
 const Calculator = () => {
   const onlyWidth = useWindowWidth();
   const notification = useSelector(notificSelectors.getNotificState);
   const id = useSelector(authSelectors.getId);
   const userData = useSelector(authSelectors.getUserdata);
+  const date = useSelector(healthSelectors.getDate);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -30,6 +32,7 @@ const Calculator = () => {
       return;
     } else {
       dispatch(healthOperations.getDailyRateOperation(userData, id));
+      dispatch(healthOperations.getDayInfoOperation({ date }));
     }
   }, [id]);
 
