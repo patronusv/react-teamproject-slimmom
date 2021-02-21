@@ -26,7 +26,7 @@ const RightSideBar = () => {
               <ul className="list">
                 <li className="listItem">
                   <p className="listItemText">
-                    Осталось
+                    <span>Осталось</span>
                     <span className="listItemTextRight">
                       {daySummary.kcalLeft
                         ? (daySummary.kcalConsumed > daySummary.dailyRate
