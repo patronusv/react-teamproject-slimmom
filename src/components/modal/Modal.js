@@ -28,24 +28,25 @@ const Modal = ({ children }) => {
 
   useEffect(() => {
     document.body.className = openModal ? 'open' : 'close';
-    //  document.body.style.overflow=openModal?"hidden":"visible";
+    document.body.style.overflow = openModal ? 'hidden' : 'visible';
   }, [openModal]);
 
   const handleKeyDown = e => {
-
     if (e.code === 'Escape') {
       dispatch(modalActions.toggleModal());
     }
+    document.body.style.overflow = 'visible';
   };
   const handleClick = e => {
-
     if (e.target.dataset.name !== 'overlay') {
       return;
     }
     dispatch(modalActions.toggleModal());
+    document.body.style.overflow = 'visible';
   };
   const closeModal = () => {
     dispatch(modalActions.offModal());
+    document.body.style.overflow = 'visible';
   };
 
   return (

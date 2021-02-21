@@ -75,9 +75,18 @@ const dayInfoReducer = createReducer(
   },
 );
 
-const getDateReducer = createReducer(moment(Date.now()).format('YYYY-MM-DD'), {
-  [healthActions.getDateSuccess]: (_, { payload }) => payload,
-});
+const getDateReducer = createReducer(
+  { date: moment(Date.now()).format('YYYY-MM-DD') },
+  {
+    [healthActions.getDateSuccess]: (_, { payload }) => payload,
+    [authActions.loginSuccess]: () => ({
+      date: moment(Date.now()).format('YYYY-MM-DD'),
+    }),
+    [authActions.logOutSuccess]: () => ({
+      date: moment(Date.now()).format('YYYY-MM-DD'),
+    }),
+  },
+);
 
 const healthReducer = combineReducers({
   userInfo: userInfoReducer,

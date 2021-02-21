@@ -27,7 +27,7 @@ export const UL = styled.ul`
     }
 
     ${props =>
-    props.length>5 &&
+    props.length>=4 &&
 
     ` 
     overflow-y: scroll;
@@ -60,6 +60,8 @@ export const UL = styled.ul`
       
     `}
 
+  
+
 `
 
 export const ListWrapper = styled.div`
@@ -69,16 +71,25 @@ export const ListWrapper = styled.div`
 
 export const MaskWrapper = styled.div`
     position: absolute;
-    width: 100%;
+    width: 238px;
     height: 40px;
     bottom:0;
     left:0;
     opacity:0.5;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, #FFFFFF 42.19%);
 
+    pointer-events: none;
+
+    @media screen and (min-width:768px){
+        width: 553px;
+    }
+
+    @media screen and (min-width:1280px){
+        width: 478px;
+    }
 
     ${props =>
-    props.screenWidth>=768 && 
+    props.screenWidth>=768 && props.height>=200 && 
         ` 
         height: 20px;
     `} 

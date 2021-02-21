@@ -66,7 +66,7 @@ const Wrapper = styled.div`
   }
 
   .coloriesFormListItem:not(:last-child) {
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 767px) {
       margin-bottom: 30px;
     }
   }

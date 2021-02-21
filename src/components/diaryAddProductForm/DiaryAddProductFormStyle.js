@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const DiaryFormWrapper = styled.div`
 position: relative;
@@ -52,7 +52,7 @@ color: #9B9FAA;
    @media screen and (min-width:768px){
  width: 104.36px;
  margin-left:31px;
- text-indent: 30px;
+ text-indent: 25px;
 
 } 
 }
@@ -109,4 +109,4 @@ cursor: pointer;
 
 
 
-`
+`;
