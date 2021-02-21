@@ -60,24 +60,7 @@ const App = () => {
     // dispatch(healthOperations.postEatenProductOperation(product));
     // dispatch(modalActions.toggleModal());
   }, []);
-  const refresh = () => {
-    try {
-      dispatch(authOperations.refreshOperation());
-      console.log('refresh success');
-      console.log('errorState', errorState);
-      // setTimeout(() => !isAuthenticated && history.push('/login'), 200);
-      // !isAuthenticated && history.push('/');
-      setTimeout(() => console.log('errorState', errorState), 200);
 
-      console.log('history push after refresh');
-    } catch (error) {
-      dispatch(authActions.logOutSuccess());
-      console.log('error in mount', error);
-      console.log('logging out');
-      setTimeout(() => history.push('/login'), 200);
-      console.log('history push after logout');
-    }
-  };
   useEffect(() => {
     dispatch(authOperations.refreshOperation()).catch(error => {
       history.push('/login');

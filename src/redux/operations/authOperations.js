@@ -62,7 +62,6 @@ const refreshOperation = () => async (dispatch, getState) => {
       dispatch(authActions.getCurrentUserSuccess(userResponse.data));
     }
   } catch (error) {
-    console.log('error', error);
     await dispatch(authActions.refreshError(error));
     await dispatch(authActions.logOutSuccess());
     throw new Error(error);
