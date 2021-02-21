@@ -15,7 +15,7 @@ const Wrapper = styled.div`
     padding-top: 180px;
     margin-bottom: 73px;
     position: absolute;
-    background-size: cover;
+
     top: 0;
     z-index: -100;
     width: 100vw;
@@ -30,6 +30,8 @@ const Wrapper = styled.div`
     padding-bottom: 111px;
     background-image: url(${imageDesktop});
     background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
     /* position: absolute;
     background-size: cover;
     top: 0;

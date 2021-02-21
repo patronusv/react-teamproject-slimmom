@@ -19,7 +19,7 @@ export const DiaryWrapper = styled.div`
     padding-top: 180px;
     margin-bottom: 61px;
     position: absolute;
-    background-size: cover;
+
     top: 0;
     z-index: -100;
     overflow: hidden;
@@ -33,7 +33,8 @@ export const DiaryWrapper = styled.div`
     padding-bottom: 74px;
     background-image: url(${imageDesktop});
     background-repeat: no-repeat;
-
+    background-size: cover;
+    height: 100%;
     /* position: absolute;
     background-size: cover;
     top: 0;
