@@ -12,6 +12,7 @@ import isLoading from '../redux/selectors/loaderSelector';
 
 const App = () => {
   const loading = useSelector(isLoading);
+
   const dispatch = useDispatch();
   useEffect(() => {
     const loginUser = {
@@ -42,7 +43,7 @@ const App = () => {
       weight: 100,
     };
     // dispatch(authOperations.registerOperation(registerUser))
-    dispatch(authOperations.loginOperation(loginUser));
+    // dispatch(authOperations.loginOperation(loginUser));
     // dispatch(authOperations.logOutOperation());
     dispatch(authOperations.refreshOperation());
     // dispatch(healthOperations.getUserInfoOperation());
@@ -59,6 +60,8 @@ const App = () => {
       <Header />
  
       {loading && <LoaderSpinner />}
+
+      
       <Main />
     </>
   );

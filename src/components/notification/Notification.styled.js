@@ -11,6 +11,8 @@ export const NotifWrapper = styled.div`
   text-align: center;
   margin: 0 auto;
   margin-bottom: 15px;
+  width: 250px;
+  height: auto;
 
   @media screen and (min-width: 768px) {
     width: 500px;
@@ -39,11 +41,15 @@ export const NotifWrapper = styled.div`
         line-height: 13px;
         letter-spacing: 0.04em;
         color: white;
-        width: max-content;
+      
         box-shadow: 0px 4px 10px rgba(252,132,45,0.5);
         border-radius: 20px;
         border: none;
         outline: none;
+
+        @media screen and (min-width: 768px) {
+          width: max-content;
+      }
       
     `};
 `;

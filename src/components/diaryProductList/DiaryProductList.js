@@ -50,7 +50,7 @@ const DiaryProductList = () => {
             timeout={250}
             classNames={notificationStyles}
             appear>
-              <Notification text={`Что-то пошло не так. Ошибка: ${errorMessage}`} icon="&#9940;" error={true}/>
+              <Notification text={`Что-то пошло не так. Ошибка: ${errorMessage}`} alert={true}/>
             </CSSTransition>
           }
           {isNotificShown && !errorMessage &&
@@ -59,7 +59,7 @@ const DiaryProductList = () => {
              timeout={250}
              classNames={notificationStyles}
              appear>
-               <Notification text='Продукт был успешно удален' icon="&#10004;"/>
+               <Notification text='Продукт был успешно удален'  alert={true}/>
              </CSSTransition>
           }
           

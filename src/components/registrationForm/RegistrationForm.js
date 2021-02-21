@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 import { ErrorMessage, Field, Form, Formik } from 'formik';
@@ -7,6 +7,10 @@ import * as yup from 'yup';
 
 import authOperations from '../../redux/operations/authOperations';
 import RegistrationFormWrapper from './RegistrationFormStyled';
+
+import errorSelectors from '../../redux/selectors/errorSelector';
+import notifSelectors from '../../redux/selectors/notificSelectors';
+import Notification from '../notification/Notification';
 
 const initialState = {
   username: '',
@@ -35,18 +39,24 @@ const RegistrationForm = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const [state, setState] = useState({ ...initialState });
+  const notification = useSelector(notifSelectors.getNotificState);
+  const error = useSelector(errorSelectors.getError);
+
+  console.log(error);
 
   const onHandleSubmit = async values => {
     await dispatch(authOperations.registerOperation(values));
-    const loginValues = { email: values.email, password: values.password };
-    dispatch(authOperations.loginOperation(loginValues));
-    history.push('/calculator');
+    // history.push('/calculator');
     setState({ ...initialState });
   };
 
   return (
     <RegistrationFormWrapper>
       <h2 className="pageTitle">Регистрация</h2>
+
+      {notification && error && <Notification text={error} alert={true}/>}
+      {notification && !error && <Notification text="Вы успешно зарегистрированы" alert={true}/>}
+
 
       <Formik
         initialValues={{ username: '', email: '', password: '' }}
@@ -100,13 +110,14 @@ const RegistrationForm = () => {
               </label>
             </div>
 
-            <button
+            {!notification && <button
               className="formBtn"
               type="submit"
               disabled={!isValid && !dirty && isSubmitting}
+              notification = {notification} error={error}
             >
               <span className="formBtnText">Регистрация</span>
-            </button>
+            </button>}
           </Form>
         )}
       </Formik>

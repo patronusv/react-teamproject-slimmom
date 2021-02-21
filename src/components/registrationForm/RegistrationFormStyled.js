@@ -91,6 +91,8 @@ const RegistrationFormWrapper = styled.div`
       margin: 0 auto;
       margin-top: 60px;
     }
+
+   
   }
   .formBtn:hover,
   .formBtn:focus {
