@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import moment from 'moment';
+import { useWindowWidth } from '@react-hook/window-size';
 import DiaryProductList from '../../components/diaryProductList/DiaryProductList';
 import DiaryAddProductForm from '../../components/diaryAddProductForm/DiaryAddProductForm';
 import DiaryDateCalendar from '../../components/diaryDateCalendar/DiaryDateCalendar';
@@ -11,6 +12,7 @@ import healthOperations from '../../redux/operations/healthOperations';
 import RightSideBar from '../../components/rightSideBar/RightSideBar';
 
 const Diary = () => {
+  const onlyWidth = useWindowWidth();
   const size = useWindowSize();
   const dispatch = useDispatch();
   useEffect(() => {
@@ -49,28 +51,34 @@ const Diary = () => {
     dispatch(modalActions.onModal());
   };
   return (
-    <DiaryWrapper className="container">
-      <div className="formWrapper">
-        <DiaryDateCalendar />
-        {size.width < 768 ? (
-          <Modal>
-            <DiaryAddProductForm />
-          </Modal>
-        ) : (
-          <DiaryAddProductForm />
-        )}
-        <DiaryProductList />
-        {size.width < 768 && (
-          <button
-            type="submit"
-            className="buttomDiaryProductList"
-            onClick={handleClick}
-          >
-            +
-          </button>
-        )}
+    <DiaryWrapper>
+      <div className="container">
+        <div className="diaryPage">
+          <div className="formWrapper">
+            <DiaryDateCalendar />
+            {size.width < 768 ? (
+              <Modal>
+                <DiaryAddProductForm />
+              </Modal>
+            ) : (
+              <DiaryAddProductForm />
+            )}
+            <DiaryProductList />
+            {size.width < 768 && (
+              <button
+                type="submit"
+                className="buttomDiaryProductList"
+                onClick={handleClick}
+              >
+                +
+              </button>
+            )}
+          </div>
+          {onlyWidth >= 768 && <RightSideBar />}
+        </div>
       </div>
-      <RightSideBar />
+
+      {onlyWidth < 768 && <RightSideBar />}
     </DiaryWrapper>
   );
 };
