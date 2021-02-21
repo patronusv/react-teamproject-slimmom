@@ -12,28 +12,30 @@ const Wrapper = styled.div`
   background-position: right;
 
   @media (min-width: 768px) {
-    padding-top: 100px;
+    padding-top: 180px;
     margin-bottom: 73px;
+    position: absolute;
+    background-size: cover;
+    top: 0;
+    z-index: -100;
+    width: 100vw;
+    overflow: hidden;
     background-size: contain;
     background-position: center;
     background-repeat: repeat;
     background-image: url(${imageTablet});
   }
   @media (min-width: 1280px) {
-    /* position: relative; */
-
-    padding-top: 223px;
+    padding-top: 292px;
     padding-bottom: 111px;
     background-image: url(${imageDesktop});
-
-    position: absolute;
+    background-repeat: no-repeat;
+    /* position: absolute;
     background-size: cover;
     top: 0;
     z-index: -100;
     width: 100vw;
-    height: 100%;
-    min-height: 850px;
-    overflow: hidden;
+    overflow: hidden; */
   }
 
   .calculatorPage {

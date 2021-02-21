@@ -42,7 +42,7 @@ const App = () => {
       weight: 100,
     };
     // dispatch(authOperations.registerOperation(registerUser))
-    dispatch(authOperations.loginOperation(loginUser));
+    //dispatch(authOperations.loginOperation(loginUser));
     // dispatch(authOperations.logOutOperation());
     dispatch(authOperations.refreshOperation());
     // dispatch(healthOperations.getUserInfoOperation());
@@ -57,7 +57,7 @@ const App = () => {
   return (
     <>
       <Header />
- 
+
       {loading && <LoaderSpinner />}
       <Main />
     </>
