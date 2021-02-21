@@ -13,12 +13,17 @@ const Wrapper = styled.div`
 
   @media (min-width: 768px) {
     background-image: url(${imageTablet});
-    padding-top: 114px;
+    padding-top: 180px;
     padding-bottom: 409px;
+
+    position: absolute;
+    top: 0;
+    z-index: -100;
+    overflow: hidden;
   }
 
   @media (min-width: 1280px) {
-    padding-top: 144px;
+    padding-top: 292px;
     padding-bottom: 111px;
     background-image: url(${imageDesktop});
   }
