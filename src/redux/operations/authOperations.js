@@ -63,8 +63,9 @@ const refreshOperation = () => async (dispatch, getState) => {
     }
   } catch (error) {
     console.log('error', error);
-    dispatch(authActions.refreshError(error));
-    dispatch(authActions.logOutSuccess());
+    await dispatch(authActions.refreshError(error));
+    await dispatch(authActions.logOutSuccess());
+    throw new Error(error);
   }
 };
 export default {

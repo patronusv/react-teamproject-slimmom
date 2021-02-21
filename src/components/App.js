@@ -11,11 +11,15 @@ import authActions from '../redux/actions/authActions';
 import LoaderSpinner from '../components/loader/Loader';
 import isLoading from '../redux/selectors/loaderSelector';
 import { useHistory } from 'react-router-dom';
+import authSelectors from '../redux/selectors/authSelectors';
+import errorSelector from '../redux/selectors/errorSelector';
 
 const App = () => {
   const loading = useSelector(isLoading);
   const dispatch = useDispatch();
   const history = useHistory();
+  const errorState = useSelector(errorSelector.getError);
+  const isAuthenticated = useSelector(authSelectors.isAuth);
   useEffect(() => {
     const loginUser = {
       email: 'user@mail.mail',
@@ -45,7 +49,7 @@ const App = () => {
       weight: 100,
     };
     // dispatch(authOperations.registerOperation(registerUser))
-    dispatch(authOperations.loginOperation(loginUser));
+    // dispatch(authOperations.loginOperation(loginUser));
     // dispatch(authOperations.logOutOperation());
     // dispatch(authOperations.refreshOperation());
     // dispatch(healthOperations.getUserInfoOperation());
@@ -56,19 +60,34 @@ const App = () => {
     // dispatch(healthOperations.postEatenProductOperation(product));
     // dispatch(modalActions.toggleModal());
   }, []);
-  useEffect(() => {
+  const refresh = () => {
     try {
       dispatch(authOperations.refreshOperation());
+      console.log('refresh success');
+      console.log('errorState', errorState);
+      // setTimeout(() => !isAuthenticated && history.push('/login'), 200);
+      // !isAuthenticated && history.push('/');
+      setTimeout(() => console.log('errorState', errorState), 200);
+
+      console.log('history push after refresh');
     } catch (error) {
       dispatch(authActions.logOutSuccess());
-      history.push('/');
+      console.log('error in mount', error);
+      console.log('logging out');
+      setTimeout(() => history.push('/login'), 200);
+      console.log('history push after logout');
     }
+  };
+  useEffect(() => {
+    dispatch(authOperations.refreshOperation()).catch(error => {
+      history.push('/login');
+    });
   }, []);
 
   return (
     <>
       <Header />
- 
+
       {loading && <LoaderSpinner />}
       <Main />
     </>
