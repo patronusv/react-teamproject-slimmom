@@ -131,20 +131,33 @@ const Wrapper = styled.div`
   }
 
   .scrollbar {
-    -webkit-overflow-scrolling: touch;
+    /* -webkit-overflow-scrolling: touch;
     -ms-overflow-style: -ms-autohiding-scrollbar;
     scrollbar-width: thin;
-    scrollbar-color: #264061;
+    scrollbar-color: #264061; */
+    overflow-y: scroll;
+    scroll-behavior: smooth;
   }
 
   .scrollbar::-webkit-scrollbar {
-    width: 6px;
+    visibility: visible;
+    width: 10px;
+    margin-left: 0;
+    background-color: #f5f5f5;
+    border-radius: 10px;
   }
   .scrollbar::-webkit-scrollbar-track {
-    background-color: #afb1b6;
+    visibility: visible;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #f5f5f5;
+    border-radius: 10px;
   }
   .scrollbar::-webkit-scrollbar-thumb {
-    background-color: #264061;
+    visibility: visible;
+    height: 10px;
+    width: 10px;
+    background-color: #666;
+    border-radius: 10px;
   }
 
   .scrollbarText {

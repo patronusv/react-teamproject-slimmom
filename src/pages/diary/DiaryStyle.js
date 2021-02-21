@@ -25,7 +25,7 @@ export const DiaryWrapper = styled.div`
     overflow: hidden;
     background-size: contain;
     background-position: center;
-    background-repeat: repeat;
+    background-repeat: repeat-x;
     background-image: url(${imageTablet});
   }
   @media (min-width: 1280px) {
