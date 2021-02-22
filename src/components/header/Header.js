@@ -17,9 +17,11 @@ import {
 } from './headerStyled';
 import openMenu from '../../assets/images/burgerMenu/openMenu.svg';
 import closeMenu from '../../assets/images/burgerMenu/closeMenu.svg';
+import healthSelectors from '../../redux/selectors/healthSelectors';
 
 const Header = () => {
   const authFlag = useSelector(isAuth);
+  const dailyRate = useSelector(healthSelectors.getDailyRate);
   const [menuBurger, setMenuBurger] = useState(false);
   const toggleBurger = () => setMenuBurger(!menuBurger);
 
@@ -28,7 +30,7 @@ const Header = () => {
       <HeaderContainer>
         <div className="container">
           <Container>
-            <Logo isAuth={authFlag} />
+            <Logo isAuth={authFlag} dailyRate = {dailyRate}/>
 
             <Nav isAuth={authFlag}>
               <Navigation />
