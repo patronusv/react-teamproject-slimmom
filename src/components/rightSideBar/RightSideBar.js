@@ -17,7 +17,6 @@ const RightSideBar = () => {
   const healthDailyRate = useSelector(healthSelectors.getDailyRate);
   const eatenProducts = useSelector(healthSelectors.getEatenProducts);
   useEffect(() => {
-    console.log('currenDate', currenDate);
     dispatch(healthOperations.getDayInfoOperation({ date: currenDate }));
   }, [eatenProducts?.length]);
 
