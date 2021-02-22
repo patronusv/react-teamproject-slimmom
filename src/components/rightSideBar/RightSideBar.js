@@ -26,7 +26,7 @@ const RightSideBar = () => {
               <ul className="list">
                 <li className="listItem">
                   <p className="listItemText">
-                    Осталось
+                    <span>Осталось</span>
                     <span className="listItemTextRight">
                       {daySummary.kcalLeft
                         ? (daySummary.kcalConsumed > daySummary.dailyRate
@@ -99,13 +99,13 @@ const RightSideBar = () => {
           <div className="blockRight">
             <h2 className="title">Нерекомендуемые продукты</h2>
             {notAllowedProducts ? (
-              <ul className="list scrollbar">
+              <ul className="list scrollbar scrollbarText">
                 {notAllowedProducts ? (
-                  <li className="listItem">
-                    <p className="listItemText scrollbarText">
-                      {notAllowedProducts.slice(0, 20).join(', ')}
-                    </p>
-                  </li>
+                  notAllowedProducts.slice(0, 20).map((item, idx) => (
+                    <li className="listItem" key={idx}>
+                      <p className="listItemText ">{item}, </p>
+                    </li>
+                  ))
                 ) : (
                   <li>
                     <p>Здесь будет отображаться Ваш рацион</p>

@@ -2,15 +2,15 @@ import styled from 'styled-components';
 
 const RegistrationFormWrapper = styled.div`
   width: 290px;
-  height: 427.5px;
+  //height: 427.5px;
 
   @media screen and (min-width: 768px) {
     width: 382px;
-    height: 324px;
+    //height: 324px;
   }
   @media (min-width: 1280px) {
     width: 382px;
-    height: 363px;
+    //height: 363px;
   }
 
   .error {
@@ -78,18 +78,23 @@ const RegistrationFormWrapper = styled.div`
     padding-bottom: 15px;
     margin-top: 60px;
     margin-bottom: 10px;
-    padding: 5px 15px;
+    padding: 13px 34px;
     border: 1px solid #fc842d;
     background-color: #fff;
     color: #fc842d;
     border-radius: 30px;
     width: 176px;
     height: 44px;
+    margin-bottom: 15px;
 
     @media (max-width: 767px) {
       display: block;
       margin: 0 auto;
       margin-top: 60px;
+      margin-bottom: 15px;
+    }
+    @media screen and (min-width: 768px) {
+      margin-bottom: 15px;
     }
 
    
@@ -101,6 +106,7 @@ const RegistrationFormWrapper = styled.div`
     background-color: #fc842d;
     color: #fff;
     box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+    margin-bottom: 15px;
   }
   @media screen and (min-width: 768px) {
     .formBtn {

@@ -7,14 +7,19 @@ const LoginWrapper = styled.div`
   padding-bottom: 177px;
 
   width: 100%;
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: right;
 
   @media (min-width: 768px) {
-    padding-top: 271px;
+    padding-top: 362px;
     padding-bottom: 466px;
+
     background-image: url(${imageTablet});
+    position: absolute;
+    top: 0;
+    z-index: -100;
+    overflow: hidden;
   }
 
   @media (min-width: 1280px) {

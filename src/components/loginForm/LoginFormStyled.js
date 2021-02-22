@@ -2,15 +2,15 @@ import styled from 'styled-components';
 
 const LoginFormWrapper = styled.div`
   width: 290px;
-  height: 351px;
+  //height: 351px;
 
   @media screen and (min-width: 768px) {
     width: 382px;
-    height: 310px;
+    //height: 310px;
   }
   @media (min-width: 1280px) {
     width: 382px;
-    height: 298px;
+    //height: 298px;
   }
 
   .pageTitle {
@@ -77,8 +77,8 @@ const LoginFormWrapper = styled.div`
   }
 
   .formBtn {
-    padding-bottom: 15px;
-    padding: 5px 15px;
+    //margin-bottom: 15px;
+    padding: 13px 48px;
     border: 1px solid #fc842d;
     background-color: #fc842d;
     color: #fff;
@@ -86,13 +86,14 @@ const LoginFormWrapper = styled.div`
     border-radius: 30px;
     width: 176px;
     height: 44px;
+    margin-bottom: 15px;
 
     @media (max-width: 767px) {
       display: block;
       margin: 0 auto;
       margin-top: 60px;
+      margin-bottom: 15px;
 
-    
     }
     @media screen and (min-width: 768px) {
       margin-top: 60px;
