@@ -1,10 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { debounce } from 'debounce';
+import { Formik, Form, Field, ErrorMessage, useFormik } from 'formik';
+import * as Yup from 'yup';
 import { useSelector, useDispatch } from 'react-redux';
 import { DiaryFormWrapper } from './DiaryAddProductFormStyle';
 import healthOperations from '../../redux/operations/healthOperations';
 import modalActions from '../../redux/actions/modalActions';
 import healthSelectors from '../../redux/selectors/healthSelectors';
+
+const SignupSchema = Yup.object().shape({
+  productName: Yup.string()
+    .min(2, 'Уточните запрос!')
+    .max(50, 'Слишком длинный запрос!')
+    .required('Заполните поле'),
+  weight: Yup.string()
+    .min(2, 'Слишком малый вес!')
+    .max(4, 'Слишком большой вес!')
+    .required('Заполните поле'),
+});
 
 const DiaryAddProductForm = () => {
   const debounce = require('debounce');
@@ -17,6 +30,15 @@ const DiaryAddProductForm = () => {
     productName: '',
     weight: '',
     productId: '',
+  });
+
+  const formik = useFormik({
+    initialValues: { productName: '', weight: '', productId: '' },
+    onSubmit: (values, actions) => {
+      handleSubmit(values);
+      actions.resetForm();
+    },
+    validationSchema: SignupSchema,
   });
 
   function useWindowSize() {
@@ -52,38 +74,28 @@ const DiaryAddProductForm = () => {
 
   const handleChange = e => {
     const { name, value } = e.target;
-    setState(prev => ({ ...prev, [name]: value }));
+    formik.setFieldValue(name, value);
+
+    if (name !== 'productName') return;
     if (products.some(product => product.title.ru.includes(value))) {
-      setState(prev => ({
-        ...prev,
-        productId: products.find(product => {
+      formik.setFieldValue(
+        'productId',
+        products.find(product => {
           return product.title.ru === value;
         })?._id,
-      }));
+      );
     } else {
       debounce(
-        dispatch(healthOperations.getProductOperation(state.productName)),
+        dispatch(
+          healthOperations.getProductOperation(formik.values.productName),
+        ),
         2000,
       );
     }
-    //console.log(state);
   };
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    //console.log(date);
-    dispatch(
-      healthOperations.postEatenProductOperation({
-        date,
-        productId: state.productId,
-        weight: state.weight,
-      }),
-    );
-    setState({
-      productName: '',
-      weight: '',
-      productId: '',
-    });
+  const handleSubmit = ({ productName, ...rest }) => {
+    dispatch(healthOperations.postEatenProductOperation({ ...rest, date }));
     dispatch(modalActions.offModal());
     // dispatch(healthOperations.getDayInfoOperation({ date }));
   };
@@ -91,18 +103,19 @@ const DiaryAddProductForm = () => {
   return (
     <>
       <DiaryFormWrapper>
-        <form onSubmit={handleSubmit} className="formDairyAddProduct">
+        <form onSubmit={formik.handleSubmit} className="formDairyAddProduct">
           <div className="inputBlockDairyAddProduct">
             <input
               type="text"
               list="browsers"
-              value={state.productName}
+              value={formik.values.productName}
               name="productName"
-              id="fav"
+              id="productName"
               onChange={handleChange}
               placeholder="Введите название продукта"
               className="inputDairyAddProduct"
             />
+
             <datalist id="browsers">
               {products.map(product => (
                 <option key={product._id} value={product.title.ru}>
@@ -114,12 +127,22 @@ const DiaryAddProductForm = () => {
               <input
                 type="number"
                 name="weight"
-                value={state.weight}
-                onChange={handleChange}
+                id="weight"
+                value={formik.values.weight}
+                onChange={formik.handleChange}
                 placeholder="Граммы"
                 className="inputDairyAddProduct secondInputLength"
               />
             </label>
+
+            {formik.errors.productName && formik.touched.productName ? (
+              <p className="validationError">{formik.errors.productName}</p>
+            ) : null}
+            {formik.errors.weight && formik.touched.weight ? (
+              <p className="validationError weightError">
+                {formik.errors.weight}
+              </p>
+            ) : null}
           </div>
           <button type="submit" className="buttonDairyAddProduct">
             {size.width < 768 ? 'Добавить' : '+'}
