@@ -74,7 +74,6 @@ const App = () => {
 
       {loading && <LoaderSpinner />}
 
-      
       <Main />
     </>
   );

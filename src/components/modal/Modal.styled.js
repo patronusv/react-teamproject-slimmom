@@ -28,29 +28,15 @@ const ModalWindow = styled.div`
   .close {
     overflow: visible;
   }
-
-  /* .overlay {
-    position: fixed;
-    top: 80px;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(33, 33, 33, 0.12);
-    z-index: 1200;
-  } */
-
   .modal {
     position: absolute;
-    top: 40px;
+    top: 35px;
     left: 50%;
     transform: translateX(-50%);
     background-color: #fff;
     height: 100vh;
     box-shadow: 0px 22px 40px 0px rgba(0, 0, 0, 0.1);
-    padding: 0 15px;
+    padding: 30px 15px 0;
 
     @media (max-width: 767px) {
       width: 100%;
@@ -58,8 +44,6 @@ const ModalWindow = styled.div`
 
     @media (min-width: 768px) {
       width: 594px;
-      min-width: 200px;
-      min-height: 200px;
       height: 580px;
       top: 50%;
       left: 50%;
@@ -69,7 +53,6 @@ const ModalWindow = styled.div`
 
     @media (min-width: 1280px) and (orientation: landscape) {
       max-width: 690px;
-      /* padding: 0 90px; */
     }
   }
 

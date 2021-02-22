@@ -1,7 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import healthSelectors from '../../redux/selectors/healthSelectors';
-// import styles from './DailyCalorieIntake.module.css';
 import modalActions from '../../redux/actions/modalActions';
 import DailyCalorieIntakeStyle from './DailyCalorieIntake.styled';
 
@@ -24,7 +23,6 @@ const DailyCalorieIntake = () => {
   return (
     <>
       <DailyCalorieIntakeStyle>
-        {/* <div className={styles.dailyCalorieIntake}> */}
         <h2 className="title">
           Ваша рекомендуемая суточная норма калорий составляет
         </h2>
