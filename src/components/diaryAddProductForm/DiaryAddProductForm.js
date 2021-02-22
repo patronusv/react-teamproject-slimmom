@@ -69,10 +69,10 @@ const DiaryAddProductForm = () => {
     //console.log(state);
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     //console.log(date);
-    dispatch(
+    await dispatch(
       healthOperations.postEatenProductOperation({
         date,
         productId: state.productId,
@@ -85,7 +85,7 @@ const DiaryAddProductForm = () => {
       productId: '',
     });
     dispatch(modalActions.offModal());
-    dispatch(healthOperations.getDayInfoOperation({ date }));
+    // dispatch(healthOperations.getDayInfoOperation({ date }));
   };
 
   return (

@@ -19,13 +19,13 @@ const Diary = () => {
   const size = useWindowSize();
   const dispatch = useDispatch();
   const date = useSelector(healthSelectors.getProducts);
-
+  const newDate = useSelector(healthSelectors.getDate);
 
   useEffect(() => {
     const date = new Date();
     const currentDate = moment(date).format('YYYY-MM-DD');
     setTimeout(() => {
-      dispatch(healthOperations.getDayInfoOperation({ date: currentDate }));
+      dispatch(healthOperations.getDayInfoOperation({ date: newDate }));
     }, 300);
   }, []);
   function useWindowSize() {
@@ -75,16 +75,16 @@ const Diary = () => {
                 <DiaryAddProductForm />
               </Modal>
             ) : (
-                <CSSTransition
-                  in={true}
-                  appear={true}
-                  classNames="titleSlide"
-                  timeout={500}
-                  unmountOnExit
-                >
-                  <DiaryAddProductForm />
-                </CSSTransition>
-              )}
+              <CSSTransition
+                in={true}
+                appear={true}
+                classNames="titleSlide"
+                timeout={500}
+                unmountOnExit
+              >
+                <DiaryAddProductForm />
+              </CSSTransition>
+            )}
             <CSSTransition
               in={true}
               appear={true}
