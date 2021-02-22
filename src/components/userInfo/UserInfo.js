@@ -14,6 +14,7 @@ const UserInfo = ({ name, onLogout }) => {
     onLogout();
     history.push('/');
   };
+
   return (
     <style.User>
       <style.Nic>{name}</style.Nic>

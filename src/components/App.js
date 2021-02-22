@@ -16,6 +16,7 @@ import errorSelector from '../redux/selectors/errorSelector';
 
 const App = () => {
   const loading = useSelector(isLoading);
+
   const dispatch = useDispatch();
   const history = useHistory();
   const errorState = useSelector(errorSelector.getError);
@@ -72,6 +73,8 @@ const App = () => {
       <Header />
 
       {loading && <LoaderSpinner />}
+
+      
       <Main />
     </>
   );

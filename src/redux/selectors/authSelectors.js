@@ -1,4 +1,7 @@
-export const isAuth = state => state.auth.accessToken;
+export const isAuth = state => {
+  console.log(state);
+ return state.auth.accessToken;
+};
 
 const getUserName = state => state.auth.user.username;
 const getId = state => state.auth.user.id;
@@ -11,4 +14,4 @@ const getUserdata = state => ({
   desiredWeight: state.auth.user.userData.desiredWeight,
 });
 
-export default { isAuth, getUserName, getId, getUserdata };
+export default {isAuth, getUserName, getId, getUserdata };

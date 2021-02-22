@@ -51,11 +51,15 @@ const Wrapper = styled.div`
   .alert {
     position: absolute;
     top: 125px;
-    left: auto;
+    left: 50%;
+    transform: translateX(-50%);
     width: max-content;
+    margin-bottom: 5px;
 
     @media (min-width: 1280px) {
       top: 168px;
+      left: 18%;
+      transform: translateX(0);
     }
   }
 `;
