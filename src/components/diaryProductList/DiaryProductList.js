@@ -42,7 +42,6 @@ const DiaryProductList = () => {
         <ListWrapper>
           {isNotificShown && errorMessage && (
             <CSSTransition
-
               in={true}
               timeout={250}
               classNames={notificationStyles}
@@ -59,6 +58,7 @@ const DiaryProductList = () => {
               <Notification text='Продукт был успешно удален' alert={true} />
             </CSSTransition>
           }
+
 
 
           <UL id="element" length={eatenProdArray.length} className="prodList">
