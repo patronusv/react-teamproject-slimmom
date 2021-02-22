@@ -20,8 +20,8 @@ export const HeaderContainer = styled.header`
     justify-content: flex-start;
     align-items: center;
     border-bottom: none;
-    padding-top:82px;
-    padding-bottom:0;
+    padding-top: 82px;
+    padding-bottom: 0;
   }
   .navWrapper {
     @media (min-width: 1280px) {
@@ -99,7 +99,7 @@ export const BurgerButton = styled.button`
   }
 `;
 export const UserInfoContainerMobile = styled.div`
-  background-color:  #eff1f3;
+  background-color: #eff1f3;
   display: none;
   background-color: #eff1f3;
   margin-left: auto;

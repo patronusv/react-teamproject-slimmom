@@ -45,21 +45,24 @@ const DiaryProductList = () => {
               in={true}
               timeout={250}
               classNames={notificationStyles}
-              appear>
-              <Notification text={`Что-то пошло не так. Ошибка: ${errorMessage}`} alert={true} />
+              appear
+            >
+              <Notification
+                text={`Что-то пошло не так. Ошибка: ${errorMessage}`}
+                alert={true}
+              />
             </CSSTransition>
           )}
-          {isNotificShown && !errorMessage &&
+          {isNotificShown && !errorMessage && (
             <CSSTransition
               in={true}
               timeout={250}
               classNames={notificationStyles}
-              appear>
-              <Notification text='Продукт был успешно удален' alert={true} />
+              appear
+            >
+              <Notification text="Продукт был успешно удален" alert={true} />
             </CSSTransition>
-          }
-
-
+          )}
 
           <UL id="element" length={eatenProdArray.length} className="prodList">
             {eatenProdArray.length > 0 ? (
@@ -72,16 +75,16 @@ const DiaryProductList = () => {
                 />
               ))
             ) : (
-                <h2 style={{ textAlign: 'center' }}>Ваш список продуктов пуст</h2>
-              )}
+              <h2 style={{ textAlign: 'center' }}>Ваш список продуктов пуст</h2>
+            )}
           </UL>
           {eatenProdArray.length > 4 && (
             <MaskWrapper screenWidth={size.width}></MaskWrapper>
           )}
         </ListWrapper>
       ) : (
-          <p>Пожалуйста, получите информацию по текущему дню</p>
-        )}
+        <p>Пожалуйста, получите информацию по текущему дню</p>
+      )}
     </div>
   );
 };
