@@ -28,20 +28,6 @@ const ModalWindow = styled.div`
   .close {
     overflow: visible;
   }
-
-  /* .overlay {
-    position: fixed;
-    top: 80px;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(33, 33, 33, 0.12);
-    z-index: 1200;
-  } */
-
   .modal {
     position: absolute;
     top: 40px;

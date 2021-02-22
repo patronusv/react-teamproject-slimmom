@@ -42,24 +42,27 @@ const DiaryProductList = () => {
         <ListWrapper>
           {isNotificShown && errorMessage && (
             <CSSTransition
-
-            in={true}
-            timeout={250}
-            classNames={notificationStyles}
-            appear>
-              <Notification text={`Что-то пошло не так. Ошибка: ${errorMessage}`} alert={true}/>
+              in={true}
+              timeout={250}
+              classNames={notificationStyles}
+              appear
+            >
+              <Notification
+                text={`Что-то пошло не так. Ошибка: ${errorMessage}`}
+                alert={true}
+              />
             </CSSTransition>
-          }
-          {isNotificShown && !errorMessage &&
-             <CSSTransition
-             in={true}
-             timeout={250}
-             classNames={notificationStyles}
-             appear>
-               <Notification text='Продукт был успешно удален'  alert={true}/>
-             </CSSTransition>
-          }
-          
+          )}
+          {isNotificShown && !errorMessage && (
+            <CSSTransition
+              in={true}
+              timeout={250}
+              classNames={notificationStyles}
+              appear
+            >
+              <Notification text="Продукт был успешно удален" alert={true} />
+            </CSSTransition>
+          )}
 
           <UL id="element" length={eatenProdArray.length} className="prodList">
             {eatenProdArray.length > 0 ? (
