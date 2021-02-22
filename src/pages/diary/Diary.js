@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import moment from 'moment';
 import { useWindowWidth } from '@react-hook/window-size';
+import { CSSTransition } from 'react-transition-group';
+import { useSelector } from 'react-redux';
 import DiaryProductList from '../../components/diaryProductList/DiaryProductList';
 import DiaryAddProductForm from '../../components/diaryAddProductForm/DiaryAddProductForm';
 import DiaryDateCalendar from '../../components/diaryDateCalendar/DiaryDateCalendar';
@@ -10,11 +12,15 @@ import Modal from '../../components/modal/Modal';
 import modalActions from '../../redux/actions/modalActions';
 import healthOperations from '../../redux/operations/healthOperations';
 import RightSideBar from '../../components/rightSideBar/RightSideBar';
+import healthSelectors from '../../redux/selectors/healthSelectors';
 
 const Diary = () => {
   const onlyWidth = useWindowWidth();
   const size = useWindowSize();
   const dispatch = useDispatch();
+  const date = useSelector(healthSelectors.getProducts);
+
+
   useEffect(() => {
     const date = new Date();
     const currentDate = moment(date).format('YYYY-MM-DD');
@@ -55,15 +61,39 @@ const Diary = () => {
       <div className="container">
         <div className="diaryPage">
           <div className="formWrapper">
-            <DiaryDateCalendar />
+            <CSSTransition
+              in={true}
+              appear={true}
+              classNames="titleSlide"
+              timeout={500}
+              unmountOnExit
+            >
+              <DiaryDateCalendar />
+            </CSSTransition>
             {size.width < 768 ? (
               <Modal>
                 <DiaryAddProductForm />
               </Modal>
             ) : (
-              <DiaryAddProductForm />
-            )}
-            <DiaryProductList />
+                <CSSTransition
+                  in={true}
+                  appear={true}
+                  classNames="titleSlide"
+                  timeout={500}
+                  unmountOnExit
+                >
+                  <DiaryAddProductForm />
+                </CSSTransition>
+              )}
+            <CSSTransition
+              in={true}
+              appear={true}
+              classNames="titleSlide"
+              timeout={500}
+              unmountOnExit
+            >
+              <DiaryProductList />
+            </CSSTransition>
             {size.width < 768 && (
               <button
                 type="submit"

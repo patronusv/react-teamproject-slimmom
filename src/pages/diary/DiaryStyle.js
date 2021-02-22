@@ -79,4 +79,27 @@ export const DiaryWrapper = styled.div`
       background-size: contain;
     }
   }
+  .calendarSlide-enter{
+transform: scale(0);
+    
+}
+.calendarSlide-enter-active{
+   transform: scale(1);
+  transition: transform 500ms ease-in-out;
+}
+.calendarSlide-exit{
+    transform: scale(1);
+}
+.calendarSlide-exit-active{
+    transform: scale(0);
+  transition: transform 500ms ease-in-out;
+}
+.titleSlide-appear{
+    transform: translateX(-100%);
+}
+.titleSlide-appear-active{
+    transform: translateX(0);
+    transition:transform 500ms linear;
+}
+
 `;
