@@ -86,4 +86,11 @@ export const LI = styled.li`
       transform: translateX(5px);
     }
   }
+  .titleSlide-appear{
+    transform: translateX(-100%);
+}
+.titleSlide-appear-active{
+    transform: translateX(0);
+    transition:transform 500ms linear;
+}
 `;
