@@ -96,6 +96,8 @@ const RegistrationFormWrapper = styled.div`
     @media screen and (min-width: 768px) {
       margin-bottom: 15px;
     }
+
+   
   }
   .formBtn:hover,
   .formBtn:focus {

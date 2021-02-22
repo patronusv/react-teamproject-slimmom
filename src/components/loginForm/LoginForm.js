@@ -2,7 +2,10 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import authOperations from '../../redux/operations/authOperations';
-import { isAuth } from '../../redux/selectors/authSelectors';
+import  { isAuth } from '../../redux/selectors/authSelectors';
+import errorSelectors from '../../redux/selectors/errorSelector';
+import notifSelectors from '../../redux/selectors/notificSelectors';
+import Notification from '../notification/Notification';
 
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as yup from 'yup';
@@ -15,6 +18,9 @@ const initialState = {
 };
 
 const LoginForm = () => {
+
+  const isAuthFlag = useSelector(isAuth);
+ 
   const validateSchema = yup.object().shape({
     email: yup
       .string()
@@ -32,16 +38,23 @@ const LoginForm = () => {
 
   const history = useHistory();
   const [state, setState] = useState({ ...initialState });
+  const notification = useSelector(notifSelectors.getNotificState);
+  const error = useSelector(errorSelectors.getError);
+
 
   const onHandleSubmit = values => {
     dispatch(authOperations.loginOperation(values));
     setState({ ...initialState });
-    history.push('/calculator');
+   
+    
   };
 
   return (
     <LoginFormWrapper>
       <h2 className="pageTitle">Вход</h2>
+
+      {notification && error && <Notification text={error} alert={true}/>}
+      {notification && !error && <Notification text="Вы успешно авторизированы" alert={true}/>}
 
       <Formik
         initialValues={{ email: '', password: '' }}
@@ -80,13 +93,13 @@ const LoginForm = () => {
               </label>
             </div>
 
-            <button
+            {!notification && <button
               className="formBtn"
               type="submit"
               disabled={!isValid && !dirty && isSubmitting}
             >
               <span className="formBtnText">Вход</span>
-            </button>
+            </button>}
           </Form>
         )}
       </Formik>
