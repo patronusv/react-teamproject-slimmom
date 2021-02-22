@@ -65,7 +65,6 @@ const DailyCaloriesForm = () => {
       ? dispatch(healthOperations.getDailyRateOperation(values))
       : dispatch(healthOperations.getDailyRateOperation(values, id));
 
-    !auth && setState({ ...initialState });
     !auth && dispatch(modalActions.toggleModal());
   };
 
@@ -79,17 +78,12 @@ const DailyCaloriesForm = () => {
         </h2>
       )}
       <Formik
-        initialValues={{
-          height: '',
-          age: '',
-          weight: '',
-          desiredWeight: '',
-          bloodType: null,
-        }}
+        initialValues={state}
         validationSchema={schema}
-        onSubmit={values => {
+        onSubmit={(values, actions) => {
           onHandlerSubmit({ ...values, bloodType: Number(values.bloodType) });
-          //console.log('values', values);
+
+          actions.resetForm({ ...state });
         }}
       >
         {({ values }) => (
