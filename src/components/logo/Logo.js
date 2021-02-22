@@ -4,10 +4,12 @@ import logoTablet  from './images/logoTablet.png';
 import LogoDesktop from './images/logoDesktop.png';
 import {LogoContainerMobile,LogoContainerTablet,LogoContainerDesktop} from './LogoStyled'
 
-const Logo = ({isAuth}) => {
+const Logo = ({isAuth,dailyRate}) => {
+
   return (
     <>
-      <a href={isAuth ? "/diary" : "/calculator"}>
+      <a href={isAuth  ? "/calculator" :  "/"}>
+
         {isAuth ?(
         <LogoContainerMobile src={logoMobAuth} width="162.3" height="44"/> 
         ) : (
