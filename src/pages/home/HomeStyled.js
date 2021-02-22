@@ -13,18 +13,19 @@ const Wrapper = styled.div`
 
   @media (min-width: 768px) {
     background-image: url(${imageTablet});
-    padding-top: 180px;
-    padding-bottom: 409px;
+    padding-top: 150px;
+    padding-bottom: 300px;
 
-    position: absolute;
+    /* position: absolute;
     top: 0;
     z-index: -100;
-    overflow: hidden;
+    overflow: hidden; */
   }
 
   @media (min-width: 1280px) {
-    padding-top: 292px;
-    padding-bottom: 111px;
+    margin-top: -148px;
+    padding-top: 294px;
+    padding-bottom: 45px;
     background-image: url(${imageDesktop});
   }
 `;

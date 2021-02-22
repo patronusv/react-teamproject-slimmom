@@ -7,14 +7,6 @@ import getModalState from '../../redux/selectors/modalSelector';
 import modalActions from '../../redux/actions/modalActions';
 
 const Modal = ({ children }) => {
-  //   у компоненті, який викликає модальне вікно, потрібно створити локальний стейт:
-  //   const [openModal, setOpenModal]= useState(false)
-  //   та прописати логіку тогла (закриття/відкриття модального вікна):
-  //   const toggleModal=()=>{
-  //    setOpenModal(!openModal)
-  //  }
-  //  та передати їх пропсами
-
   const openModal = useSelector(getModalState);
   const dispatch = useDispatch();
   const onlyWidth = useWindowWidth();
@@ -52,19 +44,8 @@ const Modal = ({ children }) => {
   return (
     <>
       {openModal && (
-        <ModalWindow
-          //className="overlay"
-          onClick={handleClick}
-          data-name="overlay"
-        >
+        <ModalWindow onClick={handleClick} data-name="overlay">
           <div className="modal" data-name="modal">
-            {/* {onlyWidth < 768 && (
-              <button
-                className={'closeButton'}
-                type="button"
-                onClick={closeModal}
-              ></button>
-            )} */}
             <button
               className={onlyWidth < 768 ? 'arrowCloseButton' : 'closeButton'}
               type="button"

@@ -25,7 +25,6 @@ const DailyCalorieIntakeStyle = styled.div`
     .title {
       font-size: 18px;
       line-height: 1.44;
-
       margin-bottom: 40px;
     }
   }
@@ -33,7 +32,6 @@ const DailyCalorieIntakeStyle = styled.div`
   .title {
     font-weight: 700;
     color: #212121;
-
     margin-top: 0;
   }
 
@@ -47,9 +45,7 @@ const DailyCalorieIntakeStyle = styled.div`
     font-size: 16px;
     line-height: 1.18;
     letter-spacing: 0.04em;
-
     color: #264061;
-
     margin-top: 0;
     margin-bottom: 30px;
   }
@@ -57,11 +53,10 @@ const DailyCalorieIntakeStyle = styled.div`
   .mustntEatDiv {
     border-top: 1px solid #e0e0e0;
     padding-top: 12px;
-
-    width: 330px;
+    min-width: 290px;
+    max-width: 330px;
     margin-left: auto;
     margin-right: auto;
-
     text-align: left;
   }
 
@@ -70,30 +65,30 @@ const DailyCalorieIntakeStyle = styled.div`
     font-size: 14px;
     line-height: 1.21;
     letter-spacing: 0.04em;
-
     color: #212121;
-
     margin-top: 0;
     margin-bottom: 22px;
   }
-
   .productList {
     overscroll-behavior: contain;
     overflow-y: auto;
     overflow-x: hidden;
-    height: 150px;
+    height: 100px;
     margin-top: 0;
     margin-bottom: 40px;
-
     font-weight: normal;
     font-size: 14px;
     line-height: 1.21;
     letter-spacing: 0.04em;
-
     color: #9b9faa;
-
     list-style-type: decimal;
     list-style-position: inside;
+  }
+
+  @media (min-width: 480px) {
+    .productList {
+      height: 125px;
+    }
   }
 
   .productList > li {
@@ -162,14 +157,18 @@ const DailyCalorieIntakeStyle = styled.div`
   }
 
   .scrollbar::-webkit-scrollbar {
-    width: 15px;
+    width: 10px;
+    border-radius: 10px;
   }
   .scrollbar::-webkit-scrollbar-track {
     background-color: #f0f1f3;
+    border-radius: 10px;
   }
   .scrollbar::-webkit-scrollbar-thumb {
     background-color: #264061;
-    border-radius: 25px;
+    border-radius: 10px;
+    height: 10px;
+    width: 10px;
   }
   .scrollbar::-webkit-scrollbar-thumb:vertical {
     min-height: 1.5rem;
