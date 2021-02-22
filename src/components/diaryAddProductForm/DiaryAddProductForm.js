@@ -52,18 +52,9 @@ const DiaryAddProductForm = () => {
 
   const handleChange = e => {
     const { name, value } = e.target;
-<<<<<<< HEAD
-
-    setState(prev =>
-      ({ ...prev, [name]: value })
-    )
-    if (products.some((product) => product.title.ru.includes(value))) {
-      setState((prev) => ({
-=======
     setState(prev => ({ ...prev, [name]: value }));
     if (products.some(product => product.title.ru.includes(value))) {
       setState(prev => ({
->>>>>>> afe82976d5f1f00de93146a3b9f02f280a8c9a1a
         ...prev,
         productId: products.find(product => {
           return product.title.ru === value;
