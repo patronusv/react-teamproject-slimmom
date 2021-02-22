@@ -53,7 +53,7 @@ const dayInfoReducer = createReducer(
     [healthActions.postEatenProductSuccess]: (state, { payload }) => ({
       ...state,
       eatenProducts: [...state.eatenProducts, payload.eatenProduct],
-      daySummary: payload.daySummary,
+      daySummary: { ...payload.daySummary },
     }),
     [healthActions.deleteDiaryItemSuccess]: (state, { payload }) => ({
       ...state,

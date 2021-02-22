@@ -85,7 +85,7 @@ const DiaryAddProductForm = () => {
       productId: '',
     });
     dispatch(modalActions.offModal());
-    dispatch(healthOperations.getDayInfoOperation({ date }));
+    // dispatch(healthOperations.getDayInfoOperation({ date }));
   };
 
   return (
