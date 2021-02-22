@@ -1,15 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import RightSideBarStyled from './RightSideBarStyled';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import healthSelectors from '../../redux/selectors/healthSelectors';
 import moment from 'moment';
+import authSelectors from '../../redux/selectors/authSelectors';
+import healthOperations from '../../redux/operations/healthOperations';
 
 const RightSideBar = () => {
   // const currenDate = new Date();
   // const currenDate = moment(Date.now()).format('DD.MM.YYYY');
+  const dispatch = useDispatch();
   const currenDate = useSelector(healthSelectors.getDate);
   const daySummary = useSelector(healthSelectors.getDaySummary);
   const notAllowedProducts = useSelector(healthSelectors.getNotAllowedProducts);
+  const authDailyRate = useSelector(authSelectors.getAuthDailyRate);
+  const healthDailyRate = useSelector(healthSelectors.getDailyRate);
+  const eatenProducts = useSelector(healthSelectors.getEatenProducts);
+  useEffect(() => {
+    console.log('currenDate', currenDate);
+    dispatch(healthOperations.getDayInfoOperation({ date: currenDate }));
+  }, [eatenProducts?.length]);
 
   return (
     <>
@@ -26,7 +36,7 @@ const RightSideBar = () => {
               <ul className="list">
                 <li className="listItem">
                   <p className="listItemText">
-                    Осталось
+                    <span>Осталось</span>
                     <span className="listItemTextRight">
                       {daySummary.kcalLeft
                         ? (daySummary.kcalConsumed > daySummary.dailyRate
@@ -50,8 +60,10 @@ const RightSideBar = () => {
                   <p className="listItemText">
                     Дневная норма
                     <span className="listItemTextRight">
-                      {daySummary.dailyRate
-                        ? Math.round(daySummary.dailyRate) + ' ккал'
+                      {healthDailyRate
+                        ? Math.round(healthDailyRate) + ' ккал'
+                        : authDailyRate
+                        ? Math.round(authDailyRate) + ' ккал'
                         : '000 ккал'}
                     </span>
                   </p>
@@ -99,13 +111,13 @@ const RightSideBar = () => {
           <div className="blockRight">
             <h2 className="title">Нерекомендуемые продукты</h2>
             {notAllowedProducts ? (
-              <ul className="list scrollbar">
+              <ul className="list scrollbar scrollbarText">
                 {notAllowedProducts ? (
-                  <li className="listItem">
-                    <p className="listItemText scrollbarText">
-                      {notAllowedProducts.slice(0, 20).join(', ')}
-                    </p>
-                  </li>
+                  notAllowedProducts.slice(0, 20).map((item, idx) => (
+                    <li className="listItem" key={idx}>
+                      <p className="listItemText ">{item}, </p>
+                    </li>
+                  ))
                 ) : (
                   <li>
                     <p>Здесь будет отображаться Ваш рацион</p>

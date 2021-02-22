@@ -66,12 +66,12 @@ const DiaryAddProductForm = () => {
         2000,
       );
     }
-    console.log(state);
+    //console.log(state);
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(date);
+    //console.log(date);
     dispatch(
       healthOperations.postEatenProductOperation({
         date,
@@ -85,7 +85,7 @@ const DiaryAddProductForm = () => {
       productId: '',
     });
     dispatch(modalActions.offModal());
-    dispatch(healthOperations.getDayInfoOperation({ date }));
+    // dispatch(healthOperations.getDayInfoOperation({ date }));
   };
 
   return (

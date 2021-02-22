@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {CSSTransition} from 'react-transition-group';
+import { CSSTransition } from 'react-transition-group';
 import notificationStyles from '../notification/NotAnim.module.css';
-import {useWindowSize} from '../../helpers/helpers';
+import { useWindowSize } from '../../helpers/helpers';
 
 import DiaryProductItem from './diaryProductItem/DiaryProductItem';
 import healthOperations from '../../redux/operations/healthOperations';
@@ -13,56 +13,54 @@ import { UL, MaskWrapper, ListWrapper } from './DiaryProductListStyle';
 import Notification from '../notification/Notification';
 
 const DiaryProductList = () => {
-  const [listHeight,setlistHeight] = useState("");
+  const [listHeight, setlistHeight] = useState('');
 
   const dispatch = useDispatch();
   const eatenProdArray = useSelector(healthSelectors.getEatenProducts);
   const isNotificShown = useSelector(notifSelector.getNotificState);
   const errorMessage = useSelector(errorSelector.getError);
-  const prodList= document.querySelector(".prodList");
-  
+  const prodList = document.querySelector('.prodList');
+
   const size = useWindowSize();
- 
 
-  useEffect(()=>{
-    prodList &&  setlistHeight(prodList.scrollHeight);
-  },[prodList]);
+  useEffect(() => {
+    prodList && setlistHeight(prodList.scrollHeight);
+  }, [prodList]);
 
-  useEffect(()=>{
-    prodList &&  setlistHeight(prodList.scrollHeight);
-  },[]);
-
+  useEffect(() => {
+    prodList && setlistHeight(prodList.scrollHeight);
+  }, []);
 
   const handleDelete = e => {
     const prodID = e.target.dataset.id;
     dispatch(healthOperations.deleteDiaryItemOperation(prodID));
   };
 
-  
   return (
-    <div className="container">
+    <div>
       {eatenProdArray ? (
         <ListWrapper>
-           
-          {isNotificShown && errorMessage && 
+          {isNotificShown && errorMessage && (
             <CSSTransition
-            in={true}
-            timeout={250}
-            classNames={notificationStyles}
-            appear>
-              <Notification text={`Что-то пошло не так. Ошибка: ${errorMessage}`} alert={true}/>
+              in={true}
+              timeout={250}
+              classNames={notificationStyles}
+              appear>
+              <Notification text={`Что-то пошло не так. Ошибка: ${errorMessage}`} alert={true} />
+            </CSSTransition>
+          )}
+          {isNotificShown && !errorMessage &&
+            <CSSTransition
+              in={true}
+              timeout={250}
+              classNames={notificationStyles}
+              appear>
+              <Notification text='Продукт был успешно удален' alert={true} />
             </CSSTransition>
           }
-          {isNotificShown && !errorMessage &&
-             <CSSTransition
-             in={true}
-             timeout={250}
-             classNames={notificationStyles}
-             appear>
-               <Notification text='Продукт был успешно удален'  alert={true}/>
-             </CSSTransition>
-          }
-          
+
+
+
           <UL id="element" length={eatenProdArray.length} className="prodList">
             {eatenProdArray.length > 0 ? (
               eatenProdArray.map(item => (
@@ -70,18 +68,20 @@ const DiaryProductList = () => {
                   onClick={handleDelete}
                   {...item}
                   key={item.id}
-                  screenWidth = {size.width}
+                  screenWidth={size.width}
                 />
               ))
             ) : (
-              <h2 style={{textAlign: "center"}}>Ваш список продуктов пуст</h2>
-            )}
+                <h2 style={{ textAlign: 'center' }}>Ваш список продуктов пуст</h2>
+              )}
           </UL>
-          {eatenProdArray.length>4 && <MaskWrapper screenWidth={size.width}></MaskWrapper>}
+          {eatenProdArray.length > 4 && (
+            <MaskWrapper screenWidth={size.width}></MaskWrapper>
+          )}
         </ListWrapper>
       ) : (
-        <p>Пожалуйста, получите информацию по текущему дню</p>
-      )}
+          <p>Пожалуйста, получите информацию по текущему дню</p>
+        )}
     </div>
   );
 };

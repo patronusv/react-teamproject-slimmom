@@ -14,7 +14,6 @@ const token = {
   },
 };
 
-
 const registerOperation = data => async dispatch => {
   dispatch(authActions.registerRequest());
   try {
@@ -94,12 +93,16 @@ const refreshOperation = () => async (dispatch, getState) => {
   dispatch(authActions.refreshRequest());
   try {
     const response = await axios.post(`/auth/refresh`, { sid: persistSid });
-    dispatch(authActions.refreshSuccess(response.data));
-    token.set(response.data.newAccessToken);
-    const userResponse = await axios.get('/user');
-    dispatch(authActions.getCurrentUserSuccess(userResponse.data));
+    if (response?.data) {
+      dispatch(authActions.refreshSuccess(response.data));
+      token.set(response.data.newAccessToken);
+      const userResponse = await axios.get('/user');
+      dispatch(authActions.getCurrentUserSuccess(userResponse.data));
+    }
   } catch (error) {
-    dispatch(authActions.refreshError(error));
+    await dispatch(authActions.refreshError(error));
+    await dispatch(authActions.logOutSuccess());
+    throw new Error(error);
   }
 };
 export default {

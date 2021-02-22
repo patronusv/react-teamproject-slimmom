@@ -16,19 +16,23 @@ const schema = Yup.object().shape({
   height: Yup.number()
     .min(100, 'Min значение 100')
     .max(250, 'Max значение 250')
-    .required('Заполните поле "Рост"'),
+    .required('Заполните поле "Рост"')
+    .typeError('Введите число от 100 до 250'),
   age: Yup.number()
     .min(18, 'Min значение 18')
     .max(100, 'Max значение 100')
-    .required('Заполните поле "Возраст"'),
+    .required('Заполните поле "Возраст"')
+    .typeError('Введите число 18 от 100'),
   weight: Yup.number()
     .min(20, 'Min значение 20')
     .max(500, 'Max значение 500')
-    .required('Заполните поле "Текущий вес"'),
+    .required('Заполните поле "Текущий вес"')
+    .typeError('Введите число от 20 до 500'),
   desiredWeight: Yup.number()
     .min(20, 'Min значение 20')
     .max(500, 'Max значение 500')
-    .required('Заполните поле "Желаемый вес"'),
+    .required('Заполните поле "Желаемый вес"')
+    .typeError('Введите число от 20 до 500'),
   bloodType: Yup.number().nullable().required('Выберите группу крови'),
 });
 
@@ -61,7 +65,6 @@ const DailyCaloriesForm = () => {
       ? dispatch(healthOperations.getDailyRateOperation(values))
       : dispatch(healthOperations.getDailyRateOperation(values, id));
 
-    !auth && setState({ ...initialState });
     !auth && dispatch(modalActions.toggleModal());
   };
 
@@ -75,17 +78,12 @@ const DailyCaloriesForm = () => {
         </h2>
       )}
       <Formik
-        initialValues={{
-          height: '',
-          age: '',
-          weight: '',
-          desiredWeight: '',
-          bloodType: null,
-        }}
+        initialValues={state}
         validationSchema={schema}
-        onSubmit={values => {
+        onSubmit={(values, actions) => {
           onHandlerSubmit({ ...values, bloodType: Number(values.bloodType) });
-          //console.log('values', values);
+
+          actions.resetForm({ ...state });
         }}
       >
         {({ values }) => (

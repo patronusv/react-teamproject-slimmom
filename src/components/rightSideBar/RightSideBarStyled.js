@@ -41,12 +41,12 @@ const Wrapper = styled.div`
     letter-spacing: 0.04em;
     color: #212121;
     margin: 0;
-    padding-bottom: 20px;
+    margin-bottom: 32px;
   }
 
   .list {
     list-style: none;
-    width: 290px;
+    //width: 290px;
     margin: 0;
     padding: 0;
   }
@@ -59,10 +59,13 @@ const Wrapper = styled.div`
     letter-spacing: 0.04em;
     color: #9b9faa;
     margin: 0;
+
+    display: flex;
+    justify-content: space-between;
   }
 
   .listItemTextRight {
-    float: right;
+    //float: right;
   }
 
   .blockRight {
@@ -87,8 +90,12 @@ const Wrapper = styled.div`
     //     align-items: baseline;
     //     padding-bottom: 0;
     //   }
-
+    .blockLeft {
+      width: 290px;
+      margin-bottom: 40px;
+    }
     .blockRight {
+      width: 290px;
       margin-top: 40;
     }
   }
@@ -96,20 +103,20 @@ const Wrapper = styled.div`
   @media screen and (min-width: 768px) {
     .rightSideBar {
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       align-items: baseline;
       padding-bottom: 0;
       flex-direction: row;
-      min-width: 642px;
+      width: 594px;
     }
 
     .blockLeft {
-      // width: 270px;
+      width: 252px;
       margin-right: 60px;
     }
 
     .blockRight {
-      // width: 270px;
+      width: 252px;
       margin-top: 0;
     }
   }
@@ -125,26 +132,43 @@ const Wrapper = styled.div`
     /* padding-bottom: 85px; */
       flex-direction: column;
     }
+    .blockLeft {
+      width: 300px;
+    }
     .blockRight {
+      width: 300px;
       margin-top: 60px;
     }
   }
 
   .scrollbar {
-    -webkit-overflow-scrolling: touch;
+    /* -webkit-overflow-scrolling: touch;
     -ms-overflow-style: -ms-autohiding-scrollbar;
     scrollbar-width: thin;
-    scrollbar-color: #264061;
+    scrollbar-color: #264061; */
+    overflow-y: scroll;
+    scroll-behavior: smooth;
   }
 
   .scrollbar::-webkit-scrollbar {
-    width: 6px;
+    visibility: visible;
+    width: 10px;
+    margin-left: 0;
+    background-color: #f5f5f5;
+    border-radius: 10px;
   }
   .scrollbar::-webkit-scrollbar-track {
-    background-color: #afb1b6;
+    visibility: visible;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #f5f5f5;
+    border-radius: 10px;
   }
   .scrollbar::-webkit-scrollbar-thumb {
-    background-color: #264061;
+    visibility: visible;
+    height: 10px;
+    width: 10px;
+    background-color: #666;
+    border-radius: 10px;
   }
 
   .scrollbarText {
