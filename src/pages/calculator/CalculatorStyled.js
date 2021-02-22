@@ -1,4 +1,5 @@
 import imageDesktop from '../../assets/images/calculatorPage/desktop.jpg';
+import imageTablet from '../../assets/images/calculatorPage/tablet.jpg';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -6,29 +7,55 @@ const Wrapper = styled.div`
   margin-bottom: 60px;
 
   width: 100%;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: right;
 
   @media (min-width: 768px) {
-    padding-top: 100px;
+    padding-top: 180px;
     margin-bottom: 73px;
-  }
+    position: absolute;
 
+    top: 0;
+    z-index: -100;
+    width: 100vw;
+    overflow: hidden;
+    background-size: contain;
+    background-position: center;
+    background-repeat: repeat-x;
+    background-image: url(${imageTablet});
+  }
   @media (min-width: 1280px) {
-    padding-top: 143px;
+    padding-top: 292px;
     padding-bottom: 111px;
     background-image: url(${imageDesktop});
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    /* position: absolute;
+    background-size: cover;
+    top: 0;
+    z-index: -100;
+    width: 100vw;
+    overflow: hidden; */
   }
+
   .calculatorPage {
     display: flex;
     flex-direction: column;
-    //justify-content: space-between;
-    @media (min-width: 768px) {
-    }
-
     @media (min-width: 1280px) {
       flex-direction: row;
+    }
+  }
+
+  .alert {
+    position: absolute;
+    top: 125px;
+    left: auto;
+    width: max-content;
+
+    @media (min-width: 1280px) {
+      top: 168px;
     }
   }
 `;

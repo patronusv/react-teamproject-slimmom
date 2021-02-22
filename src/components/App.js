@@ -7,12 +7,19 @@ import healthOperations from '../redux/operations/healthOperations';
 import moment from 'moment';
 import RightSideBar from './rightSideBar/RightSideBar';
 import modalActions from '../redux/actions/modalActions';
+import authActions from '../redux/actions/authActions';
 import LoaderSpinner from '../components/loader/Loader';
 import isLoading from '../redux/selectors/loaderSelector';
+import { useHistory } from 'react-router-dom';
+import authSelectors from '../redux/selectors/authSelectors';
+import errorSelector from '../redux/selectors/errorSelector';
 
 const App = () => {
   const loading = useSelector(isLoading);
   const dispatch = useDispatch();
+  const history = useHistory();
+  const errorState = useSelector(errorSelector.getError);
+  const isAuthenticated = useSelector(authSelectors.isAuth);
   useEffect(() => {
     const loginUser = {
       email: 'user@mail.mail',
@@ -33,7 +40,7 @@ const App = () => {
     const dateNow = moment(Date.now()).format('YYYY-MM-DD');
     const date = {
       // date: dateNow,
-      date: '2020-02-15',
+      date: '2020-02-19',
     };
     const userId = '602a3cebb358b53ec8eb1eaa';
     const product = {
@@ -54,9 +61,16 @@ const App = () => {
     // dispatch(modalActions.toggleModal());
   }, []);
 
+  useEffect(() => {
+    dispatch(authOperations.refreshOperation()).catch(error => {
+      history.push('/login');
+    });
+  }, []);
+
   return (
     <>
       <Header />
+
       {loading && <LoaderSpinner />}
       <Main />
     </>

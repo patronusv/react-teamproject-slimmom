@@ -1,34 +1,35 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const UL = styled.ul`
-    list-style:none;
-    max-height: 256px;
-    padding-right: 12px;
+  list-style: none;
+  max-height: 256px;
+  padding-right: 12px;
 
-    ::-webkit-scrollbar {
-    visibility:hidden;
-    }
+  ::-webkit-scrollbar {
+    visibility: hidden;
+  }
 
-    ::-webkit-scrollbar-thumb { 
-        visibility:hidden;
-    }
+  ::-webkit-scrollbar-thumb {
+    visibility: hidden;
+  }
 
-    ::-webkit-scrollbar-track {
-        visibility:hidden;
-    }
+  ::-webkit-scrollbar-track {
+    visibility: hidden;
+  }
 
-    @media screen and (min-width:768px){
-        padding-right:31px;
-    }
-    @media screen and (min-width:1280px){
-        width: 530px;
-        padding-right:42px;
-        max-height: 200px;
-    }
+  @media screen and (min-width: 768px) {
+    padding-right: 31px;
+    height: 240px;
+  }
 
-    ${props =>
-    props.length>5 &&
+  @media screen and (min-width: 1280px) {
+    width: 600px;
+    padding-right: 42px;
+    max-height: 300px;
+  }
 
+  ${props =>
+    props.length >= 4 &&
     ` 
     overflow-y: scroll;
     scroll-behavior: smooth;
@@ -59,33 +60,40 @@ export const UL = styled.ul`
     }   
       
     `}
-
-`
+`;
 
 export const ListWrapper = styled.div`
-    position: relative;
-    margin-top: 31px;
-`
+  position: relative;
+  margin-top: 31px;
+`;
 
 export const MaskWrapper = styled.div`
-    position: absolute;
-    width: 100%;
-    height: 40px;
-    bottom:0;
-    left:0;
-    opacity:0.5;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, #FFFFFF 42.19%);
+  position: absolute;
+  width: 238px;
+  height: 40px;
+  bottom: 0;
+  left: 0;
+  opacity: 0.5;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    #ffffff 42.19%
+  );
 
+  pointer-events: none;
 
-    ${props =>
-    props.screenWidth>=768 && 
-        ` 
+  @media screen and (min-width: 768px) {
+    width: 553px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 478px;
+  }
+
+  ${props =>
+    props.screenWidth >= 768 &&
+    props.height >= 200 &&
+    ` 
         height: 20px;
-    `} 
-    
-    
-`
-
-
-    
-
+    `}
+`;

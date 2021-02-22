@@ -8,7 +8,7 @@ const RegistrationWrapper = styled.div`
   padding-bottom: 101px;
 
   width: 100%;
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: right;
 
@@ -16,6 +16,10 @@ const RegistrationWrapper = styled.div`
     padding-top: 237px;
     padding-bottom: 466px;
     background-image: url(${imageTablet});
+    position: absolute;
+    top: 0;
+    z-index: -100;
+    overflow: hidden;
   }
 
   @media (min-width: 1280px) {

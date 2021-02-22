@@ -1,16 +1,17 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const DiaryFormWrapper = styled.div`
 position: relative;
 margin-top:80px;
-padding-left:15px;
+//padding-left:15px;
 @media screen and (min-width:768px){
     margin-top:0px;
     margin-bottom:59.5px;
-    padding-left:92px;
+    //padding-left:92px;
 }
 @media screen and (min-width:1280px){
-padding-left:115px;
+    margin-right:168px;
+//padding-left:115px;
 }
 .formDairyAddProduct{
     display:flex;
@@ -41,7 +42,7 @@ letter-spacing: 0.04em;
 color: #9B9FAA;
 
 @media screen and (min-width:768px){
- width: 239px;
+ width: 270px;
 
 }
 }
@@ -50,9 +51,9 @@ color: #9B9FAA;
 .secondInputLength{
     
    @media screen and (min-width:768px){
- width: 104.36px;
+ width: 105px;
  margin-left:31px;
- text-indent: 30px;
+ text-indent: 25px;
 
 } 
 }
@@ -73,7 +74,7 @@ color: #9B9FAA;
 }
 .buttonDairyAddProduct{
     margin:0 auto;
-    margin-top:60px;
+    //margin-top:60px;
     padding: 13px 46px;
     width: 176px;
       font-family: Verdana;
@@ -94,8 +95,8 @@ color: #FFFFFF;
 cursor: pointer;
    @media screen and (min-width:768px){
        position: absolute;
-       top: -70px;
-       left: 500px;
+       //top: -70px;
+       left: 450px;
        width: 50px;
        height: 50px;
        padding:0;
@@ -107,6 +108,6 @@ cursor: pointer;
   color: #FC842D; 
 }
 
+}
 
-
-`
+`;

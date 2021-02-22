@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
-  padding: 10px;
+  padding: 18px 0;
   border-bottom: 2px solid #e0e0e0;
   background-color: transparent;
   width: 100%;
@@ -20,6 +20,8 @@ export const HeaderContainer = styled.header`
     justify-content: flex-start;
     align-items: center;
     border-bottom: none;
+    padding-top:82px;
+    padding-bottom:0;
   }
   .navWrapper {
     @media (min-width: 1280px) {
@@ -97,7 +99,10 @@ export const BurgerButton = styled.button`
   }
 `;
 export const UserInfoContainerMobile = styled.div`
+  background-color:  #eff1f3;
   display: none;
+  background-color: #eff1f3;
+  margin-left: auto;
 
   @media (max-width: 767px) {
     display: block;

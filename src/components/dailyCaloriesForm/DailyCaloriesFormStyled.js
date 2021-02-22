@@ -4,7 +4,6 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-right: 115px;
 
   width: 290px;
   padding-bottom: 60px;
@@ -12,6 +11,10 @@ const Wrapper = styled.div`
   @media screen and (min-width: 768px) {
     padding-bottom: 73.5px;
     min-width: 605px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-right: 115px;
   }
 
   .homeTitle {
@@ -66,7 +69,7 @@ const Wrapper = styled.div`
   }
 
   .coloriesFormListItem:not(:last-child) {
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 767px) {
       margin-bottom: 30px;
     }
   }
