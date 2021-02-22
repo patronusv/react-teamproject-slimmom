@@ -92,7 +92,6 @@ const LoginFormWrapper = styled.div`
       margin: 0 auto;
       margin-top: 60px;
 
-    
     }
     @media screen and (min-width: 768px) {
       margin-top: 60px;

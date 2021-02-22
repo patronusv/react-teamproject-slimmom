@@ -1,5 +1,4 @@
 export const isAuth = state => {
-  console.log(state);
  return state.auth.accessToken;
 };
 

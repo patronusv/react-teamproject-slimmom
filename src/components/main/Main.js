@@ -19,7 +19,7 @@ const Main = () => {
     dailyRate && isAuthFlag && history.push('/diary');
   },[dailyRate]);
 
-  console.log('isAuthFlag', isAuthFlag);
+
   return (
     <>
       <Suspense fallback={<LoaderSpinner />}>
