@@ -23,14 +23,16 @@ const registerOperation = data => async dispatch => {
     const loginValues = { email: data.email, password: data.password };
 
     dispatch(notificActions.showNotification());
+    
     setTimeout(() => {
       dispatch(notificActions.hideNotification());
     }, 1000);
 
-    setTimeout(()=>{
-    dispatch(authActions.registerSuccess(response.data));
-    dispatch(loginOperation(loginValues));
-    },1000);
+      dispatch(authActions.registerSuccess(response.data));
+    
+      dispatch(loginOperation(loginValues));
+
+    
     
   } catch (error) {
     dispatch(notificActions.showNotification());
@@ -41,8 +43,6 @@ const registerOperation = data => async dispatch => {
   }
 };
 
-
-
 const loginOperation = data => async dispatch => {
 
   dispatch(authActions.loginRequest());
@@ -50,8 +50,8 @@ const loginOperation = data => async dispatch => {
     const response = await axios.post(`/auth/login`, data);
     token.set(response.data.accessToken);
   
-    
     dispatch(notificActions.showNotification());
+    
     setTimeout(() => {
       dispatch(notificActions.hideNotification());
     }, 1000);

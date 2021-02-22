@@ -49,7 +49,6 @@ const LoginForm = () => {
     
   };
 
-  
   return (
     <LoginFormWrapper>
       <h2 className="pageTitle">Вход</h2>
@@ -98,7 +97,6 @@ const LoginForm = () => {
               className="formBtn"
               type="submit"
               disabled={!isValid && !dirty && isSubmitting}
-              notification = {notification} 
             >
               <span className="formBtnText">Вход</span>
             </button>}

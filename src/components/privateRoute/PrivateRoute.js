@@ -6,7 +6,6 @@ const PrivateRoute = ({
   path,
   exact,
   component,
-  isPrivate,
   restricted,
   dailyRate,
   isAuth
@@ -24,23 +23,16 @@ const PrivateRoute = ({
   // (<Route path={path} exact={exact} component={component} />):
   // (<Redirect to="/calculator" />) 
 
-  return( restricted && dailyRate ?
+  return( isAuth && dailyRate ?
     (<Route path={path} exact={exact} component={component} />) :
-  
-    
-    !restricted ? 
+
+    !restricted && !dailyRate ? 
     (<Route path={path} exact={exact} component={component} />):
 
-    !isAuth?
-    (<Redirect to="/" />) :
-
     (<Redirect to="/calculator" />) 
-
-    
-    )
-    
-
   
+  )
+    
 };
 
 export default PrivateRoute;

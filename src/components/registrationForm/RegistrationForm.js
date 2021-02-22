@@ -42,11 +42,9 @@ const RegistrationForm = () => {
   const notification = useSelector(notifSelectors.getNotificState);
   const error = useSelector(errorSelectors.getError);
 
-  console.log(error);
 
   const onHandleSubmit = async values => {
     await dispatch(authOperations.registerOperation(values));
-    // history.push('/calculator');
     setState({ ...initialState });
   };
 
@@ -55,8 +53,7 @@ const RegistrationForm = () => {
       <h2 className="pageTitle">Регистрация</h2>
 
       {notification && error && <Notification text={error} alert={true}/>}
-      {notification && !error && <Notification text="Вы успешно зарегистрированы" alert={true}/>}
-
+      {notification  && !error && <Notification text="Вы успешно зарегистрированы" alert={true}/>}
 
       <Formik
         initialValues={{ username: '', email: '', password: '' }}
@@ -114,12 +111,12 @@ const RegistrationForm = () => {
               className="formBtn"
               type="submit"
               disabled={!isValid && !dirty && isSubmitting}
-              notification = {notification} error={error}
             >
               <span className="formBtnText">Регистрация</span>
             </button>}
           </Form>
         )}
+
       </Formik>
     </RegistrationFormWrapper>
   );
