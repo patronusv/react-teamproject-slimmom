@@ -12,11 +12,11 @@ const SignupSchema = Yup.object().shape({
   productName: Yup.string()
     .min(2, 'Уточните запрос!')
     .max(50, 'Слишком длинный запрос!')
-    .required('Заполните поле'),
+    .required('Заполните название продукта'),
   weight: Yup.string()
     .min(2, 'Слишком малый вес!')
     .max(4, 'Слишком большой вес!')
-    .required('Заполните поле'),
+    .required('Заполните вес'),
 });
 
 const DiaryAddProductForm = () => {
