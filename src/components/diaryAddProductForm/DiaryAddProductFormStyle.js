@@ -109,5 +109,12 @@ cursor: pointer;
 }
 
 }
+.validationError{
+    font-family: Verdana;
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+    color: #FC842D; 
+}
 
 `;
