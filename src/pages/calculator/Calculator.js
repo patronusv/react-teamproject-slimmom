@@ -19,7 +19,6 @@ const Calculator = () => {
   const userData = useSelector(authSelectors.getUserdata);
   const date = useSelector(healthSelectors.getDate);
   const dispatch = useDispatch();
-  const dailyRate = useSelector(authSelectors.getAuthDailyRate);
 
   useEffect(() => {
     if (
