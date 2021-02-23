@@ -19,7 +19,7 @@ export const UL = styled.ul`
 
   @media screen and (min-width: 768px) {
     padding-right: 31px;
-    height: 240px;
+    height: 180px;
   }
 
   @media screen and (min-width: 1280px) {
