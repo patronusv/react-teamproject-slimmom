@@ -4,21 +4,12 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   padding-top: 40px;
-  margin-bottom: 60px;
-
-  width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: right;
 
   @media (min-width: 768px) {
     padding-top: 180px;
-    margin-bottom: 73px;
-    position: absolute;
-
-    top: 0;
-    z-index: -100;
-    width: 100vw;
     overflow: hidden;
     background-size: contain;
     background-position: center;
@@ -26,18 +17,13 @@ const Wrapper = styled.div`
     background-image: url(${imageTablet});
   }
   @media (min-width: 1280px) {
+    overflow-y: scroll;
+    margin-top: -150px;
     padding-top: 292px;
     padding-bottom: 111px;
     background-image: url(${imageDesktop});
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100%;
-    /* position: absolute;
-    background-size: cover;
-    top: 0;
-    z-index: -100;
-    width: 100vw;
-    overflow: hidden; */
   }
 
   .calculatorPage {
