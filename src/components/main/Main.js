@@ -46,6 +46,7 @@ const Main = () => {
               )
             }
           })}
+          <Redirect to = '/error'/>
         </Switch>
       </Suspense>
     </>

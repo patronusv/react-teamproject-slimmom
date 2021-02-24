@@ -27,12 +27,12 @@ const registerOperation = data => async dispatch => {
       dispatch(notificActions.hideNotification());
     }, 1000);
 
+    setTimeout(() => {
       dispatch(authActions.registerSuccess(response.data));
-    
+    }, 1500);
+
       dispatch(loginOperation(loginValues));
 
-    
-    
   } catch (error) {
     dispatch(notificActions.showNotification());
     setTimeout(() => {
@@ -57,7 +57,7 @@ const loginOperation = data => async dispatch => {
 
     setTimeout(() => {
       dispatch(authActions.loginSuccess(response.data));
-    }, 1000);
+    }, 1500);
 
   } catch (error) {
     dispatch(notificActions.showNotification());
