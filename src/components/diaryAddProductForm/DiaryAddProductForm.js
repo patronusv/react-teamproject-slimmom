@@ -126,6 +126,7 @@ const DiaryAddProductForm = () => {
             <label>
               <input
                 type="number"
+                min="1"
                 name="weight"
                 id="weight"
                 value={formik.values.weight}
