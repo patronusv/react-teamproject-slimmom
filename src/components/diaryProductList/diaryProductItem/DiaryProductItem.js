@@ -7,6 +7,7 @@ import CloseIcon from './CloseIcon';
 const DiaryProductItem = ({ onClick, title, kcal, weight, id, screenWidth }) => {
     const vowels = ['а', 'о', 'э', 'и', 'у', 'ы', 'е', 'ё', 'ю', 'я'];
 
+
     return (
         <>
 
@@ -24,8 +25,12 @@ const DiaryProductItem = ({ onClick, title, kcal, weight, id, screenWidth }) => 
                                 (<ul style={{ listStyle: "none" }}>
                                     {title.split(" ").map(word => (
                                         <li key={word}>
-                                            {word.length > 9 ? vowels.some(letter => letter === word[9]) ?
-                                                word.slice(0, 9) + '.' : word.slice(0, 10) + "." : word}
+                                            {word.length > 9 ? 
+                                                vowels.some(letter => letter === word[8]) && vowels.some(letter => letter === word[9]) ?
+                                                word.slice(0, 8) + '.' :
+                                                vowels.some(letter => letter === word[9]) && vowels.indexOf(word[8] ===-1) ?
+                                                word.slice(0, 9) + '.' :
+                                                word.slice(0, 10) + "." : word}
                                         </li>
                                     ))}
                                 </ul>) : (
