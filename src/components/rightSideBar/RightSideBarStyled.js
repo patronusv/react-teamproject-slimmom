@@ -2,70 +2,40 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   background-color: rgba(240, 241, 243, 1);
-  // background-color: unset;
 
   width: 100%;
   padding: 40px 5px 85px;
 
   @media screen and (min-width: 768px) {
-    // background: url('./img/tab.png') rgba(240, 241, 243, 1) bottom right
-    //   no-repeat;
     background-color: unset;
-
-    padding: 90px 0;
+    padding: 70px 0;
     height: 100%;
   }
 
   @media screen and (min-width: 1280px) {
     width: 635px;
     padding-top: 10px;
-    // padding-left: 50px;
-    // padding-right: 30px;
-    // padding-left: 90px;
-    // padding-right: 115px;
-    // background: rgba(240, 241, 243, 1);
     background-color: unset;
-    // background: url('./img/desk.png') rgba(240, 241, 243, 1) bottom right
-    //   no-repeat;
   }
 
-  // .rightSideBar {
-  //   width: 100%;
-  // }
-
   .title {
-    font-style: normal;
     font-weight: bold;
     font-size: 14px;
     line-height: 1.214;
     letter-spacing: 0.04em;
     color: #212121;
-    margin: 0;
     margin-bottom: 32px;
   }
 
-  .list {
-    list-style: none;
-    //width: 290px;
-    margin: 0;
-    padding: 0;
-  }
-
   .listItemText {
-    font-style: normal;
     font-weight: normal;
     font-size: 14px;
     line-height: 2.142;
     letter-spacing: 0.04em;
     color: #9b9faa;
-    margin: 0;
 
     display: flex;
     justify-content: space-between;
-  }
-
-  .listItemTextRight {
-    //float: right;
   }
 
   .blockRight {
@@ -81,15 +51,8 @@ const Wrapper = styled.div`
       justify-content: center;
       flex-wrap: wrap;
       align-items: baseline;
-      //   flex-direction: column;
     }
 
-    //   .rightSideBar {
-    //     display: flex;
-    //     justify-content: space-around;
-    //     align-items: baseline;
-    //     padding-bottom: 0;
-    //   }
     .blockLeft {
       width: 290px;
       margin-bottom: 40px;
@@ -123,13 +86,8 @@ const Wrapper = styled.div`
 
   @media screen and (min-width: 1280px) {
     .rightSideBar {
-      /* width: 330px; */
-      /* padding-top: 292px; */
       justify-content: space-between;
       flex-wrap: wrap;
-      /* padding-left: 90px;
-        padding-right: 115px; 
-    /* padding-bottom: 85px; */
       flex-direction: column;
     }
     .blockLeft {
@@ -142,10 +100,6 @@ const Wrapper = styled.div`
   }
 
   .scrollbar {
-    /* -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-    scrollbar-width: thin;
-    scrollbar-color: #264061; */
     overflow-y: scroll;
     scroll-behavior: smooth;
   }
