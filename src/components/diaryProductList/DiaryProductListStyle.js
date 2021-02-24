@@ -19,7 +19,7 @@ export const UL = styled.ul`
 
   @media screen and (min-width: 768px) {
     padding-right: 31px;
-    height: 180px;
+    height: 170px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -87,12 +87,12 @@ export const MaskWrapper = styled.div`
   }
 
   @media screen and (min-width: 1280px) {
-    width: 478px;
+    width: 507px;
   }
 
   ${props =>
     props.screenWidth >= 768 &&
-    props.height >= 200 &&
+    props.height >= 170 &&
     ` 
         height: 20px;
     `}
